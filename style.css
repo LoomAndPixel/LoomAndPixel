@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #0a0a0a;
+    background-color: #161617;
     color: #ffffff;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
     letter-spacing: -0.02em;
@@ -16,7 +16,7 @@ body {
 
 /* --- HERO SECTION --- */
 .hero-section {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 160px 40px 120px 40px;
     display: flex;
