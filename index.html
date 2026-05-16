@@ -3,28 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loom & Pixel | Test</title>
+    <title>Loom & Pixel | Creative Studio</title>
     <style>
-        body {
-            background-color: #0d0d0d;
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
             margin: 0;
-            text-align: center;
+            padding: 0;
         }
-        .container { max-width: 600px; padding: 20px; }
-        h1 { font-size: 3rem; font-weight: 300; letter-spacing: -1px; margin-bottom: 10px; }
-        p { font-size: 1.2rem; color: #888; line-height: 1.6; font-weight: 300; }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+            letter-spacing: -0.02em;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 160px 40px 120px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-name {
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #aeaeb2;
+            margin-bottom: 60px;
+        }
+
+        .hero-statement {
+            font-size: 2.8rem;
+            font-weight: 300;
+            line-height: 1.4;
+            letter-spacing: -0.03em;
+            color: #f5f5f7;
+            max-width: 900px;
+            margin-bottom: 40px;
+        }
+
+        .hero-statement span {
+            color: #636366;
+        }
+
+        .cta-text {
+            font-size: 1rem;
+            color: #c7c7cc;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            margin-top: 20px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .cta-text:hover {
+            color: #ffffff;
+        }
+
+        /* --- CAPABILITIES SECTION --- */
+        .capabilities-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 40px 100px 40px;
+        }
+
+        .section-header {
+            margin-bottom: 80px;
+            border-bottom: 1px solid #1c1c1e;
+            padding-bottom: 20px;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #636366;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            color: #e5e5ea;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+        }
+
+        .capability-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .capability-num {
+            font-size: 0.85rem;
+            font-family: monospace;
+            color: #3a3a3c;
+            margin-bottom: 24px;
+        }
+
+        .capability-title {
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            color: #f5f5f7;
+            margin-bottom: 16px;
+        }
+
+        .capability-description {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #8e8e93;
+            line-height: 1.6;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 40px 160px 40px;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: #8e8e93;
+            max-width: 400px;
+            font-weight: 300;
+            margin-bottom: 24px;
+        }
+
+        .direct-email {
+            font-size: 1rem;
+            font-family: monospace;
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px solid #3a3a3c;
+            padding-bottom: 4px;
+            display: inline-block;
+            transition: border-color 0.3s ease;
+        }
+
+        .direct-email:hover {
+            border-color: #ffffff;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #636366;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            background-color: #121212;
+            border: 1px solid #1c1c1e;
+            color: #ffffff;
+            padding: 16px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #48484a;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 16px 32px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            align-self: flex-start;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #e5e5ea;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero-section { padding: 100px 24px 60px 24px; }
+            .hero-statement { font-size: 1.8rem; }
+            .capabilities-grid { grid-template-columns: 1fr; gap: 60px; }
+            .capabilities-section { padding: 60px 24px 60px 24px; }
+            
+            .contact-section { padding: 60px 24px 100px 24px; }
+            .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+            .submit-btn { align-self: stretch; text-align: center; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Loom & Pixel</h1>
-        <p>Loom & Pixel is a creative studio based in Los Angeles, quietly shaping digital experiences across screens and realities.  We make things that move, things that feel, and things that spark curiosity.  We tell stories. Sometimes loud. Sometimes quiet.If you're building something bold, we'd love to hear about it.</p>
-    </div>
+
+    <main class="hero-section">
+        <div class="brand-name">Loom & Pixel</div>
+        <h1 class="hero-statement">
+            Loom & Pixel is a creative studio based in Los Angeles, quietly shaping digital experiences across screens and realities. 
+            <span>We make things that move, things that feel, and things that spark curiosity. We tell stories. Sometimes loud. Sometimes quiet.</span>
+        </h1>
+        <div>
+            <a href="#contact" class="cta-text">If you're building something bold, we'd love to hear about it. →</a>
+        </div>
+    </main>
+
+    <section class="capabilities-section">
+        <div class="section-header">
+            <span class="section-label">Expertise</span>
+            <h2 class="section-title">Capabilities</h2>
+        </div>
+
+        <div class="capabilities-grid">
+            <div class="capability-card">
+                <span class="capability-num">01 //</span>
+                <h3 class="capability-title">Look Development & Art Direction</h3>
+                <p class="capability-description">We define the visual DNA. Striking the balance between technical precision and emotional resonance, we specialize in the cinematic crafting of light, texture, and composition. We shape the atmosphere before the first frame is ever rendered.</p>
+            </div>
+
+            <div class="capability-card">
+                <span class="capability-num">02 //</span>
+                <h3 class="capability-title">Cinematic 3D & VFX Pipeline</h3>
+                <p class="capability-description">High-fidelity execution across screens and scales. Backed by a decade of experience supervising CG for broadcast television, gaming trailers, and commercial narratives, we build immersive environments and seamless visual effects designed to leave an impression.</p>
+            </div>
+
+            <div class="capability-card">
+                <span class="capability-num">03 //</span>
+                <h3 class="capability-title">Next-Gen Spatial Assets</h3>
+                <p class="capability-description">Tangible artistry for digital realities. We design, optimize, and engineer premium 3D assets for tomorrow's ecosystems—spanning immersive VR/AR experiences to high-scale digital collectibles that have powered major entertainment IPs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="section-header">
+            <span class="section-label">Connect</span>
+            <h2 class="section-title">Inquiries</h2>
+        </div>
+
+        <div class="contact-layout">
+            <div class="contact-info">
+                <p>Have a project in mind, or want to discuss a collaboration? Reach out, and let's build something compelling.</p>
+                <a href="mailto:Hello@LoomAndPixel.com?subject=Inquiry" class="direct-email">Hello@LoomAndPixel.com</a>
+            </div>
+
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="typeEmail" name="email" required placeholder="hello@domain.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
 </body>
 </html>
