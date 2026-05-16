@@ -220,31 +220,36 @@ body {
 .site-footer {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px 40px;
+    padding: 80px 40px; /* Deep breathing room above and below the line */
     border-top: 1px solid #1c1c1e;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between; /* Pushes copyright to the left frame edge, links to the right */
     align-items: center;
-    gap: 16px;
-    text-align: center;
 }
 
-.footer-left, .footer-right {
+.footer-left p {
     font-size: 0.85rem;
     color: #636366;
+    font-weight: 300;
+    line-height: 1.8; /* Increased spacing between copy lines if they break */
+}
+
+.footer-right {
+    font-size: 0.85rem;
     font-weight: 300;
 }
 
 .footer-nav {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 40px; /* Distinct visual space between LinkedIn logo and Contact text */
 }
 
 .footer-link {
     color: #8e8e93;
     text-decoration: none;
     transition: color 0.3s ease;
+    line-height: 1.8;
 }
 
 .footer-link:hover {
@@ -252,13 +257,18 @@ body {
 }
 
 /* --- LINKEDIN VECTOR COLOR REFINEMENTS --- */
+.linkedin-icon {
+    display: flex;
+    align-items: center;
+}
+
 .linkedin-icon svg {
-    fill: #8e8e93;
+    fill: #8e8e93 !important; /* Statically overrides default browser black with layout gray */
     transition: fill 0.3s ease;
 }
 
 .linkedin-icon:hover svg {
-    fill: #ffffff;
+    fill: #ffffff !important; /* Forces solid white switch on hover states */
 }
 
 /* Responsive Design */
@@ -272,5 +282,15 @@ body {
     .contact-layout { grid-template-columns: 1fr; gap: 40px; }
     .submit-btn { align-self: stretch; text-align: center; }
     
-    .site-footer { padding: 40px 24px; }
+    /* Elegant structural folding for tablet and mobile frames */
+    .site-footer { 
+        flex-direction: column-reverse; 
+        align-items: flex-start;
+        gap: 32px;
+        padding: 60px 24px; 
+    }
+    
+    .footer-nav {
+        gap: 32px;
+    }
 }
