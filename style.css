@@ -92,7 +92,6 @@ body {
     margin-bottom: 40px;
 }
 
-/* UPDATED: Specific targeting prevents text animations from overriding top span color */
 .hero-statement .hero-narrative {
     color: #636366;           /* TIER 4: Low-contrast stylistic narrative split */
 }
@@ -375,6 +374,7 @@ body {
 .reveal {
     opacity: 0; /* Keeps elements hidden before the animation timeline triggers */
     animation: studioFadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    will-change: transform, opacity; /* Hardware acceleration rules prevent absolute positioning stutters */
 }
 
 .delay-1 { animation-delay: 0.15s; }
