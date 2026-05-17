@@ -90,20 +90,20 @@ body {
     margin-right: 0.35em; 
 }
 
-/* --- THE KINETIC LETTER STAGGER PATHS (HIGH DRAMA EXPANSION OVERRIDES) --- */
+/* --- THE KINETIC LETTER STAGGER PATHS (TRUE CENTER BURST ENGINE) --- */
 
-/* Left Word Letters ("Loom"): Starting distance doubled to glide leftward from deep inside the axis */
-.header-logo .left-word span:nth-child(1) { transform: translateX(48px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* L */
-.header-logo .left-word span:nth-child(2) { transform: translateX(36px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* o */
-.header-logo .left-word span:nth-child(3) { transform: translateX(24px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* o */
+/* Left Word Letters ("Loom"): All letters launch from a compressed core 12px right behind the ampersand */
+.header-logo .left-word span:nth-child(1) { transform: translateX(12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* L */
+.header-logo .left-word span:nth-child(2) { transform: translateX(12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* o */
+.header-logo .left-word span:nth-child(3) { transform: translateX(12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* o */
 .header-logo .left-word span:nth-child(4) { transform: translateX(12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* m */
 
-/* Right Word Letters ("Pixel"): Starting distance doubled to glide rightward from deep inside the axis */
+/* Right Word Letters ("Pixel"): All letters launch from a compressed core -12px right behind the ampersand */
 .header-logo .right-word span:nth-child(1) { transform: translateX(-12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* P */
-.header-logo .right-word span:nth-child(2) { transform: translateX(-24px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* i */
-.header-logo .right-word span:nth-child(3) { transform: translateX(-36px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* x */
-.header-logo .right-word span:nth-child(4) { transform: translateX(-48px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* e */
-.header-logo .right-word span:nth-child(5) { transform: translateX(-60px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (5 * 0.08s)); } /* l */
+.header-logo .right-word span:nth-child(2) { transform: translateX(-12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* i */
+.header-logo .right-word span:nth-child(3) { transform: translateX(-12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* x */
+.header-logo .right-word span:nth-child(4) { transform: translateX(-12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* e */
+.header-logo .right-word span:nth-child(5) { transform: translateX(-12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (5 * 0.08s)); } /* l */
 
 .header-nav {
     display: flex;
