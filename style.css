@@ -176,7 +176,7 @@ body {
 .clients-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 100px 40px 100px 40px;
+    padding: 100px 40px 100px 40px; /* Locked down horizontal gutters to match grid master lines */
 }
 
 .clients-grid {
