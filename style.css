@@ -449,8 +449,9 @@ body {
     will-change: transform;
 }
 
+/* UPDATED: Vector canvas ignites into official LinkedIn Brand Identity Blue on hover */
 .linkedin-icon:hover svg {
-    fill: #ffffff !important;  /* TIER 1: Hover Highlight */
+    fill: #0077B5 !important;  /* BRAND SPECIFIC: Authentic LinkedIn Blue */
     transform: scale(1.1);     /* Provides independent hardware acceleration directly to vector canvas */
 }
 
