@@ -52,12 +52,10 @@ body {
     text-align: center;
     justify-self: center;
     white-space: nowrap;
-    display: inline-flex;     /* Keeps span tracks aligned on a horizontal plane */
+    display: inline-flex;     
     align-items: center;
     will-change: opacity;
     transition: opacity 0.3s ease;
-    
-    /* Forced global master tracking scale layout fallback */
     letter-spacing: 0.25em; 
 }
 
@@ -65,15 +63,21 @@ body {
     opacity: 0.7;
 }
 
-/* Base style layout configurations for kinetic word segments */
+/* The protected stage that completely blocks global .reveal animation conflicts */
+.logo-stage {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
 .header-logo .logo-word {
     display: inline-flex;
 }
 
-/* TARGETS INDIVIDUAL LETTERS: Inherits color property states for smooth timeline transitioning */
+/* TARGETS INDIVIDUAL LETTERS: Handing independent control back to the characters */
 .header-logo .logo-word span {
     display: inline-block;
-    will-change: opacity, color, transform;
+    will-change: transform, opacity, color;
     opacity: 0;
     color: #0052FF; /* Base illumination state */
     letter-spacing: 0.25em;
@@ -84,44 +88,24 @@ body {
     color: #0052FF; /* Synchronized lighting mount profile */
     animation: logoColorFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     animation-delay: 0.15s;
-    
-    /* Balances spatial anomalies inside granular inline tracking wrappers */
     margin-left: 0.1em;
     margin-right: 0.35em; 
 }
 
-/* --- THE KINETIC LETTER STAGGER PATHS (COLLISION-FREE SEPARATED ENGINE) --- */
+/* --- THE KINETIC LETTER STAGGER PATHS (TRUE INDEPENDENT EXPANSION ENGINE) --- */
 
-/* 1. PHYSICAL TRANSLATION & LAYERED CONTAINER OPACITY: 
-   Parents launch completely invisible and fade on quickly during travel 
-*/
-.header-logo .left-word {
-    transform: translateX(40px); /* Tightly pulls Loom right up to the ampersand axis on boot */
-    opacity: 0;                  /* Starts completely hidden */
-    animation: wordSlideLeft 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 0.15s;
-    will-change: transform, opacity;
-}
+/* Left Word Letters ("Loom"): Stagger delays step down from 4 to 1 to roll outward right-to-left */
+.header-logo .left-word span:nth-child(1) { animation: letterBurstLeft 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* L */
+.header-logo .left-word span:nth-child(2) { animation: letterBurstLeft 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* o */
+.header-logo .left-word span:nth-child(3) { animation: letterBurstLeft 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* o */
+.header-logo .left-word span:nth-child(4) { animation: letterBurstLeft 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* m */
 
-.header-logo .right-word {
-    transform: translateX(-40px); /* Tightly pulls Pixel left up to the ampersand axis on boot */
-    opacity: 0;                   /* Starts completely hidden */
-    animation: wordSlideRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 0.15s;
-    will-change: transform, opacity;
-}
-
-/* 2. GRANULAR COLOR/OPACITY TRACKS: Calculated letter-by-letter on the child spans */
-.header-logo .left-word span:nth-child(1) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* L */
-.header-logo .left-word span:nth-child(2) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* o */
-.header-logo .left-word span:nth-child(3) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* o */
-.header-logo .left-word span:nth-child(4) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* m */
-
-.header-logo .right-word span:nth-child(1) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* P */
-.header-logo .right-word span:nth-child(2) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* i */
-.header-logo .right-word span:nth-child(3) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* x */
-.header-logo .right-word span:nth-child(4) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* e */
-.header-logo .right-word span:nth-child(5) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (5 * 0.08s)); } /* l */
+/* Right Word Letters ("Pixel"): Stagger delays step up from 1 to 5 to roll outward left-to-right */
+.header-logo .right-word span:nth-child(1) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* P */
+.header-logo .right-word span:nth-child(2) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* i */
+.header-logo .right-word span:nth-child(3) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* x */
+.header-logo .right-word span:nth-child(4) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* e */
+.header-logo .right-word span:nth-child(5) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (5 * 0.08s)); } /* l */
 
 .header-nav {
     display: flex;
@@ -499,58 +483,49 @@ body {
 
 /* --- GRAPHICS HARDWARE REVEAL TIMELINES --- */
 
-/* Parent Word Translation Timelines (Layered with fast 25% opacity sweeps) */
-@keyframes wordSlideLeft {
-    0% { 
-        transform: translateX(40px); 
-        opacity: 0; 
-    }
-    25% {
-        opacity: 1; /* Fully visible early in the glide space */
-    }
-    100% { 
-        transform: translateX(0); 
-        opacity: 1;
-    }
-}
-
-@keyframes wordSlideRight {
-    0% { 
-        transform: translateX(-40px); 
-        opacity: 0; 
-    }
-    25% {
-        opacity: 1; /* Fully visible early in the glide space */
-    }
-    100% { 
-        transform: translateX(0); 
-        opacity: 1;
-    }
-}
-
-/* Child Letter Color-Bleed Timeline */
-@keyframes characterRevealFade {
+/* Left letters individual center-burst trajectories */
+@keyframes letterBurstLeft {
     0% {
         opacity: 0;
-        color: #0052FF;      /* Launches in vivid Photon Cobalt */
-        transform: scale(0.95); /* Micro-scale kinetic dimensional pinch */
+        color: #0052FF; /* High intensity Cobalt launch point */
+        transform: translateX(36px) scale(0.95); /* Tightly compressed origin tracking footprint */
     }
-    10% {
-        opacity: 1;          /* Snaps cleanly to full visible density alpha */
+    15% {
+        opacity: 1; /* Quick elegant layout exposure */
     }
-    20% {
-        color: #0052FF;      /* Precision frame marker where the blue asset begins dissolving */
+    25% {
+        color: #0052FF; /* Color overlap bleed activates during physical glide travel */
     }
     100% {
         opacity: 1;
-        color: #ffffff;      /* Seamlessly reaches editorial white right as tracking metrics settle */
-        transform: scale(1);
+        color: #ffffff; /* Cools down cleanly to white */
+        transform: translateX(0) scale(1); /* Returns mathematically to original layout dimensions */
+    }
+}
+
+/* Right letters individual center-burst trajectories */
+@keyframes letterBurstRight {
+    0% {
+        opacity: 0;
+        color: #0052FF;
+        transform: translateX(-36px) scale(0.95); /* Tightly compressed origin tracking footprint */
+    }
+    15% {
+        opacity: 1;
+    }
+    25% {
+        color: #0052FF;
+    }
+    100% {
+        opacity: 1;
+        color: #ffffff;
+        transform: translateX(0) scale(1);
     }
 }
 
 @keyframes logoColorFade {
     0% {   color: #0052FF; }
-    20% {  color: #0052FF; } 
+    25% {  color: #0052FF; } 
     100% { color: #ffffff; } 
 }
 
