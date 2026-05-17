@@ -56,19 +56,12 @@
             <h2 class="section-title">Brand Clients</h2>
         </div>
 
-        <div class="clients-grid">
+        <div class="clients-grid" style="--columns: 4;">
+            {% for client in site.data.clients %}
             <div class="client-logo">
-                <img src="assets/logos/client-1.svg" alt="Client Brand One">
+                <img src="assets/logos/{{ client.logo }}" alt="{{ client.alt }}">
             </div>
-            <div class="client-logo">
-                <img src="assets/logos/client-2.svg" alt="Client Brand Two">
-            </div>
-            <div class="client-logo">
-                <img src="assets/logos/client-3.svg" alt="Client Brand Three">
-            </div>
-            <div class="client-logo">
-                <img src="assets/logos/client-4.svg" alt="Client Brand Four">
-            </div>
+            {% endfor %}
         </div>
     </section>
 
