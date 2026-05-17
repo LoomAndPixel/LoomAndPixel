@@ -16,9 +16,9 @@ body {
 
 /* --- HERO SECTION --- */
 .hero-section {
-    max-width: 1200px; /* Matched to master container scale */
+    max-width: 1200px; /* Unified site container scale */
     margin: 0 auto;    /* Centers the layout container on the screen */
-    padding: 160px 40px 120px 40px;
+    padding: 160px 40px 120px 40px; /* Consistent 40px left/right padding */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,7 +39,7 @@ body {
     line-height: 1.4;
     letter-spacing: -0.03em;
     color: #f5f5f7;
-    max-width: 100%;   /* Allows text layout to flow cleanly to the right */
+    max-width: 900px;   /* Bounds the text layout width for comfortable reading */
     margin-bottom: 40px;
 }
 
@@ -65,7 +65,7 @@ body {
 .capabilities-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 100px 40px 100px 40px;
+    padding: 100px 40px 100px 40px; /* Consistent 40px left/right padding */
 }
 
 .section-header {
@@ -127,7 +127,7 @@ body {
 .contact-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 100px 40px 160px 40px;
+    padding: 100px 40px 160px 40px; /* Consistent 40px left/right padding */
 }
 
 .contact-layout {
@@ -220,10 +220,10 @@ body {
 .site-footer {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 40px; /* Deep breathing room above and below the line */
+    padding: 80px 40px; /* Consistent 40px left/right padding */
     border-top: 1px solid #1c1c1e;
     display: flex;
-    justify-content: space-between; /* Pushes copyright to the left frame edge, links to the right */
+    justify-content: space-between; /* Links push right, copyright pushes left */
     align-items: center;
 }
 
@@ -231,7 +231,7 @@ body {
     font-size: 0.85rem;
     color: #636366;
     font-weight: 300;
-    line-height: 1.8; /* Increased spacing between copy lines if they break */
+    line-height: 1.8;
 }
 
 .footer-right {
@@ -242,7 +242,7 @@ body {
 .footer-nav {
     display: flex;
     align-items: center;
-    gap: 40px; /* Distinct visual space between LinkedIn logo and Contact text */
+    gap: 40px; /* Generous space between logo and text link */
 }
 
 .footer-link {
@@ -263,18 +263,20 @@ body {
 }
 
 .linkedin-icon svg {
-    fill: #8e8e93 !important; /* Statically overrides default browser black with layout gray */
+    fill: #8e8e93 !important; 
     transition: fill 0.3s ease;
 }
 
 .linkedin-icon:hover svg {
-    fill: #ffffff !important; /* Forces solid white switch on hover states */
+    fill: #ffffff !important; 
 }
 
 /* Responsive Design */
 @media (max-width: 900px) {
+    /* Padding is unified at exactly 24px across the board, but only on smaller viewport widths */
     .hero-section { padding: 100px 24px 60px 24px; }
     .hero-statement { font-size: 1.8rem; }
+    
     .capabilities-grid { grid-template-columns: 1fr; gap: 60px; }
     .capabilities-section { padding: 60px 24px 60px 24px; }
     
@@ -282,7 +284,6 @@ body {
     .contact-layout { grid-template-columns: 1fr; gap: 40px; }
     .submit-btn { align-self: stretch; text-align: center; }
     
-    /* Elegant structural folding for tablet and mobile frames */
     .site-footer { 
         flex-direction: column-reverse; 
         align-items: flex-start;
