@@ -57,7 +57,7 @@ body {
     will-change: opacity;
     transition: opacity 0.3s ease;
     
-    /* RE-ESTABLISHED: Explicitly sets master tracking weight */
+    /* Forced global master tracking scale layout fallback */
     letter-spacing: 0.25em; 
 }
 
@@ -82,7 +82,7 @@ body {
 .header-logo .logo-amp {
     display: inline-block;
     color: #0052FF; /* Synchronized lighting mount profile */
-    animation: logoColorFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation: logoColorFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     animation-delay: 0.15s;
     
     /* Balances spatial anomalies inside granular inline tracking wrappers */
@@ -90,20 +90,20 @@ body {
     margin-right: 0.35em; 
 }
 
-/* --- THE KINETIC LETTER STAGGER PATHS --- */
+/* --- THE KINETIC LETTER STAGGER PATHS (HIGH DRAMA EXPANSION OVERRIDES) --- */
 
-/* Left Word Letters ("Loom"): Gliding leftward out from the ampersand axis */
-.header-logo .left-word span:nth-child(1) { transform: translateX(16px); animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (4 * 0.06s)); } /* L */
-.header-logo .left-word span:nth-child(2) { transform: translateX(12px); animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (3 * 0.06s)); } /* o */
-.header-logo .left-word span:nth-child(3) { transform: translateX(8px);  animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (2 * 0.06s)); } /* o */
-.header-logo .left-word span:nth-child(4) { transform: translateX(4px);  animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (1 * 0.06s)); } /* m */
+/* Left Word Letters ("Loom"): Starting distance doubled to glide leftward from deep inside the axis */
+.header-logo .left-word span:nth-child(1) { transform: translateX(48px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* L */
+.header-logo .left-word span:nth-child(2) { transform: translateX(36px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* o */
+.header-logo .left-word span:nth-child(3) { transform: translateX(24px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* o */
+.header-logo .left-word span:nth-child(4) { transform: translateX(12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* m */
 
-/* Right Word Letters ("Pixel"): Gliding rightward out from the ampersand axis */
-.header-logo .right-word span:nth-child(1) { transform: translateX(-4px);  animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (1 * 0.06s)); } /* P */
-.header-logo .right-word span:nth-child(2) { transform: translateX(-8px);  animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (2 * 0.06s)); } /* i */
-.header-logo .right-word span:nth-child(3) { transform: translateX(-12px); animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (3 * 0.06s)); } /* x */
-.header-logo .right-word span:nth-child(4) { transform: translateX(-16px); animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (4 * 0.06s)); } /* e */
-.header-logo .right-word span:nth-child(5) { transform: translateX(-20px); animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (5 * 0.06s)); } /* l */
+/* Right Word Letters ("Pixel"): Starting distance doubled to glide rightward from deep inside the axis */
+.header-logo .right-word span:nth-child(1) { transform: translateX(-12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* P */
+.header-logo .right-word span:nth-child(2) { transform: translateX(-24px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* i */
+.header-logo .right-word span:nth-child(3) { transform: translateX(-36px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* x */
+.header-logo .right-word span:nth-child(4) { transform: translateX(-48px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* e */
+.header-logo .right-word span:nth-child(5) { transform: translateX(-60px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (5 * 0.08s)); } /* l */
 
 .header-nav {
     display: flex;
@@ -283,7 +283,7 @@ body {
     will-change: transform;
 }
 
-/* UPDATED: Dynamic discovery trigger drops monochromatic masks to restore raw color branding assets on hover */
+/* Dynamic discovery trigger drops monochromatic masks to restore raw color branding assets on hover */
 .client-logo img:hover {
     filter: none;             /* Restores native asset colors instantly */
     opacity: 1;               /* Full absolute alpha density visibility */
@@ -480,28 +480,28 @@ body {
 
 /* --- GRAPHICS HARDWARE REVEAL TIMELINES --- */
 
-/* Unified translation tracking and color dissipation sequence map */
+/* High-velocity translation curves and slow-cool color transitions mapped to quintic deceleration math */
 @keyframes letterExpandFade {
     0% {
         opacity: 0;
         color: #0052FF; /* Initial high-intensity ignition point */
     }
-    30% {
-        opacity: 1; /* Instant tracking anchor reveal state */
+    15% {
+        opacity: 1; /* Snaps fully visible on primary propulsion burst */
     }
-    60% {
-        color: #0052FF; /* Preserves full brand tone color through physical slide coordinates */
+    50% {
+        color: #0052FF; /* Preserves brand color space through the highest-velocity frame transitions */
     }
     100% {
         opacity: 1;
-        color: #ffffff; /* Cools down to crisp white as letters hit rest position */
-        transform: translateX(0);
+        color: #ffffff; /* Smoothly decelerates and cools to pure white at rest positions */
+        transform: translateX(0); /* Rigid structural tracking layout guarantee */
     }
 }
 
 @keyframes logoColorFade {
     0% { color: #0052FF; }
-    60% { color: #0052FF; } 
+    50% { color: #0052FF; } 
     100% { color: #ffffff; } 
 }
 
