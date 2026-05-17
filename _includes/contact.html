@@ -10,7 +10,14 @@
             <a href="mailto:Hello@LoomAndPixel.com?subject=Inquiry" class="direct-email">Hello@LoomAndPixel.com</a>
         </div>
 
-        <form class="contact-form" action="#" method="POST">
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            
+            <input type="hidden" name="access_key" value="6da7bdc9-c9f9-49ac-b948-e08bd97aaffc">
+
+            <input type="hidden" name="subject" value="New Website Inquiry — Loom & Pixel">
+
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required placeholder="Your name">
