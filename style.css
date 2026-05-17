@@ -194,7 +194,7 @@ body {
 }
 
 .section-header {
-    margin-bottom: 40px;      /* REDUCED from 80px: Tightens layout space uniformly across sections */
+    margin-bottom: 40px;      /* Tightens layout space uniformly across sections */
     border-bottom: 1px solid #1c1c1e;
     padding-bottom: 20px;
 }
@@ -219,7 +219,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
-    margin-top: 20px;         /* Added low-weight top margin sync */
+    margin-top: 20px;         
 }
 
 .capability-card {
@@ -263,7 +263,7 @@ body {
     flex-wrap: wrap;
     gap: 24px 40px;
     justify-content: center;
-    margin-top: 20px;         /* REDUCED from 60px: Pulls the logo blocks up into alignment */
+    margin-top: 20px;         /* Pulls the logo blocks up into alignment */
 }
 
 .client-logo {
@@ -304,6 +304,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
+    margin-top: 20px;         /* Synchronized spatial rhythm */
 }
 
 .contact-info p {
@@ -329,6 +330,10 @@ body {
 .direct-email:hover {
     border-color: #ffffff;
     transform: scale(1.05);
+}
+
+.form-wrapper {
+    width: 100%;
 }
 
 .contact-form {
@@ -365,7 +370,7 @@ body {
 .form-group textarea:focus {
     outline: none;
     border-color: #0052FF;    /* BRAND ACCENT: Photon Cobalt input ignite lines */
-    box-shadow: 0 0 0 1px #0052FF; /* Crisp, low-weight hardware-accelerated focused perimeter glow */
+    box-shadow: 0 0 0 1px #0052FF; /* Crisp focused perimeter glow */
 }
 
 .form-group textarea {
@@ -375,7 +380,7 @@ body {
 
 .submit-btn {
     background-color: #ffffff;
-    color: #000000;           /* Keep functional black for stark contrast against white button background */
+    color: #000000;           /* functional contrast against white backdrop */
     border: none;
     padding: 16px 32px;
     font-size: 0.95rem;       /* SIZE 4: Unified Body Bucket */
@@ -404,7 +409,7 @@ body {
 
 .footer-left p {
     font-size: 0.8rem;        /* SIZE 5: Label / Utility Bucket */
-    color: #636366;           /* TIER 4: Copyright strings match standard utility treatments */
+    color: #636366;           /* TIER 4: Copyright treatments */
     font-weight: 300;
     line-height: 1.8;
 }
@@ -458,11 +463,11 @@ body {
     transform: scale(1.1);     /* Provides independent hardware acceleration directly to vector canvas */
 }
 
-/* --- CINEMATIC REVEAL ANIMATIONS --- */
+/* --- CINEMATIC REVEAL ANIMATIONS (SCROLL-BASED HARDWARE ENGINE) --- */
 @keyframes studioFadeInUp {
     from {
         opacity: 0;
-        transform: translateY(16px);
+        transform: translateY(24px); /* Enhanced organic glide dramatic feel */
     }
     to {
         opacity: 1;
@@ -470,19 +475,19 @@ body {
     }
 }
 
+/* Core reveal tracker setup to bind cleanly across headers, forms, and sections alike */
 .reveal {
     opacity: 0;
-    animation: studioFadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation: studioFadeInUp 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     will-change: transform, opacity;
 }
 
+/* Precise stagger increments layer layout flow effortlessly */
 .delay-1 { animation-delay: 0.15s; }
-.delay-2 { animation-delay: 0.35s; }
-.delay-3 { animation-delay: 0.55s; }
-.delay-4 { animation-delay: 0.75s; }
-.delay-5 { animation-delay: 0.95s; }
-
-/* --- GRAPHICS HARDWARE REVEAL TIMELINES --- */
+.delay-2 { animation-delay: 0.30s; }
+.delay-3 { animation-delay: 0.45s; }
+.delay-4 { animation-delay: 0.60s; }
+.delay-5 { animation-delay: 0.75s; }
 
 /* Left letters individual center-burst trajectories */
 @keyframes letterBurstLeft {
@@ -564,7 +569,7 @@ body {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 32px;
-        margin-top: 20px; /* REDUCED from 40px: Pulls layout up elegantly on mobile view */
+        margin-top: 20px; /* Pulls layout up elegantly on mobile view */
     }
     
     .client-logo {
@@ -573,7 +578,7 @@ body {
     }
     
     .contact-section { padding: 60px 24px 100px 24px; }
-    .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+    .contact-layout { grid-template-columns: 1fr; gap: 40px; margin-top: 20px; }
     .submit-btn { align-self: stretch; text-align: center; }
     
     .site-footer {
