@@ -177,9 +177,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 100px 40px 100px 40px; /* Locked down horizontal gutters to match grid master lines */
-}
-
-.clients-grid {
+}.clients-grid {
     display: grid;
     /* Uses the inline HTML style attribute variable (--columns) with a default fallback of 4 */
     grid-template-columns: repeat(var(--columns, 6), 1fr); 
@@ -202,12 +200,18 @@ body {
     height: auto;
     filter: brightness(0) invert(0.5); /* Mutes original brand colors to quiet premium gray */
     opacity: 0.6;
-    transition: filter 0.3s ease, opacity 0.3s ease;
+    
+    /* UPDATED: Added transform to the transition timeline with a sleek cubic-bezier timing curve */
+    transition: filter 0.4s ease-out, opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform; /* Signals the GPU for ultra-smooth hardware-accelerated movement */
 }
 
 .client-logo img:hover {
     filter: brightness(0) invert(1); /* Flares to pure white when focal point changes */
     opacity: 1;
+    
+    /* ADDED: Smoothly scales the logo up by 8% on hover */
+    transform: scale(1.08); 
 }
 
 /* --- CONTACT SECTION --- */
