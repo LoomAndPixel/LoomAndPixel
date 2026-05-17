@@ -480,28 +480,29 @@ body {
 
 /* --- GRAPHICS HARDWARE REVEAL TIMELINES --- */
 
-/* High-velocity translation curves and slow-cool color transitions mapped to quintic deceleration math */
+/* High-velocity translation curves and overlapping fluid color transitions */
 @keyframes letterExpandFade {
     0% {
         opacity: 0;
-        color: #0052FF; /* Initial high-intensity ignition point */
+        color: #0052FF;      /* Launches in vivid Photon Cobalt */
+        transform: scale(0.95); /* Micro-scale kinetic dimensional pinch */
     }
-    15% {
-        opacity: 1; /* Snaps fully visible on primary propulsion burst */
+    10% {
+        opacity: 1;          /* Snaps cleanly to full visible density alpha */
     }
-    50% {
-        color: #0052FF; /* Preserves brand color space through the highest-velocity frame transitions */
+    20% {
+        color: #0052FF;      /* Precision frame marker where the blue asset begins dissolving */
     }
     100% {
         opacity: 1;
-        color: #ffffff; /* Smoothly decelerates and cools to pure white at rest positions */
-        transform: translateX(0); /* Rigid structural tracking layout guarantee */
+        color: #ffffff;      /* Seamlessly reaches editorial white right as tracking metrics settle */
+        transform: translateX(0) scale(1); /* Full alignment safety guarantees */
     }
 }
 
 @keyframes logoColorFade {
-    0% { color: #0052FF; }
-    50% { color: #0052FF; } 
+    0% {   color: #0052FF; }
+    20% {  color: #0052FF; } 
     100% { color: #ffffff; } 
 }
 
