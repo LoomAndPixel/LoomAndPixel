@@ -11,6 +11,10 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth; /* Forces all standard structural layout anchors to glide beautifully */
+}
+
 body {
     background-color: #121212; /* Premium Apple-style dark gray */
     color: #e5e5ea;           /* TIER 2: Highly legible primary body color */
@@ -441,6 +445,21 @@ body {
     color: #ffffff;           /* TIER 1: Hover Highlight */
     border-color: #0052FF;    /* BRAND ACCENT: Photon Cobalt underline ignites */
     transform: scale(1.05);   
+}
+
+/* BACK TO TOP VECTOR GLYPH MICRO-INTERACTIONS */
+.footer-link .top-arrow {
+    display: inline-block;
+    margin-left: 2px;
+    font-weight: 400;
+    will-change: transform;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
+}
+
+/* Arrow smoothly slides upward and shifts color spaces natively on structural block hover */
+.footer-link:hover .top-arrow {
+    transform: translateY(-2px);
+    color: #0052FF; /* Photon Cobalt flash at peak translation height */
 }
 
 /* --- LINKEDIN VECTOR COLOR REFINEMENTS --- */
