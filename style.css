@@ -409,3 +409,29 @@ body {
         gap: 32px;
     }
 }
+
+/* --- CINEMATIC REVEAL ANIMATIONS --- */
+
+/* 1. Define the custom movement timeline */
+@keyframes studioFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px); /* Starts slightly lower */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);    /* Settles cleanly into position */
+    }
+}
+
+/* 2. Create the master reveal utility class */
+.reveal {
+    opacity: 0; /* Keeps elements hidden before the site completely renders */
+    animation: studioFadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* 3. Define the cascading stagger delays */
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.35s; }
+.delay-3 { animation-delay: 0.55s; }
+
