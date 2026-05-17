@@ -130,8 +130,11 @@ body {
 }
 
 .cta-text .accent-glyph {
-    color: #0052FF;           /* BRAND ACCENT: Photon Cobalt */
+    color: #0052FF;              /* Photon Cobalt */
+    font-weight: 700;            /* Heavy weight to match the new bold glyph */
     display: inline-block;
+    margin-left: 6px;            
+    transform: translateY(1px);  
     transition: color 0.3s ease;
 }
 
