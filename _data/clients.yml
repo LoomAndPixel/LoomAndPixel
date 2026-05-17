@@ -1,27 +1,29 @@
 - logo: Microsoft_logo_2012.svg
   alt: Microsoft
-- logo: Xbox_logo.svg
-  alt: Xbox
+- logo: PwC_logo.svg
+  alt: PwC
+- logo: Confluent_logo.svg
+  alt: Confluent
+- logo: Lumen_logo_02.svg
+  alt: Lumen
 - logo: Disney_logo.svg
   alt: Disney
 - logo: Netflix_logo_2015.svg
   alt: Netflix
-- logo: PwC_logo.svg
-  alt: PwC
-- logo: Lumen_logo_02.svg
-  alt: Lumen
+- logo: Xbox_logo.svg
+  alt: Xbox
+- logo: PBS_logo_2019_cutout.svg
+  alt: PBS
+- logo: Corvette_logo_vertical.svg
+  alt: Corvette
 - logo: LockheedMartin_logo.svg
   alt: Lockheed Martin
 - logo: BlueOrigin_logo.svg
   alt: Blue Origin
 - logo: Stratolaunch_logo.svg
   alt: Stratolaunch
-- logo: Confluent_logo.svg
-  alt: Confluent
 - logo: MIFTIFusion_logo.svg
   alt: MIFTI Fusion
-- logo: Corvette_logo_vertical.svg
-  alt: Corvette
 - logo: PFL_logo.svg
   alt: PFL
 - logo: NeonGlobal_logo.svg
@@ -29,6 +31,4 @@
 - logo: iTicket_logo_cutout.svg
   alt: iTicket
 - logo: Motts_logo.svg
-  alt: Motts
-- logo: PBS_logo_2019_cutout.svg
-  alt: PBS
+  alt: Mott's
