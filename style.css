@@ -38,7 +38,7 @@ body {
 }
 
 .header-logo {
-    font-size: 1.6rem;
+    font-size: 1.5rem;        /* SIZE 2: Header Bucket */
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.25em;
@@ -61,7 +61,7 @@ body {
 }
 
 .header-link {
-    font-size: 0.85rem;
+    font-size: 0.95rem;       /* SIZE 4: Unified Body Bucket */
     font-weight: 300;
     color: #aeaeb2;           /* TIER 3: Secondary navigation */
     text-decoration: none;
@@ -83,7 +83,7 @@ body {
 }
 
 .hero-statement {
-    font-size: 2.8rem;
+    font-size: 2.4rem;        /* SIZE 1: Display Bucket (Desktop Master) */
     font-weight: 300;
     line-height: 1.4;
     letter-spacing: -0.03em;
@@ -97,7 +97,7 @@ body {
 }
 
 .cta-text {
-    font-size: 1rem;
+    font-size: 0.95rem;       /* SIZE 4: Unified Body Bucket */
     color: #aeaeb2;           /* TIER 3: Clear, visible secondary text */
     text-decoration: none;
     letter-spacing: 0.05em;
@@ -124,7 +124,7 @@ body {
 }
 
 .section-label {
-    font-size: 0.85rem;
+    font-size: 0.8rem;        /* SIZE 5: Label / Utility Bucket */
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: #aeaeb2;           /* TIER 3: Upgraded so labels don't disappear */
@@ -133,7 +133,7 @@ body {
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: 1.5rem;        /* SIZE 2: Header Bucket */
     font-weight: 300;
     letter-spacing: -0.02em;
     color: #ffffff;           /* TIER 1: Crisp page headers */
@@ -151,14 +151,14 @@ body {
 }
 
 .capability-num {
-    font-size: 0.85rem;
+    font-size: 0.8rem;        /* SIZE 5: Label / Utility Bucket */
     font-family: monospace;
     color: #636366;           /* TIER 4: Muted system indicator */
     margin-bottom: 24px;
 }
 
 .capability-title {
-    font-size: 1.3rem;
+    font-size: 1.5rem;        /* SIZE 2: Header Bucket (Perfect grid alignment) */
     font-weight: 400;
     letter-spacing: -0.01em;
     color: #ffffff;           /* TIER 1: Cards read clearly instantly */
@@ -166,7 +166,7 @@ body {
 }
 
 .capability-description {
-    font-size: 0.95rem;
+    font-size: 0.95rem;       /* SIZE 4: Unified Body Bucket */
     font-weight: 300;
     color: #e5e5ea;           /* TIER 2: Clean, legible reading text */
     line-height: 1.6;
@@ -225,7 +225,7 @@ body {
 }
 
 .contact-info p {
-    font-size: 1.1rem;
+    font-size: 1.1rem;        /* SIZE 3: Sub-heading / Lead Bucket */
     color: #e5e5ea;           /* TIER 2: Left column prompt text is sharp */
     max-width: 400px;
     font-weight: 300;
@@ -233,7 +233,7 @@ body {
 }
 
 .direct-email {
-    font-size: 1rem;
+    font-size: 0.95rem;       /* SIZE 4: Unified Body Bucket */
     font-family: monospace;
     color: #ffffff;           /* TIER 1: Hyperlinks stand out */
     text-decoration: none;
@@ -260,7 +260,7 @@ body {
 }
 
 .form-group label {
-    font-size: 0.8rem;
+    font-size: 0.8rem;        /* SIZE 5: Label / Utility Bucket */
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #aeaeb2;           /* TIER 3: Inputs remain cleanly labeled */
@@ -272,7 +272,7 @@ body {
     border: 1px solid #1c1c1e;
     color: #ffffff;           /* TIER 1: Typing text is maximum contrast */
     padding: 16px;
-    font-size: 1rem;
+    font-size: 0.95rem;       /* SIZE 4: Unified Body Bucket */
     font-family: inherit;
     transition: border-color 0.3s ease;
 }
@@ -293,7 +293,7 @@ body {
     color: #000000;           /* Keep functional black for stark contrast against white button background */
     border: none;
     padding: 16px 32px;
-    font-size: 0.95rem;
+    font-size: 0.95rem;       /* SIZE 4: Unified Body Bucket */
     font-weight: 500;
     cursor: pointer;
     align-self: flex-start;
@@ -316,14 +316,14 @@ body {
 }
 
 .footer-left p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;        /* SIZE 5: Label / Utility Bucket */
     color: #636366;           /* TIER 4: Copyright strings match standard utility treatments */
     font-weight: 300;
     line-height: 1.8;
 }
 
 .footer-right {
-    font-size: 0.85rem;
+    font-size: 0.8rem;        /* SIZE 5: Label / Utility Bucket */
     font-weight: 300;
 }
 
@@ -369,7 +369,7 @@ body {
     }
     
     .header-logo {
-        font-size: 1.3rem;
+        font-size: 1.5rem;    /* Kept uniform with header sizes */
         letter-spacing: 0.2em;
     }
     
@@ -379,7 +379,10 @@ body {
     }
 
     .hero-section { padding: 180px 24px 60px 24px; }
-    .hero-statement { font-size: 1.8rem; }
+    
+    .hero-statement { 
+        font-size: 1.8rem;    /* SIZE 1 Override: Display Bucket scales cleanly on mobile */
+    }
     
     .capabilities-grid { grid-template-columns: 1fr; gap: 60px; }
     .capabilities-section { padding: 60px 24px 60px 24px; }
