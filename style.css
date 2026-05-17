@@ -6,8 +6,8 @@
 }
 
 body {
-    background-color: #101010; /* Premium Apple-style dark gray */
-    color: #ffffff;
+    background-color: #121212; /* Premium Apple-style dark gray */
+    color: #e5e5ea;           /* TIER 2: Highly legible primary body color */
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
     letter-spacing: -0.02em;
     line-height: 1.6;
@@ -25,27 +25,27 @@ body {
 
 .header-container {
     max-width: 1200px;
-    width: 100%;        /* Forces the container to expand out to its maximum layout limits */
-    margin: 0 auto;    /* Centers the entire layout container on the screen */
-    padding: 60px 40px; /* Generous top padding for the larger centered typography */
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 40px;
     display: grid;
-    grid-template-columns: 1fr auto 1fr; /* Strict 3-column structural blueprint */
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
 }
 
 .header-left-spacer {
-    display: block; /* Acts as an invisible weight to perfectly balance the right-side tabs */
+    display: block;
 }
 
 .header-logo {
-    font-size: 1.6rem; /* Scaled up to serve as a strong central focal point */
+    font-size: 1.6rem;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.25em; /* Deep space setting for cinematic, premium presence */
-    color: #ffffff;
+    letter-spacing: 0.25em;
+    color: #ffffff;           /* TIER 1: Pure White Highlight */
     text-decoration: none;
     text-align: center;
-    justify-self: center; /* Locks the logo precisely onto the center line */
+    justify-self: center;
     white-space: nowrap;
     transition: opacity 0.3s ease;
 }
@@ -56,27 +56,27 @@ body {
 
 .header-nav {
     display: flex;
-    gap: 40px; /* Perfectly mirrors footer navigation spacing */
-    justify-self: flex-end; /* Flushes the tabs cleanly to the right frame boundary */
+    gap: 40px;
+    justify-self: flex-end;
 }
 
 .header-link {
     font-size: 0.85rem;
     font-weight: 300;
-    color: #8e8e93;
+    color: #aeaeb2;           /* TIER 3: Secondary navigation */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .header-link:hover {
-    color: #ffffff;
+    color: #ffffff;           /* TIER 1: Hover Highlight */
 }
 
 /* --- HERO SECTION --- */
 .hero-section {
-    max-width: 1200px; /* Unified layout boundary scale */
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 220px 40px 120px 40px; /* Increased top padding so content sits below the deep header */
+    padding: 220px 40px 120px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,18 +87,18 @@ body {
     font-weight: 300;
     line-height: 1.4;
     letter-spacing: -0.03em;
-    color: #f5f5f7;
-    max-width: 900px;   /* Bounds text layout width for premium right-side framing */
+    color: #ffffff;           /* TIER 1: Upgraded from off-white for massive impact */
+    max-width: 900px;
     margin-bottom: 40px;
 }
 
 .hero-statement span {
-    color: #636366;
+    color: #636366;           /* TIER 4: Low-contrast stylistic spans */
 }
 
 .cta-text {
     font-size: 1rem;
-    color: #c7c7cc;
+    color: #aeaeb2;           /* TIER 3: Clear, visible secondary text */
     text-decoration: none;
     letter-spacing: 0.05em;
     margin-top: 20px;
@@ -107,7 +107,7 @@ body {
 }
 
 .cta-text:hover {
-    color: #ffffff;
+    color: #ffffff;           /* TIER 1: Hover Highlight */
 }
 
 /* --- CAPABILITIES SECTION --- */
@@ -127,7 +127,7 @@ body {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: #636366;
+    color: #aeaeb2;           /* TIER 3: Upgraded so labels don't disappear */
     margin-bottom: 12px;
     display: block;
 }
@@ -136,7 +136,7 @@ body {
     font-size: 2rem;
     font-weight: 300;
     letter-spacing: -0.02em;
-    color: #e5e5ea;
+    color: #ffffff;           /* TIER 1: Crisp page headers */
 }
 
 .capabilities-grid {
@@ -153,7 +153,7 @@ body {
 .capability-num {
     font-size: 0.85rem;
     font-family: monospace;
-    color: #3a3a3c;
+    color: #636366;           /* TIER 4: Muted system indicator */
     margin-bottom: 24px;
 }
 
@@ -161,14 +161,14 @@ body {
     font-size: 1.3rem;
     font-weight: 400;
     letter-spacing: -0.01em;
-    color: #f5f5f7;
+    color: #ffffff;           /* TIER 1: Cards read clearly instantly */
     margin-bottom: 16px;
 }
 
 .capability-description {
     font-size: 0.95rem;
     font-weight: 300;
-    color: #8e8e93;
+    color: #e5e5ea;           /* TIER 2: Clean, legible reading text */
     line-height: 1.6;
 }
 
@@ -176,11 +176,12 @@ body {
 .clients-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 100px 40px 100px 40px; /* Locked down horizontal gutters to match grid master lines */
-}.clients-grid {
+    padding: 100px 40px 100px 40px;
+}
+
+.clients-grid {
     display: grid;
-    /* Uses the inline HTML style attribute variable (--columns) with a default fallback of 4 */
-    grid-template-columns: repeat(var(--columns, 6), 1fr); 
+    grid-template-columns: repeat(var(--columns, 6), 1fr);
     gap: 40px;
     align-items: center;
     margin-top: 60px;
@@ -190,7 +191,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px; /* Rigid alignment ceiling */
+    height: 80px;
 }
 
 .client-logo img {
@@ -198,20 +199,16 @@ body {
     max-height: 45px;
     width: auto;
     height: auto;
-    filter: brightness(0) invert(0.5); /* Mutes original brand colors to quiet premium gray */
+    filter: brightness(0) invert(0.5);
     opacity: 0.6;
-    
-    /* UPDATED: Added transform to the transition timeline with a sleek cubic-bezier timing curve */
     transition: filter 0.4s ease-out, opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    will-change: transform; /* Signals the GPU for ultra-smooth hardware-accelerated movement */
+    will-change: transform;
 }
 
 .client-logo img:hover {
-    filter: brightness(0) invert(1); /* Flares to pure white when focal point changes */
+    filter: brightness(0) invert(1);
     opacity: 1;
-    
-    /* ADDED: Smoothly scales the logo up by 8% on hover */
-    transform: scale(1.08); 
+    transform: scale(1.08);
 }
 
 /* --- CONTACT SECTION --- */
@@ -229,7 +226,7 @@ body {
 
 .contact-info p {
     font-size: 1.1rem;
-    color: #8e8e93;
+    color: #e5e5ea;           /* TIER 2: Left column prompt text is sharp */
     max-width: 400px;
     font-weight: 300;
     margin-bottom: 24px;
@@ -238,7 +235,7 @@ body {
 .direct-email {
     font-size: 1rem;
     font-family: monospace;
-    color: #ffffff;
+    color: #ffffff;           /* TIER 1: Hyperlinks stand out */
     text-decoration: none;
     border-bottom: 1px solid #3a3a3c;
     padding-bottom: 4px;
@@ -266,21 +263,21 @@ body {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #636366;
+    color: #aeaeb2;           /* TIER 3: Inputs remain cleanly labeled */
 }
 
-.form-group input, 
+.form-group input,
 .form-group textarea {
     background-color: #121212;
     border: 1px solid #1c1c1e;
-    color: #ffffff;
+    color: #ffffff;           /* TIER 1: Typing text is maximum contrast */
     padding: 16px;
     font-size: 1rem;
     font-family: inherit;
     transition: border-color 0.3s ease;
 }
 
-.form-group input:focus, 
+.form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: #48484a;
@@ -293,7 +290,7 @@ body {
 
 .submit-btn {
     background-color: #ffffff;
-    color: #000000;
+    color: #000000;           /* Keep functional black for stark contrast against white button background */
     border: none;
     padding: 16px 32px;
     font-size: 0.95rem;
@@ -311,16 +308,16 @@ body {
 .site-footer {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 40px; 
+    padding: 80px 40px;
     border-top: 1px solid #1c1c1e;
     display: flex;
-    justify-content: space-between; /* Splitting footprint edges beautifully */
+    justify-content: space-between;
     align-items: center;
 }
 
 .footer-left p {
     font-size: 0.85rem;
-    color: #636366;
+    color: #636366;           /* TIER 4: Copyright strings match standard utility treatments */
     font-weight: 300;
     line-height: 1.8;
 }
@@ -333,18 +330,18 @@ body {
 .footer-nav {
     display: flex;
     align-items: center;
-    gap: 40px; 
+    gap: 40px;
 }
 
 .footer-link {
-    color: #8e8e93;
+    color: #aeaeb2;           /* TIER 3: Footer paths are uniform with header paths */
     text-decoration: none;
     transition: color 0.3s ease;
     line-height: 1.8;
 }
 
 .footer-link:hover {
-    color: #ffffff;
+    color: #ffffff;           /* TIER 1: Hover Highlight */
 }
 
 /* --- LINKEDIN VECTOR COLOR REFINEMENTS --- */
@@ -354,20 +351,19 @@ body {
 }
 
 .linkedin-icon svg {
-    fill: #8e8e93 !important; 
+    fill: #aeaeb2 !important;  /* TIER 3: Vector fills match text links */
     transition: fill 0.3s ease;
 }
 
 .linkedin-icon:hover svg {
-    fill: #ffffff !important; 
+    fill: #ffffff !important;  /* TIER 1: Hover Highlight */
 }
 
 /* Responsive Design */
 @media (max-width: 900px) {
-    /* Responsive Header Overrides */
     .header-container {
         display: flex;
-        flex-direction: column; /* Folds name neatly over the tracking tabs on small windows */
+        flex-direction: column;
         gap: 24px;
         padding: 40px 24px;
     }
@@ -382,18 +378,15 @@ body {
         gap: 32px;
     }
 
-    /* Section Frame Corrections */
     .hero-section { padding: 180px 24px 60px 24px; }
     .hero-statement { font-size: 1.8rem; }
     
     .capabilities-grid { grid-template-columns: 1fr; gap: 60px; }
     .capabilities-section { padding: 60px 24px 60px 24px; }
     
-    /* Responsive Clients Grid Adjustment */
     .clients-section { padding: 60px 24px 60px 24px; }
     .clients-grid {
-        /* Automatically forces a clean 2-column layout on mobile view, ignoring desktop variable setting */
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
         gap: 32px;
         margin-top: 40px;
     }
@@ -402,11 +395,11 @@ body {
     .contact-layout { grid-template-columns: 1fr; gap: 40px; }
     .submit-btn { align-self: stretch; text-align: center; }
     
-    .site-footer { 
-        flex-direction: column-reverse; 
+    .site-footer {
+        flex-direction: column-reverse;
         align-items: flex-start;
         gap: 32px;
-        padding: 60px 24px; 
+        padding: 60px 24px;
     }
     
     .footer-nav {
