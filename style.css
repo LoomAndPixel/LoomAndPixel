@@ -182,7 +182,7 @@ body {
 .clients-grid {
     display: grid;
     /* Uses the inline HTML style attribute variable (--columns) with a default fallback of 4 */
-    grid-template-columns: repeat(var(--columns, 4), 1fr); 
+    grid-template-columns: repeat(var(--columns, 6), 1fr); 
     gap: 40px;
     align-items: center;
     margin-top: 60px;
