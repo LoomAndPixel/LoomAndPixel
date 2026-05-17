@@ -1,0 +1,12 @@
+<header class="site-header">
+    <div class="header-container">
+        <div class="header-left-spacer"></div>
+        
+        <a href="index.html" class="header-logo">Loom & Pixel</a>
+        
+        <nav class="header-nav">
+            <a href="careers.html" class="header-link">Careers</a>
+            <a href="index.html#contact" class="header-link">Contact</a>
+        </nav>
+    </div>
+</header>
