@@ -86,7 +86,7 @@ body {
 .header-link:hover {
     color: #ffffff;           /* TIER 1: Hover Highlight */
     border-color: #0052FF;    /* BRAND ACCENT: Photon Cobalt line signature ignites */
-    transform: scale(1.02);   /* Softened scale offset handles visual weight perfectly alongside the border */
+    transform: scale(1.05);   /* Softened scale offset handles visual weight perfectly alongside the border */
 }
 
 /* --- HERO SECTION --- */
@@ -386,7 +386,7 @@ body {
 .footer-link:hover {
     color: #ffffff;           /* TIER 1: Hover Highlight */
     border-color: #0052FF;    /* BRAND ACCENT: Photon Cobalt underline ignites */
-    transform: scale(1.02);   
+    transform: scale(1.05);   
 }
 
 /* --- LINKEDIN VECTOR COLOR REFINEMENTS --- */
