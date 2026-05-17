@@ -245,7 +245,7 @@ body {
 .client-logo img:hover {
     filter: none;             /* Restores native asset colors instantly */
     opacity: 1;               /* Full absolute alpha density visibility */
-    transform: scale(1.08);   /* Tightened physics upscale for beautiful response texture */
+    transform: scale(1.15);   /* Tightened physics upscale for beautiful response texture */
 }
 
 /* --- CONTACT SECTION --- */
