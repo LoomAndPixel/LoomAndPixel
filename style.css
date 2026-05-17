@@ -194,7 +194,7 @@ body {
 }
 
 .section-header {
-    margin-bottom: 80px;
+    margin-bottom: 40px;      /* REDUCED from 80px: Tightens layout space uniformly across sections */
     border-bottom: 1px solid #1c1c1e;
     padding-bottom: 20px;
 }
@@ -219,6 +219,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
+    margin-top: 20px;         /* Added low-weight top margin sync */
 }
 
 .capability-card {
@@ -262,7 +263,7 @@ body {
     flex-wrap: wrap;
     gap: 24px 40px;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: 20px;         /* REDUCED from 60px: Pulls the logo blocks up into alignment */
 }
 
 .client-logo {
@@ -554,7 +555,7 @@ body {
         font-size: 1.8rem;
     }
     
-    .capabilities-grid { grid-template-columns: 1fr; gap: 60px; }
+    .capabilities-grid { grid-template-columns: 1fr; gap: 60px; margin-top: 20px; }
     .capabilities-section { padding: 60px 24px 60px 24px; }
     
     .clients-section { padding: 60px 24px 60px 24px; }
@@ -563,7 +564,7 @@ body {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 32px;
-        margin-top: 40px;
+        margin-top: 20px; /* REDUCED from 40px: Pulls layout up elegantly on mobile view */
     }
     
     .client-logo {
