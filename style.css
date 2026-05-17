@@ -381,6 +381,8 @@ body {
 .delay-2 { animation-delay: 0.35s; }
 .delay-3 { animation-delay: 0.55s; }
 .delay-4 { animation-delay: 0.75s; }
+.delay-5 { animation-delay: 0.95s; }
+
 
 /* Responsive Design */
 @media (max-width: 900px) {
