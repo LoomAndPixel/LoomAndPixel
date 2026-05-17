@@ -181,7 +181,8 @@ body {
 
 .clients-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Balanced 4-column master matrix */
+    /* Uses the inline HTML style attribute variable (--columns) with a default fallback of 4 */
+    grid-template-columns: repeat(var(--columns, 4), 1fr); 
     gap: 40px;
     align-items: center;
     margin-top: 60px;
@@ -387,7 +388,8 @@ body {
     /* Responsive Clients Grid Adjustment */
     .clients-section { padding: 60px 24px 60px 24px; }
     .clients-grid {
-        grid-template-columns: repeat(2, 1fr); /* Tightly snaps layout to 2 columns on mobile view */
+        /* Automatically forces a clean 2-column layout on mobile view, ignoring desktop variable setting */
+        grid-template-columns: repeat(2, 1fr); 
         gap: 32px;
         margin-top: 40px;
     }
