@@ -1,22 +1,20 @@
 <section class="contact-section" id="contact">
-    <div class="section-header">
+    <div class="section-header reveal">
         <span class="section-label">Connect</span>
         <h2 class="section-title">Inquiries</h2>
     </div>
 
     <div class="contact-layout">
-        <div class="contact-info">
+        <div class="contact-info reveal delay-1">
             <p>Have a project in mind, or want to discuss a collaboration? Reach out, and let's build something compelling.</p>
             <a href="mailto:Hello@LoomAndPixel.com?subject=Inquiry" class="direct-email">Hello@LoomAndPixel.com</a>
         </div>
 
-        <div class="form-wrapper">
+        <div class="form-wrapper reveal delay-2">
             <form class="contact-form" id="pixelForm" action="https://api.web3forms.com/submit" method="POST">
                 
                 <input type="hidden" name="access_key" value="6da7bdc9-c9f9-49ac-b948-e08bd97aaffc">
-
                 <input type="hidden" name="subject" value="New Website Inquiry — Loom & Pixel">
-
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                 <div class="form-group">
@@ -44,47 +42,3 @@
         </div>
     </div>
 </section>
-
-<script>
-const form = document.getElementById('pixelForm');
-const responseDiv = document.getElementById('formResponse');
-const submitBtn = document.getElementById('submitBtn');
-
-form.addEventListener('submit', function(e) {
-    e.preventDefault(); // Blocks the browser from changing pages
-    
-    submitBtn.innerText = "Sending...";
-    submitBtn.disabled = true;
-
-    const formData = new FormData(form);
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
-
-    fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: json
-        })
-        .then(async (response) => {
-            if (response.status == 200) {
-                // If successful, hide the form and display the clean thank you text
-                form.style.display = 'none';
-                responseDiv.style.display = 'block';
-            } else {
-                console.log(response);
-                submitBtn.innerText = "Send Message";
-                submitBtn.disabled = false;
-                alert("Something went wrong. Please try again.");
-            }
-        })
-        .catch(error => {
-            console.log(error);
-            submitBtn.innerText = "Send Message";
-            submitBtn.disabled = false;
-            alert("Network error. Please try again.");
-        });
-});
-</script>
