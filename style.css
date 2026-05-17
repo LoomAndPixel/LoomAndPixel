@@ -14,23 +14,71 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* --- GLOBAL HEADER --- */
+.site-header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px; /* Generous top padding for the larger centered typography */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Strict 3-column structural blueprint */
+    align-items: center;
+}
+
+.header-left-spacer {
+    display: block; /* Acts as an invisible weight to perfectly balance the right-side tabs */
+}
+
+.header-logo {
+    font-size: 1.6rem; /* Scaled up to serve as a strong central focal point */
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.25em; /* Deep space setting for cinematic, premium presence */
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    justify-self: center; /* Locks the logo precisely onto the center line */
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+.header-logo:hover {
+    opacity: 0.7;
+}
+
+.header-nav {
+    display: flex;
+    gap: 40px; /* Perfectly mirrors footer navigation spacing */
+    justify-self: flex-end; /* Flushes the tabs cleanly to the right frame boundary */
+}
+
+.header-link {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #8e8e93;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.header-link:hover {
+    color: #ffffff;
+}
+
 /* --- HERO SECTION --- */
 .hero-section {
-    max-width: 1200px; /* Unified site container scale */
-    margin: 0 auto;    /* Centers the layout container on the screen */
-    padding: 160px 40px 120px 40px; /* Consistent 40px left/right padding */
+    max-width: 1200px; /* Unified layout boundary scale */
+    margin: 0 auto;
+    padding: 220px 40px 120px 40px; /* Increased top padding so content sits below the deep header */
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.brand-name {
-    font-size: 1.2rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: #aeaeb2;
-    margin-bottom: 60px;
 }
 
 .hero-statement {
@@ -39,7 +87,7 @@ body {
     line-height: 1.4;
     letter-spacing: -0.03em;
     color: #f5f5f7;
-    max-width: 900px;   /* Bounds the text layout width for comfortable reading */
+    max-width: 900px;   /* Bounds text layout width for premium right-side framing */
     margin-bottom: 40px;
 }
 
@@ -65,7 +113,7 @@ body {
 .capabilities-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 100px 40px 100px 40px; /* Consistent 40px left/right padding */
+    padding: 100px 40px 100px 40px;
 }
 
 .section-header {
@@ -127,7 +175,7 @@ body {
 .contact-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 100px 40px 160px 40px; /* Consistent 40px left/right padding */
+    padding: 100px 40px 160px 40px;
 }
 
 .contact-layout {
@@ -220,10 +268,10 @@ body {
 .site-footer {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 40px; /* Consistent 40px left/right padding */
+    padding: 80px 40px; 
     border-top: 1px solid #1c1c1e;
     display: flex;
-    justify-content: space-between; /* Links push right, copyright pushes left */
+    justify-content: space-between; /* Splitting footprint edges beautifully */
     align-items: center;
 }
 
@@ -242,7 +290,7 @@ body {
 .footer-nav {
     display: flex;
     align-items: center;
-    gap: 40px; /* Generous space between logo and text link */
+    gap: 40px; 
 }
 
 .footer-link {
@@ -273,8 +321,26 @@ body {
 
 /* Responsive Design */
 @media (max-width: 900px) {
-    /* Padding is unified at exactly 24px across the board, but only on smaller viewport widths */
-    .hero-section { padding: 100px 24px 60px 24px; }
+    /* Responsive Header Overrides */
+    .header-container {
+        display: flex;
+        flex-direction: column; /* Folds name neatly over the tracking tabs on small windows */
+        gap: 24px;
+        padding: 40px 24px;
+    }
+    
+    .header-logo {
+        font-size: 1.3rem;
+        letter-spacing: 0.2em;
+    }
+    
+    .header-nav {
+        justify-content: center;
+        gap: 32px;
+    }
+
+    /* Section Frame Corrections */
+    .hero-section { padding: 180px 24px 60px 24px; }
     .hero-statement { font-size: 1.8rem; }
     
     .capabilities-grid { grid-template-columns: 1fr; gap: 60px; }
