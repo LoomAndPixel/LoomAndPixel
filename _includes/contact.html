@@ -10,30 +10,81 @@
             <a href="mailto:Hello@LoomAndPixel.com?subject=Inquiry" class="direct-email">Hello@LoomAndPixel.com</a>
         </div>
 
-        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-            
-            <input type="hidden" name="access_key" value="6da7bdc9-c9f9-49ac-b948-e08bd97aaffc">
+        <div class="form-wrapper">
+            <form class="contact-form" id="pixelForm" action="https://api.web3forms.com/submit" method="POST">
+                
+                <input type="hidden" name="access_key" value="6da7bdc9-c9f9-49ac-b948-e08bd97aaffc">
 
-            <input type="hidden" name="subject" value="New Website Inquiry — Loom & Pixel">
+                <input type="hidden" name="subject" value="New Website Inquiry — Loom & Pixel">
 
-            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required placeholder="Your name">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="hello@domain.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
+                </div>
+
+                <button type="submit" id="submitBtn" class="submit-btn">Send Message</button>
+            </form>
+
+            <div id="formResponse" style="display: none; padding: 40px 0; max-width: 400px;">
+                <h3 style="color: #ffffff; font-size: 1.5rem; margin-bottom: 12px;">Thank you!</h3>
+                <p style="color: #aeaeb2; font-size: 1.1rem; line-height: 1.6;">Your message has been received. We'll review your inquiry and get back to you soon.</p>
             </div>
-
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required placeholder="hello@domain.com">
-            </div>
-
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
+        </div>
     </div>
 </section>
+
+<script>
+const form = document.getElementById('pixelForm');
+const responseDiv = document.getElementById('formResponse');
+const submitBtn = document.getElementById('submitBtn');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Blocks the browser from changing pages
+    
+    submitBtn.innerText = "Sending...";
+    submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            if (response.status == 200) {
+                // If successful, hide the form and display the clean thank you text
+                form.style.display = 'none';
+                responseDiv.style.display = 'block';
+            } else {
+                console.log(response);
+                submitBtn.innerText = "Send Message";
+                submitBtn.disabled = false;
+                alert("Something went wrong. Please try again.");
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            submitBtn.innerText = "Send Message";
+            submitBtn.disabled = false;
+            alert("Network error. Please try again.");
+        });
+});
+</script>
