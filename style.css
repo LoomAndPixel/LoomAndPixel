@@ -47,11 +47,14 @@ body {
     text-align: center;
     justify-self: center;
     white-space: nowrap;
-    transition: opacity 0.3s ease;
+    display: inline-block;    /* Essential for hardware-accelerated scale transforms */
+    will-change: transform;
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .header-logo:hover {
     opacity: 0.7;
+    transform: scale(1.04);   /* Subtle premium upscale on text tracking */
 }
 
 .header-nav {
@@ -65,11 +68,14 @@ body {
     font-weight: 300;
     color: #aeaeb2;           /* TIER 3: Secondary navigation */
     text-decoration: none;
-    transition: color 0.3s ease;
+    display: inline-block;    /* Essential for hardware-accelerated scale transforms */
+    will-change: transform;
+    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .header-link:hover {
     color: #ffffff;           /* TIER 1: Hover Highlight */
+    transform: scale(1.05);   /* Tactical spatial interaction bounce */
 }
 
 /* --- HERO SECTION --- */
@@ -340,17 +346,20 @@ body {
 .footer-link {
     color: #aeaeb2;           /* TIER 3: Footer paths are uniform with header paths */
     text-decoration: none;
-    transition: color 0.3s ease;
     line-height: 1.8;
+    display: inline-block;    /* Essential for hardware-accelerated scale transforms */
+    will-change: transform;
+    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .footer-link:hover {
     color: #ffffff;           /* TIER 1: Hover Highlight */
+    transform: scale(1.05);   /* Staggered text tracking matches structural header layout */
 }
 
 /* --- LINKEDIN VECTOR COLOR REFINEMENTS --- */
 .linkedin-icon {
-    display: flex;
+    display: inline-flex;    /* Forces internal vector canvas bounds to scale directly from center axis */
     align-items: center;
 }
 
@@ -427,7 +436,7 @@ body {
     
     .client-logo {
         width: 100%;
-        height: 80px;
+        height: 60px; /* Synchronized perfectly with baseline compression profiles */
     }
     
     .contact-section { padding: 60px 24px 100px 24px; }
