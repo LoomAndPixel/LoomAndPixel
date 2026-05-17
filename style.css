@@ -47,7 +47,6 @@ body {
     font-size: 1.5rem;        /* SIZE 2: Header Bucket */
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.25em;
     color: #ffffff;           
     text-decoration: none;
     text-align: center;
@@ -57,6 +56,9 @@ body {
     align-items: center;
     will-change: opacity;
     transition: opacity 0.3s ease;
+    
+    /* RE-ESTABLISHED: Explicitly sets master tracking weight */
+    letter-spacing: 0.25em; 
 }
 
 .header-logo:hover {
@@ -68,37 +70,40 @@ body {
     display: inline-flex;
 }
 
-/* TARGETS INDIVIDUAL LETTERS: Hooks into the HTML `--i` variables to calculate cascading delay times */
+/* TARGETS INDIVIDUAL LETTERS: Inherits color property states for smooth timeline transitioning */
 .header-logo .logo-word span {
     display: inline-block;
-    will-change: transform, opacity;
-    opacity: 0; /* Hidden initially so they can ripple into view */
+    will-change: transform, opacity, color;
+    opacity: 0;
+    color: #0052FF; /* Base illumination state */
+    letter-spacing: 0.25em;
 }
 
 .header-logo .logo-amp {
     display: inline-block;
-    margin: 0 4px;
-    color: #0052FF; /* Starts as Photon Cobalt on browser mount */
-    animation: logoAmpFade 1.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    animation-delay: 0.15s; /* Synchronized perfectly with header element reveal */
+    color: #0052FF; /* Synchronized lighting mount profile */
+    animation: logoColorFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 0.15s;
+    
+    /* Balances spatial anomalies inside granular inline tracking wrappers */
+    margin-left: 0.1em;
+    margin-right: 0.35em; 
 }
 
 /* --- THE KINETIC LETTER STAGGER PATHS --- */
 
-/* Left word letters glide leftward out from the ampersand */
-.header-logo .left-word span {
-    transform: translateX(20px);
-    animation: letterExpand 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    /* Formula: 0.15s master delay + (index number * 0.06s sequence gap) */
-    animation-delay: calc(0.15s + (var(--i) * 0.06s));
-}
+/* Left Word Letters ("Loom"): Gliding leftward out from the ampersand axis */
+.header-logo .left-word span:nth-child(1) { transform: translateX(16px); animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (4 * 0.06s)); } /* L */
+.header-logo .left-word span:nth-child(2) { transform: translateX(12px); animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (3 * 0.06s)); } /* o */
+.header-logo .left-word span:nth-child(3) { transform: translateX(8px);  animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (2 * 0.06s)); } /* o */
+.header-logo .left-word span:nth-child(4) { transform: translateX(4px);  animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (1 * 0.06s)); } /* m */
 
-/* Right word letters glide rightward out from the ampersand */
-.header-logo .right-word span {
-    transform: translateX(-20px);
-    animation: letterExpand 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    animation-delay: calc(0.15s + (var(--i) * 0.06s));
-}
+/* Right Word Letters ("Pixel"): Gliding rightward out from the ampersand axis */
+.header-logo .right-word span:nth-child(1) { transform: translateX(-4px);  animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (1 * 0.06s)); } /* P */
+.header-logo .right-word span:nth-child(2) { transform: translateX(-8px);  animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (2 * 0.06s)); } /* i */
+.header-logo .right-word span:nth-child(3) { transform: translateX(-12px); animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (3 * 0.06s)); } /* x */
+.header-logo .right-word span:nth-child(4) { transform: translateX(-16px); animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (4 * 0.06s)); } /* e */
+.header-logo .right-word span:nth-child(5) { transform: translateX(-20px); animation: letterExpandFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; animation-delay: calc(0.15s + (5 * 0.06s)); } /* l */
 
 .header-nav {
     display: flex;
@@ -475,20 +480,29 @@ body {
 
 /* --- GRAPHICS HARDWARE REVEAL TIMELINES --- */
 
-@keyframes letterExpand {
-    from {
+/* Unified translation tracking and color dissipation sequence map */
+@keyframes letterExpandFade {
+    0% {
         opacity: 0;
+        color: #0052FF; /* Initial high-intensity ignition point */
     }
-    to {
+    30% {
+        opacity: 1; /* Instant tracking anchor reveal state */
+    }
+    60% {
+        color: #0052FF; /* Preserves full brand tone color through physical slide coordinates */
+    }
+    100% {
         opacity: 1;
-        transform: translateX(0); /* Characters settle completely into place */
+        color: #ffffff; /* Cools down to crisp white as letters hit rest position */
+        transform: translateX(0);
     }
 }
 
-@keyframes logoAmpFade {
+@keyframes logoColorFade {
     0% { color: #0052FF; }
-    80% { color: #0052FF; } /* Holds the blue accent through the full letter rolling sequence */
-    100% { color: #ffffff; } /* Settles to match primary brand white */
+    60% { color: #0052FF; } 
+    100% { color: #ffffff; } 
 }
 
 /* Responsive Design */
