@@ -1,28 +1,30 @@
-- logo: Corvette_logo_vertical.svg
-  alt: Corvette
 - logo: Microsoft_logo_2012.svg
   alt: Microsoft
-- logo: Disney_logo.svg
-  alt: Disney
-- logo: PwC_logo.svg
-  alt: PwC
-- logo: BlueOrigin_logo.svg
-  alt: Blue Origin
-- logo: LockheedMartin_logo.svg
-  alt: Lockheed Martin
-- logo: Netflix_logo_2015.svg
-  alt: Netflix
-- logo: Confluent_logo.svg
-  alt: Confluent
-- logo: Lumen_logo_02.svg
-  alt: Lumen
-- logo: Stratolaunch_logo.svg
-  alt: Stratolaunch
-- logo: iTicket_logo_white.svg
-  alt: iTicket
-- logo: MIFTIFusion_logo.svg
-  alt: MIFTI Fusion
-- logo: PFL_logo.svg
-  alt: PFL
 - logo: Xbox_logo.svg
   alt: Xbox
+- logo: Disney_logo.svg
+  alt: Disney
+- logo: Netflix_logo_2015.svg
+  alt: Netflix
+- logo: PwC_logo.svg
+  alt: PwC
+- logo: Lumen_logo_02.svg
+  alt: Lumen
+- logo: LockheedMartin_logo.svg
+  alt: Lockheed Martin
+- logo: BlueOrigin_logo.svg
+  alt: Blue Origin
+- logo: Stratolaunch_logo.svg
+  alt: Stratolaunch
+- logo: Confluent_logo.svg
+  alt: Confluent
+- logo: MIFTIFusion_logo.svg
+  alt: MIFTI Fusion
+- logo: Corvette_logo_vertical.svg
+  alt: Corvette
+- logo: PFL_logo.svg
+  alt: PFL
+- logo: NeonGlobal_logo.svg
+  alt: Neon Global
+- logo: iTicket_logo_white.svg
+  alt: iTicket
