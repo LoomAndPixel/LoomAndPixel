@@ -172,6 +172,43 @@ body {
     line-height: 1.6;
 }
 
+/* --- BRAND CLIENTS SECTION --- */
+.clients-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px 100px 40px;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Balanced 4-column master matrix */
+    gap: 40px;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.client-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px; /* Rigid alignment ceiling */
+}
+
+.client-logo img {
+    max-width: 140px;
+    max-height: 45px;
+    width: auto;
+    height: auto;
+    filter: brightness(0) invert(0.5); /* Mutes original brand colors to quiet premium gray */
+    opacity: 0.6;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.client-logo img:hover {
+    filter: brightness(0) invert(1); /* Flares to pure white when focal point changes */
+    opacity: 1;
+}
+
 /* --- CONTACT SECTION --- */
 .contact-section {
     max-width: 1200px;
@@ -346,6 +383,14 @@ body {
     
     .capabilities-grid { grid-template-columns: 1fr; gap: 60px; }
     .capabilities-section { padding: 60px 24px 60px 24px; }
+    
+    /* Responsive Clients Grid Adjustment */
+    .clients-section { padding: 60px 24px 60px 24px; }
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tightly snaps layout to 2 columns on mobile view */
+        gap: 32px;
+        margin-top: 40px;
+    }
     
     .contact-section { padding: 60px 24px 100px 24px; }
     .contact-layout { grid-template-columns: 1fr; gap: 40px; }
