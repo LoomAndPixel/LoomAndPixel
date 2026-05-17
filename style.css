@@ -73,7 +73,7 @@ body {
 /* TARGETS INDIVIDUAL LETTERS: Inherits color property states for smooth timeline transitioning */
 .header-logo .logo-word span {
     display: inline-block;
-    will-change: transform, opacity, color;
+    will-change: opacity, color, transform;
     opacity: 0;
     color: #0052FF; /* Base illumination state */
     letter-spacing: 0.25em;
@@ -90,20 +90,38 @@ body {
     margin-right: 0.35em; 
 }
 
-/* --- THE KINETIC LETTER STAGGER PATHS (TRUE CENTER BURST ENGINE) --- */
+/* --- THE KINETIC LETTER STAGGER PATHS (COLLISION-FREE SEPARATED ENGINE) --- */
 
-/* Left Word Letters ("Loom"): All letters launch from a compressed core 12px right behind the ampersand */
-.header-logo .left-word span:nth-child(1) { transform: translateX(12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* L */
-.header-logo .left-word span:nth-child(2) { transform: translateX(12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* o */
-.header-logo .left-word span:nth-child(3) { transform: translateX(12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* o */
-.header-logo .left-word span:nth-child(4) { transform: translateX(12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* m */
+/* 1. PHYSICAL TRANSLATION & LAYERED CONTAINER OPACITY: 
+   Parents launch completely invisible and fade on quickly during travel 
+*/
+.header-logo .left-word {
+    transform: translateX(40px); /* Tightly pulls Loom right up to the ampersand axis on boot */
+    opacity: 0;                  /* Starts completely hidden */
+    animation: wordSlideLeft 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.15s;
+    will-change: transform, opacity;
+}
 
-/* Right Word Letters ("Pixel"): All letters launch from a compressed core -12px right behind the ampersand */
-.header-logo .right-word span:nth-child(1) { transform: translateX(-12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* P */
-.header-logo .right-word span:nth-child(2) { transform: translateX(-12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* i */
-.header-logo .right-word span:nth-child(3) { transform: translateX(-12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* x */
-.header-logo .right-word span:nth-child(4) { transform: translateX(-12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* e */
-.header-logo .right-word span:nth-child(5) { transform: translateX(-12px); animation: letterExpandFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (5 * 0.08s)); } /* l */
+.header-logo .right-word {
+    transform: translateX(-40px); /* Tightly pulls Pixel left up to the ampersand axis on boot */
+    opacity: 0;                   /* Starts completely hidden */
+    animation: wordSlideRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.15s;
+    will-change: transform, opacity;
+}
+
+/* 2. GRANULAR COLOR/OPACITY TRACKS: Calculated letter-by-letter on the child spans */
+.header-logo .left-word span:nth-child(1) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* L */
+.header-logo .left-word span:nth-child(2) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* o */
+.header-logo .left-word span:nth-child(3) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* o */
+.header-logo .left-word span:nth-child(4) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* m */
+
+.header-logo .right-word span:nth-child(1) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* P */
+.header-logo .right-word span:nth-child(2) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* i */
+.header-logo .right-word span:nth-child(3) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* x */
+.header-logo .right-word span:nth-child(4) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* e */
+.header-logo .right-word span:nth-child(5) { animation: characterRevealFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (5 * 0.08s)); } /* l */
 
 .header-nav {
     display: flex;
@@ -449,7 +467,7 @@ body {
     will-change: transform;
 }
 
-/* UPDATED: Vector canvas ignites into official LinkedIn Brand Identity Blue on hover */
+/* Vector canvas ignites into official LinkedIn Brand Identity Blue on hover */
 .linkedin-icon:hover svg {
     fill: #0077B5 !important;  /* BRAND SPECIFIC: Authentic LinkedIn Blue */
     transform: scale(1.1);     /* Provides independent hardware acceleration directly to vector canvas */
@@ -481,8 +499,37 @@ body {
 
 /* --- GRAPHICS HARDWARE REVEAL TIMELINES --- */
 
-/* High-velocity translation curves and overlapping fluid color transitions */
-@keyframes letterExpandFade {
+/* Parent Word Translation Timelines (Layered with fast 25% opacity sweeps) */
+@keyframes wordSlideLeft {
+    0% { 
+        transform: translateX(40px); 
+        opacity: 0; 
+    }
+    25% {
+        opacity: 1; /* Fully visible early in the glide space */
+    }
+    100% { 
+        transform: translateX(0); 
+        opacity: 1;
+    }
+}
+
+@keyframes wordSlideRight {
+    0% { 
+        transform: translateX(-40px); 
+        opacity: 0; 
+    }
+    25% {
+        opacity: 1; /* Fully visible early in the glide space */
+    }
+    100% { 
+        transform: translateX(0); 
+        opacity: 1;
+    }
+}
+
+/* Child Letter Color-Bleed Timeline */
+@keyframes characterRevealFade {
     0% {
         opacity: 0;
         color: #0052FF;      /* Launches in vivid Photon Cobalt */
@@ -497,7 +544,7 @@ body {
     100% {
         opacity: 1;
         color: #ffffff;      /* Seamlessly reaches editorial white right as tracking metrics settle */
-        transform: translateX(0) scale(1); /* Full alignment safety guarantees */
+        transform: scale(1);
     }
 }
 
