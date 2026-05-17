@@ -448,8 +448,8 @@ body {
 }
 
 /* BACK TO TOP VECTOR GLYPH MICRO-INTERACTIONS */
-.footer-link .back-to-top {
-    cursor: pointer; /* Preserves tactile hand texture when fallback href parameters are stripped */
+.footer-link.back-to-top {
+    cursor: pointer; /* FIXED: Multi-selector target safely triggers premium hand cursor state */
 }
 
 .footer-link .top-arrow {
