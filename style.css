@@ -48,19 +48,49 @@ body {
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.25em;
-    color: #ffffff;           /* TIER 1: Pure White Highlight */
+    color: #ffffff;           
     text-decoration: none;
     text-align: center;
     justify-self: center;
     white-space: nowrap;
-    display: inline-block;    /* Essential for hardware-accelerated scale transforms */
-    will-change: transform;
-    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    display: inline-flex;     /* Keeps span tracks aligned on a horizontal plane */
+    align-items: center;
+    will-change: opacity;
+    transition: opacity 0.3s ease;
 }
 
 .header-logo:hover {
     opacity: 0.7;
-    transform: scale(1.04);   /* Subtle premium upscale on text tracking */
+}
+
+/* Base style layout configurations for kinetic word segments */
+.header-logo .logo-word {
+    display: inline-block;
+    will-change: transform;
+}
+
+.header-logo .logo-amp {
+    display: inline-block;
+    margin: 0 4px;
+    color: #0052FF; /* Starts as Photon Cobalt on browser mount */
+    animation: logoAmpFade 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 0.15s; /* Synchronized perfectly with header element reveal */
+}
+
+/* --- THE KINETIC INTRO EXPANSION SEQUENCE --- */
+
+/* "Loom" slides smoothly leftwards into position */
+.header-logo .left-word {
+    transform: translateX(12px); /* Tightly condensed initially */
+    animation: logoExpandLeft 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 0.15s;
+}
+
+/* "Pixel" glides smoothly rightwards into position */
+.header-logo .right-word {
+    transform: translateX(-12px); /* Tightly condensed initially */
+    animation: logoExpandRight 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 0.15s;
 }
 
 .header-nav {
@@ -390,7 +420,7 @@ body {
 .footer-link:hover {
     color: #ffffff;           /* TIER 1: Hover Highlight */
     border-color: #0052FF;    /* BRAND ACCENT: Photon Cobalt underline ignites */
-    transform: scale(1.02);   
+    transform: scale(1.05);   
 }
 
 /* --- LINKEDIN VECTOR COLOR REFINEMENTS --- */
@@ -435,6 +465,23 @@ body {
 .delay-3 { animation-delay: 0.55s; }
 .delay-4 { animation-delay: 0.75s; }
 .delay-5 { animation-delay: 0.95s; }
+
+/* --- GRAPHICS HARDWARE REVEAL TIMELINES --- */
+@keyframes logoExpandLeft {
+    from { transform: translateX(12px); }
+    to { transform: translateX(0); }
+}
+
+@keyframes logoExpandRight {
+    from { transform: translateX(-12px); }
+    to { transform: translateX(0); }
+}
+
+@keyframes logoAmpFade {
+    0% { color: #0052FF; }
+    75% { color: #0052FF; } /* Holds blue accent texture while typography is physically moving */
+    100% { color: #ffffff; } /* Settles back to crisp pure white alongside the typography */
+}
 
 /* Responsive Design */
 @media (max-width: 900px) {
