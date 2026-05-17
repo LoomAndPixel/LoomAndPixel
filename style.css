@@ -70,7 +70,7 @@ body {
     align-items: center;
 }
 
-/* UPDATED: Integrated interactive branding line structures underneath text targets */
+/* Integrated interactive branding line structures underneath text targets */
 .header-link {
     font-size: 0.95rem;       /* SIZE 4: Unified Body Bucket */
     font-weight: 300;
@@ -182,7 +182,7 @@ body {
     flex-direction: column;
 }
 
-/* UPDATED: Transformed standard gray counters into premium technical indicators */
+/* Transformed standard gray counters into premium technical indicators */
 .capability-num {
     font-size: 0.8rem;        /* SIZE 5: Label / Utility Bucket */
     font-family: monospace;
@@ -235,16 +235,17 @@ body {
     max-height: 45px;
     width: auto;
     height: auto;
-    filter: brightness(0) invert(0.8);
+    filter: brightness(0) invert(0.8); /* Rest off-white canvas sync profile */
     opacity: 0.8;
     transition: filter 0.4s ease-out, opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
 }
 
+/* UPDATED: Dynamic discovery trigger drops monochromatic masks to restore raw color branding assets on hover */
 .client-logo img:hover {
-    filter: brightness(0) invert(1);
-    opacity: 1;
-    transform: scale(1.1);
+    filter: none;             /* Restores native asset colors instantly */
+    opacity: 1;               /* Full absolute alpha density visibility */
+    transform: scale(1.08);   /* Tightened physics upscale for beautiful response texture */
 }
 
 /* --- CONTACT SECTION --- */
@@ -374,7 +375,7 @@ body {
     gap: 40px;
 }
 
-/* UPDATED: Integrated interactive branding line structures to synchronize perfectly with header components */
+/* Integrated interactive branding line structures to synchronize perfectly with header components */
 .footer-link {
     color: #aeaeb2;           /* TIER 3: Footer paths are uniform with header paths */
     text-decoration: none;
@@ -389,7 +390,7 @@ body {
 .footer-link:hover {
     color: #ffffff;           /* TIER 1: Hover Highlight */
     border-color: #0052FF;    /* BRAND ACCENT: Photon Cobalt underline ignites */
-    transform: scale(1.05);   
+    transform: scale(1.02);   
 }
 
 /* --- LINKEDIN VECTOR COLOR REFINEMENTS --- */
