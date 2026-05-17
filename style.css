@@ -65,32 +65,39 @@ body {
 
 /* Base style layout configurations for kinetic word segments */
 .header-logo .logo-word {
+    display: inline-flex;
+}
+
+/* TARGETS INDIVIDUAL LETTERS: Hooks into the HTML `--i` variables to calculate cascading delay times */
+.header-logo .logo-word span {
     display: inline-block;
-    will-change: transform;
+    will-change: transform, opacity;
+    opacity: 0; /* Hidden initially so they can ripple into view */
 }
 
 .header-logo .logo-amp {
     display: inline-block;
     margin: 0 4px;
     color: #0052FF; /* Starts as Photon Cobalt on browser mount */
-    animation: logoAmpFade 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation: logoAmpFade 1.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     animation-delay: 0.15s; /* Synchronized perfectly with header element reveal */
 }
 
-/* --- THE KINETIC INTRO EXPANSION SEQUENCE --- */
+/* --- THE KINETIC LETTER STAGGER PATHS --- */
 
-/* "Loom" slides smoothly leftwards into position */
-.header-logo .left-word {
-    transform: translateX(12px); /* Tightly condensed initially */
-    animation: logoExpandLeft 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    animation-delay: 0.15s;
+/* Left word letters glide leftward out from the ampersand */
+.header-logo .left-word span {
+    transform: translateX(20px);
+    animation: letterExpand 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    /* Formula: 0.15s master delay + (index number * 0.06s sequence gap) */
+    animation-delay: calc(0.15s + (var(--i) * 0.06s));
 }
 
-/* "Pixel" glides smoothly rightwards into position */
-.header-logo .right-word {
-    transform: translateX(-12px); /* Tightly condensed initially */
-    animation: logoExpandRight 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    animation-delay: 0.15s;
+/* Right word letters glide rightward out from the ampersand */
+.header-logo .right-word span {
+    transform: translateX(-20px);
+    animation: letterExpand 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: calc(0.15s + (var(--i) * 0.06s));
 }
 
 .header-nav {
@@ -467,20 +474,21 @@ body {
 .delay-5 { animation-delay: 0.95s; }
 
 /* --- GRAPHICS HARDWARE REVEAL TIMELINES --- */
-@keyframes logoExpandLeft {
-    from { transform: translateX(12px); }
-    to { transform: translateX(0); }
-}
 
-@keyframes logoExpandRight {
-    from { transform: translateX(-12px); }
-    to { transform: translateX(0); }
+@keyframes letterExpand {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Characters settle completely into place */
+    }
 }
 
 @keyframes logoAmpFade {
     0% { color: #0052FF; }
-    75% { color: #0052FF; } /* Holds blue accent texture while typography is physically moving */
-    100% { color: #ffffff; } /* Settles back to crisp pure white alongside the typography */
+    80% { color: #0052FF; } /* Holds the blue accent through the full letter rolling sequence */
+    100% { color: #ffffff; } /* Settles to match primary brand white */
 }
 
 /* Responsive Design */
