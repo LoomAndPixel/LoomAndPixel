@@ -1,3 +1,9 @@
+/* INJECTED: Global Selection override completely owns the cursor highlight experience */
+::selection {
+    background-color: #0052FF; /* Photon Cobalt */
+    color: #ffffff;           /* Keeps highlighted copy sharp and legible */
+}
+
 /* Reset & Base Styles */
 * {
     box-sizing: border-box;
@@ -54,28 +60,33 @@ body {
 
 .header-logo:hover {
     opacity: 0.7;
-    transform: scale(1.1);   /* Subtle premium upscale on text tracking */
+    transform: scale(1.04);   /* Subtle premium upscale on text tracking */
 }
 
 .header-nav {
     display: flex;
     gap: 40px;
     justify-self: flex-end;
+    align-items: center;
 }
 
+/* UPDATED: Integrated interactive branding line structures underneath text targets */
 .header-link {
     font-size: 0.95rem;       /* SIZE 4: Unified Body Bucket */
     font-weight: 300;
     color: #aeaeb2;           /* TIER 3: Secondary navigation */
     text-decoration: none;
-    display: inline-block;    /* Essential for hardware-accelerated scale transforms */
+    display: inline-block;    
     will-change: transform;
-    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    border-bottom: 2px solid transparent; /* Allocates layout pixels baseline breathing space */
+    padding-bottom: 4px;
+    transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .header-link:hover {
     color: #ffffff;           /* TIER 1: Hover Highlight */
-    transform: scale(1.1);   /* Tactical spatial interaction bounce */
+    border-color: #0052FF;    /* BRAND ACCENT: Photon Cobalt line signature ignites */
+    transform: scale(1.02);   /* Softened scale offset handles visual weight perfectly alongside the border */
 }
 
 /* --- HERO SECTION --- */
@@ -118,7 +129,6 @@ body {
     transform: scale(1.05);
 }
 
-/* INJECTED: Premium 10% micro-accent glyph architecture */
 .cta-text .accent-glyph {
     color: #0052FF;           /* BRAND ACCENT: Photon Cobalt */
     display: inline-block;
@@ -169,11 +179,13 @@ body {
     flex-direction: column;
 }
 
+/* UPDATED: Transformed standard gray counters into premium technical indicators */
 .capability-num {
     font-size: 0.8rem;        /* SIZE 5: Label / Utility Bucket */
     font-family: monospace;
-    color: #636366;           /* TIER 4: Muted system indicator */
+    color: #0052FF;           /* BRAND ACCENT: Photon Cobalt serial indices */
     margin-bottom: 24px;
+    letter-spacing: 0.05em;
 }
 
 .capability-title {
@@ -198,7 +210,6 @@ body {
     padding: 100px 40px 100px 40px;
 }
 
-/* FIXED: Replaced grid structure with flexible, auto-centering alignment blueprint */
 .clients-grid {
     display: flex;
     flex-wrap: wrap;
@@ -207,7 +218,6 @@ body {
     margin-top: 60px;
 }
 
-/* FIXED: Distributes layout space precisely to target a 6-column base row limit */
 .client-logo {
     display: flex;
     justify-content: center;
@@ -302,7 +312,6 @@ body {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* INJECTED: Interactive conversion tunnel state shifts */
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
@@ -362,33 +371,41 @@ body {
     gap: 40px;
 }
 
+/* UPDATED: Integrated interactive branding line structures to synchronize perfectly with header components */
 .footer-link {
     color: #aeaeb2;           /* TIER 3: Footer paths are uniform with header paths */
     text-decoration: none;
     line-height: 1.8;
-    display: inline-block;    /* Essential for hardware-accelerated scale transforms */
+    display: inline-block;    
     will-change: transform;
-    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .footer-link:hover {
     color: #ffffff;           /* TIER 1: Hover Highlight */
-    transform: scale(1.1);   /* Staggered text tracking matches structural header layout */
+    border-color: #0052FF;    /* BRAND ACCENT: Photon Cobalt underline ignites */
+    transform: scale(1.02);   
 }
 
 /* --- LINKEDIN VECTOR COLOR REFINEMENTS --- */
 .linkedin-icon {
     display: inline-flex;    /* Forces internal vector canvas bounds to scale directly from center axis */
     align-items: center;
+    border-bottom: none !important; /* Disables the navigation text border pipeline on vector footprints */
+    padding-bottom: 0 !important;
 }
 
 .linkedin-icon svg {
     fill: #aeaeb2 !important;  /* TIER 3: Vector fills match text links */
-    transition: fill 0.3s ease;
+    transition: fill 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
 }
 
 .linkedin-icon:hover svg {
     fill: #ffffff !important;  /* TIER 1: Hover Highlight */
+    transform: scale(1.1);     /* Provides independent hardware acceleration directly to vector canvas */
 }
 
 /* --- CINEMATIC REVEAL ANIMATIONS --- */
@@ -445,7 +462,6 @@ body {
     
     .clients-section { padding: 60px 24px 60px 24px; }
     
-    /* RE-ESTABLISHES 2-COLUMN BALANCED ROTATION SPLITS FOR PHONE VIEWPORTS */
     .clients-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -455,7 +471,7 @@ body {
     
     .client-logo {
         width: 100%;
-        height: 60px; /* Synchronized perfectly with baseline compression profiles */
+        height: 60px;
     }
     
     .contact-section { padding: 60px 24px 100px 24px; }
