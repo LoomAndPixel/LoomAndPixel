@@ -1,6 +1,6 @@
 /* INJECTED: Global Selection override completely owns the cursor highlight experience */
 ::selection {
-    background-color: #0052FF; /* Photon Cobalt */
+    background-color: #00D2FF; /* Photon Cobalt */
     color: #ffffff;           /* Keeps highlighted copy sharp and legible */
 }
 
@@ -83,13 +83,13 @@ body {
     display: inline-block;
     will-change: transform, opacity, color;
     opacity: 0;
-    color: #0052FF; /* Base illumination state */
+    color: #00D2FF; /* Base illumination state */
     letter-spacing: 0.25em;
 }
 
 .header-logo .logo-amp {
     display: inline-block;
-    color: #0052FF; /* Synchronized lighting mount profile */
+    color: #00D2FF; /* Synchronized lighting mount profile */
     animation: logoColorFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     animation-delay: 0.15s;
     margin-left: 0.1em;
@@ -133,7 +133,7 @@ body {
 
 .header-link:hover {
     color: #ffffff;           /* TIER 1: Hover Highlight */
-    border-color: #0052FF;    /* BRAND ACCENT: Photon Cobalt line signature ignites */
+    border-color: #00D2FF;    /* BRAND ACCENT: Photon Cobalt line signature ignites */
     transform: scale(1.05);   /* Softened scale offset handles visual weight perfectly alongside the border */
 }
 
@@ -178,7 +178,7 @@ body {
 }
 
 .cta-text .accent-glyph {
-    color: #0052FF;              /* Photon Cobalt */
+    color: #00D2FF;              /* Photon Cobalt */
     font-weight: 700;            /* Heavy weight to match the new bold glyph */
     display: inline-block;
     margin-left: 6px;            
@@ -235,7 +235,7 @@ body {
 .capability-num {
     font-size: 0.8rem;        /* SIZE 5: Label / Utility Bucket */
     font-family: monospace;
-    color: #0052FF;           /* BRAND ACCENT: Photon Cobalt serial indices */
+    color: #00D2FF;           /* BRAND ACCENT: Photon Cobalt serial indices */
     margin-bottom: 24px;
     letter-spacing: 0.05em;
 }
@@ -373,8 +373,8 @@ body {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #0052FF;    /* BRAND ACCENT: Photon Cobalt input ignite lines */
-    box-shadow: 0 0 0 1px #0052FF; /* Crisp focused perimeter glow */
+    border-color: #00D2FF;    /* BRAND ACCENT: Photon Cobalt input ignite lines */
+    box-shadow: 0 0 0 1px #00D2FF; /* Crisp focused perimeter glow */
 }
 
 .form-group textarea {
@@ -443,7 +443,7 @@ body {
 
 .footer-link:hover {
     color: #ffffff;           /* TIER 1: Hover Highlight */
-    border-color: #0052FF;    /* BRAND ACCENT: Photon Cobalt underline ignites */
+    border-color: #00D2FF;    /* BRAND ACCENT: Photon Cobalt underline ignites */
     transform: scale(1.05);   
 }
 
@@ -463,7 +463,7 @@ body {
 /* Arrow smoothly slides upward and shifts color spaces natively on structural block hover */
 .footer-link:hover .top-arrow {
     transform: translateY(-2px);
-    color: #0052FF; /* Photon Cobalt flash at peak translation height */
+    color: #00D2FF; /* Photon Cobalt flash at peak translation height */
 }
 
 /* --- LINKEDIN VECTOR COLOR REFINEMENTS --- */
@@ -516,14 +516,14 @@ body {
 @keyframes letterBurstLeft {
     0% {
         opacity: 0;
-        color: #0052FF; /* High intensity Cobalt launch point */
+        color: #00D2FF; /* High intensity Cobalt launch point */
         transform: translateX(36px) scale(0.95); /* Tightly compressed origin tracking footprint */
     }
     15% {
         opacity: 1; /* Quick elegant layout exposure */
     }
     25% {
-        color: #0052FF; /* Color overlap bleed activates during physical glide travel */
+        color: #00D2FF; /* Color overlap bleed activates during physical glide travel */
     }
     100% {
         opacity: 1;
@@ -536,14 +536,14 @@ body {
 @keyframes letterBurstRight {
     0% {
         opacity: 0;
-        color: #0052FF;
+        color: #00D2FF;
         transform: translateX(-36px) scale(0.95); /* Tightly compressed origin tracking footprint */
     }
     15% {
         opacity: 1;
     }
     25% {
-        color: #0052FF;
+        color: #00D2FF;
     }
     100% {
         opacity: 1;
@@ -553,8 +553,8 @@ body {
 }
 
 @keyframes logoColorFade {
-    0% {   color: #0052FF; }
-    25% {  color: #0052FF; } 
+    0% {   color: #00D2FF; }
+    25% {  color: #00D2FF; } 
     100% { color: #ffffff; } 
 }
 
