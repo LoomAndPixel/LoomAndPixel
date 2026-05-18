@@ -1,7 +1,7 @@
 /* INJECTED: Global Selection override completely owns the cursor highlight experience */
 ::selection {
     background-color: #00c8ff; /* Accent Color */
-    color: #ffffff;           /* Keeps highlighted copy sharp and legible */
+    color: #121212;           /* Switches text to primary dark for maximum high-contrast pop */
 }
 
 /* Reset & Base Styles */
@@ -374,7 +374,7 @@ body {
 .form-group textarea:focus {
     outline: none;
     border-color: #00c8ff;    /* BRAND ACCENT: Accent Color input ignite lines */
-    box-shadow: 0 0 0 1px #00c8ff; /* Crisp focused perimeter glow */
+    box-shadow: 0 0 12px rgba(0, 200, 255, 0.15); /* Soft, low-weight neon hardware-accelerated aura back-glow */
 }
 
 .form-group textarea {
@@ -406,8 +406,9 @@ body {
     margin: 0 auto;
     padding: 80px 40px;
     border-top: 1px solid #1c1c1e;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    /* REBUILT: Unified 3-column structural layout engine seamlessly mirrors header geometry */
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
 }
 
@@ -415,12 +416,34 @@ body {
     font-size: 0.8rem;        /* SIZE 5: Label / Utility Bucket */
     color: #636366;           /* TIER 4: Copyright treatments */
     font-weight: 300;
-    line-height: 1.8;
+}
+
+.footer-center {
+    justify-self: center;
+}
+
+/* Premium Typographic Logo Mirror & Scroll Anchor Trigger */
+.footer-logo-mirror {
+    font-size: 0.95rem;       /* SIZE 4: Unified Body Bucket calibration */
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: 0.25em;   /* Coordinates letter spacing directly from top header logo metrics */
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-block;
+    will-change: transform, color;
+    transition: color 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Micro-interaction: Text smoothly swells and shifts to high-voltage Electric Neon Blue on hover */
+.footer-logo-mirror:hover {
+    color: #00c8ff;
+    transform: scale(1.03);   /* Minimal structural weight deflection looks highly polished */
 }
 
 .footer-right {
-    font-size: 0.8rem;        /* SIZE 5: Label / Utility Bucket */
-    font-weight: 300;
+    justify-self: flex-end;
 }
 
 .footer-nav {
@@ -445,25 +468,6 @@ body {
     color: #ffffff;           /* TIER 1: Hover Highlight */
     border-color: #00c8ff;    /* BRAND ACCENT: Accent Color underline ignites */
     transform: scale(1.05);   
-}
-
-/* BACK TO TOP VECTOR GLYPH MICRO-INTERACTIONS */
-.footer-link.back-to-top {
-    cursor: pointer; /* FIXED: Multi-selector target safely triggers premium hand cursor state */
-}
-
-.footer-link .top-arrow {
-    display: inline-block;
-    margin-left: 2px;
-    font-weight: 400;
-    will-change: transform;
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
-}
-
-/* Arrow smoothly slides upward and shifts color spaces natively on structural block hover */
-.footer-link:hover .top-arrow {
-    transform: translateY(-2px);
-    color: #00c8ff; /* Accent Color flash at peak translation height */
 }
 
 /* --- LINKEDIN VECTOR COLOR REFINEMENTS --- */
@@ -604,14 +608,24 @@ body {
     .contact-layout { grid-template-columns: 1fr; gap: 40px; margin-top: 20px; }
     .submit-btn { align-self: stretch; text-align: center; }
     
+    /* RECONFIGURED BREAKPOINT: Elegant stacked alignment maps perfectly on mobile devices */
     .site-footer {
+        display: flex;
         flex-direction: column-reverse;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
         gap: 32px;
         padding: 60px 24px;
     }
     
+    .footer-left, 
+    .footer-center, 
+    .footer-right {
+        justify-self: center;
+    }
+    
     .footer-nav {
         gap: 32px;
+        justify-content: center;
     }
 }
