@@ -199,7 +199,7 @@ body {
 
 .section-header {
     margin-bottom: 40px;      /* Tightens layout space uniformly across sections */
-    border-bottom: 1px solid #1c1c1e;
+    border-bottom: 1px solid #2c2c2e; /* OPTIMIZED: Elevated visibility split line signature */
     padding-bottom: 20px;
 }
 
@@ -324,7 +324,7 @@ body {
     font-family: monospace;
     color: #ffffff;           /* TIER 1: Hyperlinks stand out */
     text-decoration: none;
-    border-bottom: 1px solid #3a3a3c;
+    border-bottom: 1px solid #48484a; /* OPTIMIZED: Lifted baseline track value for clarity */
     padding-bottom: 4px;
     display: inline-block;
     will-change: transform;
@@ -361,20 +361,21 @@ body {
 
 .form-group input,
 .form-group textarea {
-    background-color: #121212;
-    border: 1px solid #1c1c1e;
+    background-color: #1a1a1c; /* OPTIMIZED: Slightly lifted fill shade inside input blocks */
+    border: 1px solid #2c2c2e; /* OPTIMIZED: Crisp, readable perimeter borders for the input squares */
     color: #ffffff;           /* TIER 1: Typing text is maximum contrast */
     padding: 16px;
     font-size: 0.95rem;       /* SIZE 4: Unified Body Bucket */
     font-family: inherit;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
+    background-color: #121212; /* Deepens back to body tone when active for premium text contrast */
     border-color: #00c8ff;    /* BRAND ACCENT: Accent Color input ignite lines */
-    box-shadow: 0 0 12px rgba(0, 200, 255, 0.15); /* Soft, low-weight neon hardware-accelerated aura back-glow */
+    box-shadow: 0 0 12px rgba(0, 200, 255, 0.15); /* Soft premium hardware neon aura back-glow */
 }
 
 .form-group textarea {
@@ -405,7 +406,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 80px 40px;
-    border-top: 1px solid #1c1c1e;
+    border-top: 1px solid #2c2c2e; /* OPTIMIZED: Visible editorial grounding line */
     display: grid;
     /* REBUILT: Unified 3-column structural layout engine seamlessly mirrors header geometry */
     grid-template-columns: 1fr auto 1fr;
