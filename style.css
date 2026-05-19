@@ -1,3 +1,7 @@
+/* ==========================================================================
+   GLOBAL UTILITIES & INJECTIONS
+   ========================================================================== */
+
 /* INJECTED: Global Selection override completely owns the cursor highlight experience */
 ::selection {
     background-color: #00c8ff; /* Accent Color */
@@ -24,7 +28,9 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* --- GLOBAL HEADER --- */
+/* ==========================================================================
+   GLOBAL HEADER (INTEGRATED MAGNETIC EDITION)
+   ========================================================================== */
 .site-header {
     width: 100%;
     position: absolute;
@@ -47,6 +53,15 @@ body {
     display: block;
 }
 
+/* THE INVISIBLE GRAVITATIONAL BOUNDARY BOX */
+.logo-magnetic-field {
+    padding: 10px 20px; /* Gives padding for the cursor to grab the field cleanly */
+    cursor: crosshair;
+    display: inline-block;
+    vertical-align: middle;
+    justify-self: center;
+}
+
 .header-logo {
     font-size: 1.5rem;        /* SIZE 2: Header Bucket */
     font-weight: 400;
@@ -54,62 +69,81 @@ body {
     color: #ffffff;           
     text-decoration: none;
     text-align: center;
-    justify-self: center;
     white-space: nowrap;
     display: inline-flex;     
     align-items: center;
-    will-change: opacity;
-    transition: opacity 0.3s ease;
+    will-change: transform;
     letter-spacing: 0.25em; 
 }
 
+/* DEACTIVATED GLOBAL BLANKET OPACITY FADE: Retained at 1 to let granular letter dynamics shine */
 .header-logo:hover {
-    opacity: 0.7;
+    opacity: 1; 
 }
 
 /* The protected stage that completely blocks global .reveal animation conflicts */
 .logo-stage {
-    display: inline-flex;
-    align-items: center;
+    display: inline-flex !important;
+    align-items: center !important;
     position: relative;
+    user-select: none;
 }
 
 .header-logo .logo-word {
     display: inline-flex;
 }
 
-/* TARGETS INDIVIDUAL LETTERS: Handing independent control back to the characters */
-.header-logo .logo-word span {
+/* TARGETS INDIVIDUAL LETTERS (MODIFIED FOR KINETIC MATH MATRIX) */
+.header-logo .logo-word .logo-letter {
     display: inline-block;
     will-change: transform, opacity, color;
     opacity: 0;
     color: #00c8ff; /* Base illumination state */
     letter-spacing: 0.25em;
+    /* Keeps the luxury rubber-band easing animation on cursor retreat */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
+}
+
+/* MAGNET FORCE COLOR HIGHLIGHT: Direct character collision triggers cobalt electric pop */
+.header-logo .logo-letter:hover {
+    color: #00c8ff !important;
+}
+
+/* THE OVERSIZED CENTERPIECE ARCHITECTURE */
+.logo-ampersand-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    letter-spacing: 0 !important; /* Clears out gaps around the centerpiece */
 }
 
 .header-logo .logo-amp {
     display: inline-block;
-    color: #00c8ff; /* Synchronized lighting mount profile */
+    font-size: 3.2rem !important; /* Forces the oversized architectural pop */
+    font-weight: 100 !important;   /* Hairline vector thickness */
+    color: #3a3a3c;               /* Sleek dark neutral tech-gray overlay state */
+    will-change: transform, opacity, color;
     animation: logoColorFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     animation-delay: 0.15s;
-    margin-left: 0.1em;
-    margin-right: 0.35em; 
+    /* Seamlessly inherits your physics transition timing profiles */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
 }
 
 /* --- THE KINETIC LETTER STAGGER PATHS (TRUE INDEPENDENT EXPANSION ENGINE) --- */
 
 /* Left Word Letters ("Loom"): Stagger delays step down from 4 to 1 to roll outward right-to-left */
-.header-logo .left-word span:nth-child(1) { animation: letterBurstLeft 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* L */
-.header-logo .left-word span:nth-child(2) { animation: letterBurstLeft 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* o */
-.header-logo .left-word span:nth-child(3) { animation: letterBurstLeft 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* o */
-.header-logo .left-word span:nth-child(4) { animation: letterBurstLeft 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* m */
+.header-logo .left-word .logo-letter:nth-child(1) { animation: letterBurstLeft 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* L */
+.header-logo .left-word .logo-letter:nth-child(2) { animation: letterBurstLeft 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* o */
+.header-logo .left-word .logo-letter:nth-child(3) { animation: letterBurstLeft 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* o */
+.header-logo .left-word .logo-letter:nth-child(4) { animation: letterBurstLeft 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* m */
 
 /* Right Word Letters ("Pixel"): Stagger delays step up from 1 to 5 to roll outward left-to-right */
-.header-logo .right-word span:nth-child(1) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* P */
-.header-logo .right-word span:nth-child(2) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* i */
-.header-logo .right-word span:nth-child(3) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* x */
-.header-logo .right-word span:nth-child(4) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* e */
-.header-logo .right-word span:nth-child(5) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (5 * 0.08s)); } /* l */
+.header-logo .right-word .logo-letter:nth-child(1) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (1 * 0.08s)); } /* P */
+.header-logo .right-word .logo-letter:nth-child(2) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (2 * 0.08s)); } /* i */
+.header-logo .right-word .logo-letter:nth-child(3) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* x */
+.header-logo .right-word .logo-letter:nth-child(4) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* e */
+.header-logo .right-word .logo-letter:nth-child(5) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (5 * 0.08s)); } /* l */
 
 .header-nav {
     display: flex;
@@ -137,7 +171,9 @@ body {
     transform: scale(1.05);   /* Softened scale offset handles visual weight perfectly alongside the border */
 }
 
-/* --- HERO SECTION --- */
+/* ==========================================================================
+   HERO CORE CONTAINER
+   ========================================================================== */
 .hero-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -190,7 +226,9 @@ body {
     color: #ffffff;           /* Seamless blend to primary highlight white on block hover */
 }
 
-/* --- CAPABILITIES SECTION --- */
+/* ==========================================================================
+   CAPABILITIES PORTFOLIO SECTION
+   ========================================================================== */
 .capabilities-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -255,7 +293,9 @@ body {
     line-height: 1.6;
 }
 
-/* --- BRAND CLIENTS SECTION --- */
+/* ==========================================================================
+   BRAND CLIENTS SECTION
+   ========================================================================== */
 .clients-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -297,7 +337,9 @@ body {
     transform: scale(1.15);   /* Tightened physics upscale for beautiful response texture */
 }
 
-/* --- CONTACT SECTION --- */
+/* ==========================================================================
+   CONTACT INTAKE CONVERSIONS
+   ========================================================================== */
 .contact-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -401,7 +443,9 @@ body {
     transform: scale(1.05);
 }
 
-/* --- FOOTER SECTION --- */
+/* ==========================================================================
+   STUDIO GEOMETRIC GROUNDING FOOTER
+   ========================================================================== */
 .site-footer {
     max-width: 1200px;
     margin: 0 auto;
@@ -491,7 +535,9 @@ body {
     transform: scale(1.1);     /* Provides independent hardware acceleration directly to vector canvas */
 }
 
-/* --- CINEMATIC REVEAL ANIMATIONS (SCROLL-BASED HARDWARE ENGINE) --- */
+/* ==========================================================================
+   CINEMATIC REVEAL MOTIONS & TIMELINES
+   ========================================================================== */
 @keyframes studioFadeInUp {
     from {
         opacity: 0;
@@ -563,7 +609,9 @@ body {
     100% { color: #ffffff; } 
 }
 
-/* Responsive Design */
+/* ==========================================================================
+   RESPONSIVE GRID ADAPTATION MATRIX
+   ========================================================================== */
 @media (max-width: 900px) {
     .header-container {
         display: flex;
