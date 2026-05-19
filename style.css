@@ -616,7 +616,7 @@ body {
     .header-container {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 32px; /* Amplified gap between logo and links when stacked on mobile screens */
         padding: 40px 24px;
     }
     
@@ -630,7 +630,13 @@ body {
         gap: 32px;
     }
 
-    .hero-section { padding: 180px 24px 60px 24px; }
+    .logo-magnetic-field {
+        padding: 10px 0; /* Tightened tracking margins on small dimensions viewports */
+    }
+
+    .hero-section { 
+        padding: 280px 24px 60px 24px; /* OPTIMIZED: Safety offset buffer blocks elements collision */
+    }
     
     .hero-statement { 
         font-size: 1.8rem;
