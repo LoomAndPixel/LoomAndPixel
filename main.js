@@ -57,7 +57,7 @@ if (logoContainer) {
 }
 
 // ==========================================================================
-// GLYPH MATRIX DECRYPT ENGINE (DYNAMIC VALUE OVERRIDE EDITION)
+// GLYPH MATRIX DECRYPT ENGINE (HIGH-VELOCITY BLUE GLITCH EDITION)
 // ==========================================================================
 (function() {
   const triggers = document.querySelectorAll('.decrypt-trigger');
@@ -71,13 +71,14 @@ if (logoContainer) {
     const defaultText = trigger.dataset.default;
     const hoverText = trigger.dataset.hover;
 
-    // TARGET: Dynamic Hover Translation Matrix
+    // TARGET: Dynamic Hover Translation Matrix (Hyper-Snappy + Blue Trail)
     trigger.addEventListener('mouseenter', () => {
       let iteration = 0;
       clearInterval(interval);
 
+      // Dropped clock ticks down to 15ms for an incredibly dense, cinematic stream
       interval = setInterval(() => {
-        trigger.innerText = hoverText
+        trigger.innerHTML = hoverText
           .split("")
           .map((letter, index) => {
             if (index < iteration) {
@@ -86,25 +87,28 @@ if (logoContainer) {
             if (letter === " ") {
               return " ";
             }
-            return matrixLetters[Math.floor(Math.random() * matrixLetters.length)];
+            // Injects dynamic branding color spans with a subtle glowing edge aura
+            const randomGlyph = matrixLetters[Math.floor(Math.random() * matrixLetters.length)];
+            return `<span style="color: #00c8ff; text-shadow: 0 0 8px rgba(0, 200, 255, 0.4); font-weight: 400;">${randomGlyph}</span>`;
           })
           .join("");
 
         if (iteration >= hoverText.length) {
+          trigger.innerText = hoverText; // Strips internal active HTML markup completely upon lock-in
           clearInterval(interval);
         }
         
-        iteration += 1 / 2.5; // Optimized step speed ratio to account for longer email length
-      }, 25);
+        iteration += 1 / 1.5; // Accelerated loop steps to process string at high speed
+      }, 15);
     });
 
-    // RECOVERY: Returns cleanly to the baseline structural text string on mouse leave
+    // RECOVERY: Returns cleanly to baseline layout anchor (Hyper-Snappy + Blue Trail)
     trigger.addEventListener('mouseleave', () => {
       let iteration = 0;
       clearInterval(interval);
 
       interval = setInterval(() => {
-        trigger.innerText = defaultText
+        trigger.innerHTML = defaultText
           .split("")
           .map((letter, index) => {
             if (index < iteration) {
@@ -113,16 +117,18 @@ if (logoContainer) {
             if (letter === " ") {
               return " ";
             }
-            return matrixLetters[Math.floor(Math.random() * matrixLetters.length)];
+            const randomGlyph = matrixLetters[Math.floor(Math.random() * matrixLetters.length)];
+            return `<span style="color: #00c8ff; text-shadow: 0 0 8px rgba(0, 200, 255, 0.4); font-weight: 400;">${randomGlyph}</span>`;
           })
           .join("");
 
         if (iteration >= defaultText.length) {
+          trigger.innerText = defaultText;
           clearInterval(interval);
         }
         
-        iteration += 1 / 2;
-      }, 25);
+        iteration += 1 / 1.2;
+      }, 15);
     });
   });
 })();
