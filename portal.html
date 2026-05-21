@@ -8,18 +8,16 @@
     <title>Access Panel // Loom & Pixel</title>
     <base href="/">
     <link rel="stylesheet" href="style.css">
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
 
     <style>
-        /* Specific Styles for the Access Interface - Inheriting Studio Variables */
         .portal-wrapper {
             min-height: 75vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 180px 40px 100px 40px; /* Accounts for absolute absolute-position header */
+            padding: 180px 40px 100px 40px;
             box-sizing: border-box;
         }
 
@@ -33,19 +31,17 @@
             margin-bottom: 40px;
         }
 
-        /* Uses your .section-label token variables */
         .portal-title {
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: #aeaeb2; /* TIER 3 Text Selection */
+            color: #aeaeb2;
             margin-bottom: 12px;
             font-family: monospace;
         }
 
-        /* Uses your body sizes but drops the opacity profile elegantly */
         .portal-desc {
-            font-size: 0.95rem; /* Matches your Unified Body Bucket */
+            font-size: 0.95rem;
             line-height: 1.6;
             color: #aeaeb2;
             margin: 0;
@@ -53,22 +49,21 @@
         }
 
         .portal-desc span {
-            color: #00c8ff; /* Brand Accent Blue */
+            color: #00c8ff;
         }
 
-        /* Merges with your .form-group inputs formatting */
         .portal-input-group {
             position: relative;
             display: flex;
             align-items: center;
-            background-color: #1a1a1c; /* Your input fill style token */
-            border: 1px solid #2c2c2e; /* Your frame layout lines style token */
+            background-color: #1a1a1c;
+            border: 1px solid #2c2c2e;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .portal-input-group:focus-within {
-            border-color: #00c8ff; /* Brand Accent focus match */
-            box-shadow: 0 0 12px rgba(0, 200, 255, 0.15); /* Soft hardware neon aura backglow */
+            border-color: #00c8ff;
+            box-shadow: 0 0 12px rgba(0, 200, 255, 0.15);
         }
 
         .portal-input {
@@ -78,13 +73,13 @@
             color: #ffffff;
             padding: 16px;
             font-family: monospace;
-            font-size: 0.95rem; /* Form text entry weight scaling match */
+            font-size: 0.95rem;
             letter-spacing: 0.05em;
             outline: none;
         }
 
         .portal-input::placeholder {
-            color: #636366; /* TIER 4 descriptive indicator color */
+            color: #636366;
         }
 
         .portal-submit {
@@ -92,7 +87,7 @@
             border: none;
             color: #aeaeb2;
             font-family: monospace;
-            font-size: 0.8rem; /* Matches label bucket text alignment scale */
+            font-size: 0.8rem;
             letter-spacing: 0.1em;
             cursor: pointer;
             padding: 16px 24px;
@@ -101,7 +96,7 @@
         }
 
         .portal-submit:hover {
-            color: #00c8ff; /* Turns blue on activation focus loop */
+            color: #00c8ff;
         }
 
         .error-message {
@@ -113,11 +108,10 @@
             display: none;
         }
 
-        /* Hidden decrypted system staging viewport layout */
         #secure-viewport {
             display: none;
             width: 100%;
-            max-width: 1200px; /* Aligns precisely with your main grid limits */
+            max-width: 1200px;
             margin: 0 auto;
             animation: studioFadeInUp 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
@@ -152,7 +146,6 @@
     <script src="/main.js"></script>
 
     <script>
-        // Password is: demo2026
         const encryptedData = "U2FsdGVkX18CRt8KQbr+72q3c7y2NdTQsBlHsDts+0AZSJPykgEPkI2s4Yb9bYd8lTaGtq97cay47GYYYMjoHxyX5hBOx85M2qEJXAE9MTlY4fRJfsG7f1jVoHVKJIEyzvK/D4RVMwSlN0FSy7HjBDoZyK1QqQUHL8S+7utNkcg0V8edE6nK8y0Ta5RATQyb7nFOHNEPuishUdafEhr2ThqyMhpuu9Zm+clgLIzQm44AaebMbwjtXCI99fx6YmIf9kVAlIqxQkuUsyxLzAWTsNQeKXvSRMBGa+4Wu1iofROd5nScerEJvseH5E25P3uz";
 
         function decryptPortal() {
