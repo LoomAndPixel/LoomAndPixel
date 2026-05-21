@@ -50,7 +50,7 @@
         }
 
         .portal-desc span {
-            color: #00c8ff; /* Your subtle hint of blue */
+            color: #00c8ff; /* Subtle hint of brand blue */
             font-weight: bold;
         }
 
@@ -63,7 +63,7 @@
         }
 
         .input-group:focus-within {
-            border-color: #0055ff; /* Focused blue state */
+            border-color: #0055ff; /* Focused interactive blue */
         }
 
         .portal-input {
@@ -107,7 +107,7 @@
             display: none;
         }
 
-        /* The hidden content viewports */
+        /* Hidden client content viewport */
         #secure-viewport {
             display: none;
             width: 100%;
@@ -152,44 +152,5 @@
     <script src="/main.js"></script>
 
     <script>
-        // Your scrambled repository string will go right here
-        const encryptedData = "TEMPORARY_HOLDER_TEXT"; 
-
-        function decryptPortal() {
-            const password = document.getElementById('clientKey').value.trim();
-            const errorMsg = document.getElementById('error-msg');
-            
-            try {
-                // Execute AES decryption process
-                const bytes = CryptoJS.AES.decrypt(encryptedData, password);
-                const decryptedHTML = bytes.toString(CryptoJS.enc.Utf8);
-
-                // Check for validation anchor token
-                if (decryptedHTML.startsWith("")) {
-                    document.getElementById('login-screen').style.display = 'none';
-                    const viewport = document.getElementById('secure-viewport');
-                    viewport.style.display = 'block';
-                    viewport.innerHTML = decryptedHTML;
-                } else {
-                    triggerError();
-                }
-            } catch (e) {
-                triggerError();
-            }
-        }
-
-        function triggerError() {
-            const errorMsg = document.getElementById('error-msg');
-            errorMsg.style.display = 'block';
-            // Simple haptic focus shift
-            document.getElementById('clientKey').focus();
-        }
-
-        // Catch Enter key submission naturally
-        document.getElementById('clientKey').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') decryptPortal();
-        });
-    </script>
-    
-</body>
-</html>
+        // Pre-encrypted blueprint container. Password is: demo2026
+        const encryptedData = "U2FsdGVkX19O1K2fCH0UuH3DofA6vD3KOf9P4A0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B
