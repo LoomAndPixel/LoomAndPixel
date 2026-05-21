@@ -8,6 +8,73 @@
     <title>Careers // Loom & Pixel</title>
     <base href="/">
     <link rel="stylesheet" href="/style.css">
+
+    <style>
+        /* ==========================================================================
+           KINETIC INTERACTIVE SURFACE DESIGN
+           ========================================================================== */
+        .interactive-showcase-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            min-height: 400px;
+            background-color: #1a1a1c; /* Elevates from global #121212 dark gray */
+            border: 1px solid #2c2c2e; /* Your layout perimeter line style token */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 60px 40px;
+            margin: 40px auto 80px auto;
+            box-sizing: border-box;
+        }
+
+        /* The canvas mesh framework sitting behind text content */
+        .kinetic-grid-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(20, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            padding: 20px;
+            box-sizing: border-box;
+            user-select: none;
+            pointer-events: none; /* Mouse coordinates fall straight through to interactive script */
+        }
+
+        /* Individual text tracking vector symbols */
+        .grid-node {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c2c2e; /* Resting visibility depth marker */
+            font-family: monospace;
+            font-size: 14px;
+            font-weight: bold;
+            will-change: transform, color;
+            transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), color 0.4s ease;
+        }
+
+        /* Forces text layouts to safely float clear above background interactive mesh */
+        .showcase-overlay-content {
+            position: relative;
+            z-index: 10;
+            pointer-events: auto; /* Restores standard interactive pointer events for links */
+            max-width: 700px;
+        }
+
+        @media (max-width: 900px) {
+            .interactive-showcase-container {
+                padding: 40px 24px;
+                margin-bottom: 60px;
+            }
+            .kinetic-grid-canvas {
+                grid-template-columns: repeat(12, 1fr); /* Tighter grid profile matrices for mobile viewports */
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -19,38 +86,111 @@
         </h1>
         
         <p class="capability-description reveal delay-1" style="max-width: 800px; font-size: 1.1rem; color: #aeaeb2; margin-bottom: 40px;">
-            We design experiences that orchestrate presence. At Loom & Pixel, we are constantly pushing the boundaries of spatial computing, interactive design, and cinematic world building. If you are obsessed with the nuance of light and the physics of digital materials, you belong here.
+            We design experiences that orchestrate presence. At Loom & Pixel, we are constantly pushing the boundaries of creative technology, interactive design, and cinematic world building. If you are obsessed with the nuance of light and the physics of digital materials, you belong here.
         </p>
     </section>
 
-    <section class="capabilities-section" style="padding-top: 0;">
-        <div class="section-header reveal">
+    <section class="capabilities-section reveal delay-2" style="padding-top: 0;">
+        <div class="section-header">
             <span class="section-label">Opportunities</span>
             <h2 class="section-title">Current Openings</h2>
         </div>
 
-        <div style="max-width: 800px;">
-            <p class="capability-description reveal delay-1" style="font-size: 1.1rem; margin-bottom: 24px;">
-                We are operating at a balanced capacity and do not have any open roles at this exact moment. 
-            </p>
-            <p class="capability-description reveal delay-2" style="color: #636366; margin-bottom: 40px;">
-                However, our roster is a living ecosystem. We are always looking for exceptional technical artists and cinematic visionaries to join our collective for upcoming ventures.
-            </p>
+        <div class="interactive-showcase-container">
             
-            <div class="reveal delay-3">
-                <a href="mailto:hello@loomandpixel.com?subject=Roster Application" 
-                   class="direct-email decrypt-trigger" 
-                   data-default="Get on our radar"
-                   data-hover="Hello@LoomAndPixel.com">
-                   Get on our radar
-                </a>
+            <div id="kinetic-grid" class="kinetic-grid-canvas"></div>
+            
+            <div class="showcase-overlay-content">
+                <p class="capability-description" style="font-size: 1.1rem; margin-bottom: 24px;">
+                    We are operating at a balanced capacity and do not have any open roles at this exact moment. 
+                </p>
+                <p class="capability-description" style="color: #aeaeb2; font-weight: 300; margin-bottom: 40px; max-width: 520px;">
+                    However, our roster is a living ecosystem. We are always looking for exceptional technical artists and cinematic visionaries to join our collective for upcoming ventures.
+                </p>
+                
+                <div>
+                    <a href="mailto:hello@loomandpixel.com?subject=Roster Application" 
+                       class="direct-email decrypt-trigger" 
+                       data-default="Get on our radar"
+                       data-hover="Hello@LoomAndPixel.com">
+                        Get on our radar
+                    </a>
+                </div>
             </div>
+            
         </div>
     </section>
 
     {% include footer.html %}
 
     <script src="/main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const gridContainer = document.getElementById("kinetic-grid");
+            const wrapper = gridContainer.parentElement;
+            
+            // Adjust matrix density depending on viewport widths dynamically
+            const isMobile = window.innerWidth <= 900;
+            const columns = isMobile ? 12 : 20;
+            const rows = 10;
+            const totalNodes = columns * rows;
+            const nodesArray = [];
+
+            // Configure matching layout template properties inside modern CSS variables layout
+            gridContainer.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+
+            // 1. Generate grid points automatically
+            for (let i = 0; i < totalNodes; i++) {
+                const node = document.createElement("div");
+                node.classList.add("grid-node");
+                node.innerText = "+"; 
+                gridContainer.appendChild(node);
+                nodesArray.push(node);
+            }
+
+            // 2. Continuous real-time vector coordinate calculations
+            wrapper.addEventListener("mousemove", (e) => {
+                const rect = wrapper.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+
+                nodesArray.forEach((node) => {
+                    const nodeX = node.offsetLeft + node.offsetWidth / 2;
+                    const nodeY = node.offsetTop + node.offsetHeight / 2;
+
+                    const distance = Math.hypot(mouseX - nodeX, mouseY - nodeY);
+                    const maxDistance = isMobile ? 130 : 180; /* Tighter magnetic radius tracking limits on small screens */
+
+                    if (distance < maxDistance) {
+                        const intensity = (maxDistance - distance) / maxDistance;
+                        const scale = 1 + intensity * 0.9; 
+                        
+                        node.style.transform = `scale(${scale})`;
+                        
+                        if (intensity > 0.6) {
+                            node.style.color = "#00c8ff"; // Electric Accent Blue close-proximity trigger
+                        } else if (intensity > 0.2) {
+                            node.style.color = "#636366"; // Transition technical gray
+                        } else {
+                            node.style.color = "#3a3a3c"; // Dark technical indicator neutral base
+                        }
+                    } else {
+                        node.style.transform = "scale(1)";
+                        node.style.color = "#2c2c2e";
+                    }
+                });
+            });
+
+            // 3. Gracefully cool down coordinates scaling if cursor leaves boundary perimeter box frames
+            wrapper.addEventListener("mouseleave", () => {
+                nodesArray.forEach((node) => {
+                    node.style.transform = "scale(1)";
+                    node.style.color = "#2c2c2e";
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
