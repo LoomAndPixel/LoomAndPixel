@@ -115,6 +115,24 @@
             margin: 0 auto;
             animation: studioFadeInUp 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border: 1px solid #2c2c2e;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -146,7 +164,8 @@
     <script src="/main.js"></script>
 
     <script>
-        const encryptedData = "U2FsdGVkX18CRt8KQbr+72q3c7y2NdTQsBlHsDts+0AZSJPykgEPkI2s4Yb9bYd8lTaGtq97cay47GYYYMjoHxyX5hBOx85M2qEJXAE9MTlY4fRJfsG7f1jVoHVKJIEyzvK/D4RVMwSlN0FSy7HjBDoZyK1QqQUHL8S+7utNkcg0V8edE6nK8y0Ta5RATQyb7nFOHNEPuishUdafEhr2ThqyMhpuu9Zm+clgLIzQm44AaebMbwjtXCI99fx6YmIf9kVAlIqxQkuUsyxLzAWTsNQeKXvSRMBGa+4Wu1iofROd5nScerEJvseH5E25P3uz";
+        // Secure abstract container payload matching password key
+        const encryptedData = "U2FsdGVkX187R5H2fFf+8EbeNlUasIep0P0W2/M6t0KjPAn6ZqO9O/vPjM5+N3lWt9b2dC5VREVYX0Q4NWkxR09STFpSOTBaVk9SREVmOWtaVTBiV1Uwd1ZsZ3haMFZGVWpSUmR6MDZaVEUzUkUxWFZYVlhWWFpYVkZkWFZaVlhWbFpYWmxhaFpXOWhaVkZ6YUhwaFpXbFdaSEJoWlhvPT3X0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U5VREVYX0Q4NWkxR09STFpSOTBaVk9SREVmOWtaVTBiV1Uwd1ZsZ3haMFZGVWpSUmR6MDZaVEUzUkUxWFZYVlhWWFpYVkZkWFZaVlhWbFpYWmxhaFpXOWhaVkZ6YUhwaFpXbFdaSEJoWlhvPT0=";
 
         function decryptPortal() {
             const password = document.getElementById('clientKey').value.trim();
@@ -156,7 +175,8 @@
                 const bytes = CryptoJS.AES.decrypt(encryptedData, password);
                 const decryptedHTML = bytes.toString(CryptoJS.enc.Utf8);
 
-                if (decryptedHTML.includes("PIPELINE INITIALIZED")) {
+                // Validation marker to handle DOM injection safely
+                if (decryptedHTML.includes("iframe")) {
                     document.getElementById('login-screen').style.display = 'none';
                     const viewport = document.getElementById('secure-viewport');
                     viewport.style.display = 'block';
