@@ -12,114 +12,114 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
 
     <style>
-        /* Specific Styles for the Access Interface */
+        /* Specific Styles for the Access Interface - Inheriting Studio Variables */
         .portal-wrapper {
-            min-height: 70vh;
+            min-height: 75vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+            padding: 180px 40px 100px 40px; /* Accounts for absolute absolute-position header */
             box-sizing: border-box;
         }
 
         .portal-panel {
             width: 100%;
-            max-width: 440px;
+            max-width: 480px;
             text-align: left;
         }
 
         .portal-header {
-            margin-bottom: 32px;
+            margin-bottom: 40px;
         }
 
+        /* Uses your .section-label token variables */
         .portal-title {
-            font-size: 11px;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #666;
-            margin: 0 0 8px 0;
+            letter-spacing: 0.15em;
+            color: #aeaeb2; /* TIER 3 Text Selection */
+            margin-bottom: 12px;
             font-family: monospace;
         }
 
+        /* Uses your body sizes but drops the opacity profile elegantly */
         .portal-desc {
-            font-size: 14px;
+            font-size: 0.95rem; /* Matches your Unified Body Bucket */
             line-height: 1.6;
-            color: #999;
+            color: #aeaeb2;
             margin: 0;
+            font-weight: 300;
         }
 
         .portal-desc span {
-            color: #00c8ff; /* Subtle hint of brand blue */
-            font-weight: bold;
+            color: #00c8ff; /* Brand Accent Blue */
         }
 
-        .input-group {
+        /* Merges with your .form-group inputs formatting */
+        .portal-input-group {
             position: relative;
             display: flex;
             align-items: center;
-            border-bottom: 1px solid #222;
-            transition: border-color 0.3s ease;
+            background-color: #1a1a1c; /* Your input fill style token */
+            border: 1px solid #2c2c2e; /* Your frame layout lines style token */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .input-group:focus-within {
-            border-color: #0055ff; /* Focused interactive blue */
+        .portal-input-group:focus-within {
+            border-color: #00c8ff; /* Brand Accent focus match */
+            box-shadow: 0 0 12px rgba(0, 200, 255, 0.15); /* Soft hardware neon aura backglow */
         }
 
         .portal-input {
             width: 100%;
             background: transparent;
             border: none;
-            color: #fff;
-            padding: 14px 0;
+            color: #ffffff;
+            padding: 16px;
             font-family: monospace;
-            font-size: 13px;
-            letter-spacing: 2px;
+            font-size: 0.95rem; /* Form text entry weight scaling match */
+            letter-spacing: 0.05em;
             outline: none;
         }
 
         .portal-input::placeholder {
-            color: #444;
+            color: #636366; /* TIER 4 descriptive indicator color */
         }
 
-        .portal-btn {
+        .portal-submit {
             background: transparent;
             border: none;
-            color: #666;
+            color: #aeaeb2;
             font-family: monospace;
-            font-size: 11px;
-            letter-spacing: 1px;
+            font-size: 0.8rem; /* Matches label bucket text alignment scale */
+            letter-spacing: 0.1em;
             cursor: pointer;
-            padding: 14px 0 14px 16px;
-            transition: color 0.2s ease;
+            padding: 16px 24px;
+            transition: color 0.3s ease;
+            white-space: nowrap;
         }
 
-        .portal-btn:hover {
-            color: #00c8ff; /* Hover blue state */
+        .portal-submit:hover {
+            color: #00c8ff; /* Turns blue on activation focus loop */
         }
 
         .error-message {
             font-family: monospace;
-            font-size: 11px;
+            font-size: 0.8rem;
             color: #ff3333;
-            letter-spacing: 1px;
-            margin-top: 12px;
+            letter-spacing: 0.05em;
+            margin-top: 16px;
             display: none;
         }
 
-        /* Hidden client content viewport */
+        /* Hidden decrypted system staging viewport layout */
         #secure-viewport {
             display: none;
             width: 100%;
-            max-width: 900px;
+            max-width: 1200px; /* Aligns precisely with your main grid limits */
             margin: 0 auto;
-            padding: 60px 20px;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            animation: studioFadeInUp 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
     </style>
 </head>
@@ -129,18 +129,18 @@
 
     <main class="portal-wrapper">
         
-        <div id="login-screen" class="portal-panel">
+        <div id="login-screen" class="portal-panel reveal delay-1">
             <div class="portal-header">
-                <h1 class="portal-title">System // Client Access</h1>
-                <p class="portal-desc">Enter your unique studio verification key to initialize pipeline decryption and view active <span>staging modules</span>.</p>
+                <div class="portal-title">System // Client Access</div>
+                <p class="portal-desc">Enter your authorization verification key to initialize structural pipeline decryption and read active <span>staging modules</span>.</p>
             </div>
 
-            <div class="input-group">
+            <div class="portal-input-group">
                 <input type="password" id="clientKey" class="portal-input" placeholder="ENTER ACCESS KEY..." autocomplete="off">
-                <button onclick="decryptPortal()" class="portal-btn">CONNECT ↗</button>
+                <button onclick="decryptPortal()" class="portal-submit">CONNECT ↗</button>
             </div>
             
-            <p id="error-msg" class="error-message">✕ INVALID VERIFICATION ROUTE</p>
+            <p id="error-msg" class="error-message">✕ INVALID CONFIGURATION KEY PATHWAY</p>
         </div>
 
         <div id="secure-viewport"></div>
@@ -152,7 +152,7 @@
     <script src="/main.js"></script>
 
     <script>
-        // Your exact generated browser string from the console log
+        // Password is: demo2026
         const encryptedData = "U2FsdGVkX18CRt8KQbr+72q3c7y2NdTQsBlHsDts+0AZSJPykgEPkI2s4Yb9bYd8lTaGtq97cay47GYYYMjoHxyX5hBOx85M2qEJXAE9MTlY4fRJfsG7f1jVoHVKJIEyzvK/D4RVMwSlN0FSy7HjBDoZyK1QqQUHL8S+7utNkcg0V8edE6nK8y0Ta5RATQyb7nFOHNEPuishUdafEhr2ThqyMhpuu9Zm+clgLIzQm44AaebMbwjtXCI99fx6YmIf9kVAlIqxQkuUsyxLzAWTsNQeKXvSRMBGa+4Wu1iofROd5nScerEJvseH5E25P3uz";
 
         function decryptPortal() {
@@ -160,11 +160,9 @@
             const errorMsg = document.getElementById('error-msg');
             
             try {
-                // Execute AES decryption process
                 const bytes = CryptoJS.AES.decrypt(encryptedData, password);
                 const decryptedHTML = bytes.toString(CryptoJS.enc.Utf8);
 
-                // Check if string contains the verified snippet content
                 if (decryptedHTML.includes("PIPELINE INITIALIZED")) {
                     document.getElementById('login-screen').style.display = 'none';
                     const viewport = document.getElementById('secure-viewport');
@@ -185,7 +183,6 @@
             document.getElementById('clientKey').focus();
         }
 
-        // Handle enter key form submission naturally
         document.getElementById('clientKey').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') decryptPortal();
         });
