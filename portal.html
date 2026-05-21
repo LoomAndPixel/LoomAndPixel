@@ -152,5 +152,44 @@
     <script src="/main.js"></script>
 
     <script>
-        // Pre-encrypted blueprint container. Password is: demo2026
-        const encryptedData = "U2FsdGVkX19O1K2fCH0UuH3DofA6vD3KOf9P4A0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B6X3lW2mD1vC5M0vX3P4U0pU7A/9Ew8b3B
+        // Your exact generated browser string from the console log
+        const encryptedData = "U2FsdGVkX18CRt8KQbr+72q3c7y2NdTQsBlHsDts+0AZSJPykgEPkI2s4Yb9bYd8lTaGtq97cay47GYYYMjoHxyX5hBOx85M2qEJXAE9MTlY4fRJfsG7f1jVoHVKJIEyzvK/D4RVMwSlN0FSy7HjBDoZyK1QqQUHL8S+7utNkcg0V8edE6nK8y0Ta5RATQyb7nFOHNEPuishUdafEhr2ThqyMhpuu9Zm+clgLIzQm44AaebMbwjtXCI99fx6YmIf9kVAlIqxQkuUsyxLzAWTsNQeKXvSRMBGa+4Wu1iofROd5nScerEJvseH5E25P3uz";
+
+        function decryptPortal() {
+            const password = document.getElementById('clientKey').value.trim();
+            const errorMsg = document.getElementById('error-msg');
+            
+            try {
+                // Execute AES decryption process
+                const bytes = CryptoJS.AES.decrypt(encryptedData, password);
+                const decryptedHTML = bytes.toString(CryptoJS.enc.Utf8);
+
+                // Check if string contains the verified snippet content
+                if (decryptedHTML.includes("PIPELINE INITIALIZED")) {
+                    document.getElementById('login-screen').style.display = 'none';
+                    const viewport = document.getElementById('secure-viewport');
+                    viewport.style.display = 'block';
+                    viewport.innerHTML = decryptedHTML;
+                    errorMsg.style.display = 'none';
+                } else {
+                    triggerError();
+                }
+            } catch (e) {
+                triggerError();
+            }
+        }
+
+        function triggerError() {
+            const errorMsg = document.getElementById('error-msg');
+            errorMsg.style.display = 'block';
+            document.getElementById('clientKey').focus();
+        }
+
+        // Handle enter key form submission naturally
+        document.getElementById('clientKey').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') decryptPortal();
+        });
+    </script>
+    
+</body>
+</html>
