@@ -63,6 +63,7 @@
                 let iteration = 0;
                 clearInterval(interval);
 
+                // Set to 12ms for high-refresh speed execution loops
                 interval = setInterval(() => {
                     link.innerText = targetText
                         .split("")
@@ -77,12 +78,19 @@
                     if (iteration >= targetText.length) {
                         clearInterval(interval);
                     }
-                    iteration += 1 / 3;
-                }, 25);
+                    iteration += 1; // Step forward instantly by full characters
+                }, 12);
             }
 
-            link.addEventListener("mouseenter", () => scrambleText(hoverText));
-            link.addEventListener("mouseleave", () => scrambleText(originalText));
+            link.addEventListener("mouseenter", () => {
+                link.style.color = "#00c8ff"; // Forces absolute brand blue color execution instantly
+                scrambleText(hoverText);
+            });
+            
+            link.addEventListener("mouseleave", () => {
+                link.style.color = ""; // Safely returns control to style.css values on mouse retreat
+                scrambleText(originalText);
+            });
         });
     </script>
 
