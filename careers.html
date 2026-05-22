@@ -63,34 +63,32 @@
                 let iteration = 0;
                 clearInterval(interval);
 
-                // Set to 12ms for high-refresh speed execution loops
+                // High-speed 12ms loop sequence
                 interval = setInterval(() => {
-                    link.innerText = targetText
+                    const htmlArray = targetText
                         .split("")
                         .map((letter, index) => {
                             if (index < iteration) {
+                                // Finalized letters drop the inline styles and pull directly from style.css
                                 return targetText[index];
                             }
-                            return chars[Math.floor(Math.random() * chars.length)];
-                        })
-                        .join("");
+                            // Only un-solved random characters are explicitly wrapped in brand blue spans
+                            const randomChar = chars[Math.floor(Math.random() * chars.length)];
+                            return `<span style="color: #00c8ff;">${randomChar}</span>`;
+                        });
+
+                    link.innerHTML = htmlArray.join("");
 
                     if (iteration >= targetText.length) {
                         clearInterval(interval);
+                        link.innerText = targetText; // Hard resets to flat text to clear out DOM nodes
                     }
-                    iteration += 1; // Step forward instantly by full characters
+                    iteration += 1; // Instant full-character stepping parameters
                 }, 12);
             }
 
-            link.addEventListener("mouseenter", () => {
-                link.style.color = "#00c8ff"; // Forces absolute brand blue color execution instantly
-                scrambleText(hoverText);
-            });
-            
-            link.addEventListener("mouseleave", () => {
-                link.style.color = ""; // Safely returns control to style.css values on mouse retreat
-                scrambleText(originalText);
-            });
+            link.addEventListener("mouseenter", () => scrambleText(hoverText));
+            link.addEventListener("mouseleave", () => scrambleText(originalText));
         });
     </script>
 
