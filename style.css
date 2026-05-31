@@ -1,8 +1,3 @@
-Here is your master stylesheet updated to seamlessly integrate the new **Team Interface Section**.
-
-The styles have been carefully organized, commented, and injected right above the responsive adaptations, while the clean typography settings and asymmetric column splits have been mapped onto your existing mobile structural system.
-
-```css
 /* ==========================================================================
    GLOBAL UTILITIES & INJECTIONS
    ========================================================================== */
@@ -457,6 +452,10 @@ body {
     padding: 220px 40px 120px 40px; /* Synchronized with main Hero vertical offset */
 }
 
+.team-container {
+    width: 100%;
+}
+
 .team-grid {
     display: grid;
     grid-template-columns: 5fr 7fr; /* Asymmetric editorial design agency split */
@@ -466,17 +465,25 @@ body {
 
 .portrait-frame {
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 4 / 5; /* Dictates strict architectural grid layout proportions */
     background-color: #1a1a1c;
     border: 1px solid #2c2c2e;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Encapsulates 1080px dimensions safely */
 }
 
-.portrait-placeholder {
+.portrait-image {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #1a1a1c 0%, #121212 100%);
+    object-fit: cover;       /* Hard constraint scales photo beautifully without crushing canvas metrics */
+    object-position: center;  /* Anchors headshot strictly to center vector coordinate */
+    filter: grayscale(1) brightness(0.9); /* Fluid design signature syncs with dark aesthetic */
+    transition: filter 0.5s ease;
+}
+
+/* Pulls signature grayscale filters off to restore full spectrum color dynamic on hover */
+.portrait-frame:hover .portrait-image {
+    filter: grayscale(0) brightness(1);
 }
 
 .member-name {
@@ -782,5 +789,3 @@ body {
         justify-content: center;
     }
 }
-
-```
