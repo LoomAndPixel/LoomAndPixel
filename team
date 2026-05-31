@@ -1,0 +1,40 @@
+<section class="team-section reveal">
+  <div class="team-container">
+    
+    <div class="section-header">
+      <span class="section-label">[ Node 02 // Collective Profile ]</span>
+      <h1 class="section-title">The Team</h1>
+    </div>
+
+    <div class="team-grid">
+      
+      <div class="team-media-block">
+        <div class="portrait-frame">
+          <div class="portrait-placeholder"></div>
+        </div>
+      </div>
+
+      <div class="team-bio-block">
+        <span class="capability-num">// PRINCIPAL</span>
+        <h2 class="member-name">Your Name</h2>
+        <p class="member-title">Creative Technologist & Founder</p>
+        
+        <div class="member-bio">
+          <p>Obsessed with the physical friction point where flawless code meets high-fidelity spatial design. Driven by the philosophy of digital craftsmanship, I founded Loom & Pixel to bridge the gap between abstract creative vision and production-ready architecture.</p>
+          <p>With a background spanning complex front-end frameworks, interactive physics systems, and premium branding pipelines, I oversee the technical execution and spatial choreography of every reality our studio builds.</p>
+        </div>
+
+        <div class="member-nodes">
+          <a href="https://yourpersonalwebsite.com" target="_blank" class="node-link">
+            <span class="node-glyph">→</span> Personal Sandbox
+          </a>
+          <a href="https://linkedin.com/in/yourusername" target="_blank" class="node-link">
+            <span class="node-glyph">→</span> LinkedIn Archive
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
