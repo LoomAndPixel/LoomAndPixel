@@ -132,3 +132,47 @@ if (logoContainer) {
     });
   });
 })();
+
+// ==========================================================================
+// ASYNCHRONOUS BACKGROUND INTAKE PIPELINE (WEB3FORMS CUSTOM INTERCEPT)
+// ==========================================================================
+const form = document.getElementById('pixelForm');
+
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Retains the client strictly on the Loom & Pixel platform
+    
+    const submitBtn = document.getElementById('submitBtn');
+    const responseDiv = document.getElementById('formResponse');
+    
+    // UI Visual Feedback: Signals structural transmission state
+    submitBtn.innerText = "Sending...";
+    submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+
+    // Stream package data parameters to Web3Forms core processing cloud
+    fetch(form.action, {
+        method: 'POST',
+        body: formData
+    })
+    .then(async (response) => {
+        if (response.status == 200) {
+            // Smoothly remove form layout block and display inline custom success card
+            form.style.display = 'none';
+            responseDiv.style.display = 'block';
+        } else {
+            // Restore interactive components upon server side deflection
+            submitBtn.innerText = "Send Message";
+            submitBtn.disabled = false;
+            alert("Something went wrong. Please try again.");
+        }
+    })
+    .catch(error => {
+        // Fallback catch handles offline or connection drops cleanly
+        submitBtn.innerText = "Send Message";
+        submitBtn.disabled = false;
+        alert("Network error. Please try again later.");
+    });
+  });
+}
