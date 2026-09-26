@@ -1,100 +1,20 @@
 ---
-title: Careers // Loom & Pixel
-description: Co-create realities. Loom & Pixel is always looking for exceptional technical artists and cinematic visionaries to join the collective.
+layout: null
+sitemap: false
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% include head.html %}
+    <!-- The Careers page moved to /collaborate. This forwards old links there. -->
+    <meta charset="UTF-8">
+    <title>Collaborate // Loom & Pixel</title>
+    <meta name="robots" content="noindex">
+    <link rel="canonical" href="{{ '/collaborate/' | absolute_url }}">
+    <meta http-equiv="refresh" content="0; url=/collaborate/">
+    <script>location.replace('/collaborate/');</script>
+    <style>body { background: #121212; color: #aeaeb2; font-family: sans-serif; padding: 40px; }</style>
 </head>
 <body>
-
-    {% include header.html %}
-
-    <section class="hero-section">
-        <h1 class="hero-statement reveal">
-            Co-create <span class="hero-narrative" style="color: #00c8ff;">realities.</span>
-        </h1>
-        
-        <p class="capability-description reveal delay-1" style="max-width: 800px; font-size: 1.1rem; color: #aeaeb2; margin-bottom: 40px;">
-            We design experiences that orchestrate presence. At Loom & Pixel, we are constantly pushing the boundaries of creative technology, interactive design, and cinematic world building. If you are obsessed with the nuance of light and the physics of digital materials, you belong here.
-        </p>
-    </section>
-
-    <section class="capabilities-section" style="padding-top: 0;">
-        <div class="section-header reveal">
-            <span class="section-label">Opportunities</span>
-            <h2 class="section-title">Current Openings</h2>
-        </div>
-
-        <div style="max-width: 800px;">
-            <p class="capability-description reveal delay-1" style="font-size: 1.1rem; margin-bottom: 24px;">
-                We are operating at a balanced capacity and do not have any open roles at this exact moment. 
-            </p>
-            <p class="capability-description reveal delay-2" style="color: #636366; margin-bottom: 40px;">
-                However, our roster is a living ecosystem. We are always looking for exceptional technical artists and cinematic visionaries to join our collective for upcoming ventures.
-            </p>
-            
-            <div class="reveal delay-3">
-                <a href="mailto:Hello@LoomAndPixel.com?subject=Roster Application" 
-                   class="direct-email"
-                   id="radar-link">
-                    Get on our radar
-                </a>
-            </div>
-        </div>
-    </section>
-
-    {% include footer.html %}
-
-    <script src="/main.js"></script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const link = document.getElementById("radar-link");
-            const originalText = "Get on our radar";
-            const hoverText = "Hello@LoomAndPixel.com";
-            let interval = null;
-
-            function scrambleText(targetText) {
-                // Reduced motion: swap the text instantly, no scramble
-                if (prefersReducedMotion) {
-                    link.innerText = targetText;
-                    return;
-                }
-
-                const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789//+---";
-                let iteration = 0;
-                clearInterval(interval);
-
-                // High-speed 12ms loop sequence
-                interval = setInterval(() => {
-                    const htmlArray = targetText
-                        .split("")
-                        .map((letter, index) => {
-                            if (index < iteration) {
-                                // Finalized letters drop the inline styles and pull directly from style.css
-                                return targetText[index];
-                            }
-                            // Only un-solved random characters are explicitly wrapped in brand blue spans
-                            const randomChar = chars[Math.floor(Math.random() * chars.length)];
-                            return `<span style="color: #00c8ff;">${randomChar}</span>`;
-                        });
-
-                    link.innerHTML = htmlArray.join("");
-
-                    if (iteration >= targetText.length) {
-                        clearInterval(interval);
-                        link.innerText = targetText; // Hard resets to flat text to clear out DOM nodes
-                    }
-                    iteration += 1; // Instant full-character stepping parameters
-                }, 12);
-            }
-
-            link.addEventListener("mouseenter", () => scrambleText(hoverText));
-            link.addEventListener("mouseleave", () => scrambleText(originalText));
-        });
-    </script>
-
+    <p>This page has moved to <a href="/collaborate/" style="color: #00c8ff;">Collaborate</a>.</p>
 </body>
 </html>

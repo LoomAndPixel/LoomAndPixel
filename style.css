@@ -294,6 +294,46 @@ body {
 }
 
 /* ==========================================================================
+   COLLABORATE PAGE LISTS
+   ========================================================================== */
+.discipline-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px 50px;
+}
+
+.discipline-list li {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #ffffff;           /* TIER 1 */
+    padding-bottom: 16px;
+    border-bottom: 1px solid #2c2c2e;
+}
+
+.send-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+}
+
+.send-list li {
+    font-size: 0.95rem;       /* SIZE 4: Unified Body Bucket */
+    font-weight: 300;
+    color: #e5e5ea;           /* TIER 2 */
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.send-list li::before {
+    content: "→";
+    color: #00c8ff;           /* BRAND ACCENT */
+    margin-right: 12px;
+}
+
+/* ==========================================================================
    BRAND CLIENTS SECTION
    ========================================================================== */
 .clients-section {
@@ -508,6 +548,33 @@ body {
     font-weight: 300;
     line-height: 1.6;
     margin-bottom: 24px;
+}
+
+.member-bio a {
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px solid #00c8ff; /* BRAND ACCENT underline */
+    transition: color 0.3s ease;
+}
+
+.member-bio a:hover {
+    color: #00c8ff;
+}
+
+.member-toolkit {
+    margin-top: 16px;
+}
+
+.member-toolkit .capability-num {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.member-toolkit p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #aeaeb2;           /* TIER 3 */
+    line-height: 1.8;
 }
 
 .member-nodes {
@@ -759,9 +826,10 @@ button:focus-visible {
     
     .capabilities-grid { grid-template-columns: 1fr; gap: 60px; margin-top: 20px; }
     .capabilities-section { padding: 60px 24px 60px 24px; }
+    .discipline-list { grid-template-columns: 1fr; gap: 16px; }
     
     /* Team Section Responsive Integration */
-    .team-section { padding: 180px 24px 60px 24px; }
+    .team-section { padding: 260px 24px 60px 24px; } /* Clears the stacked phone header */
     .team-grid { grid-template-columns: 1fr; gap: 40px; }
     
     .clients-section { padding: 60px 24px 60px 24px; }
