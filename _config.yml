@@ -1,2 +1,7 @@
+title: Loom & Pixel
+description: Loom & Pixel is an independent creative studio in Los Angeles — look development, cinematic 3D & VFX, and next-gen assets for VR, AR, and creative technology.
+url: "https://loomandpixel.com"
 permalink: pretty
 baseurl: ""
+exclude:
+  - README.md

@@ -1,4 +1,9 @@
 // ==========================================================================
+// ACCESSIBILITY: honor the visitor's OS "reduce motion" setting
+// ==========================================================================
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ==========================================================================
 // LOGO KINETIC PHYSICS ENGINE
 // ==========================================================================
 const logoContainer = document.querySelector('.logo-magnetic-field');
@@ -9,7 +14,8 @@ const maxDistance = 150; // The radius (in pixels) of the gravitational capture 
 const pullStrength = 0.45; // Max pull coefficient (0.45 = letter pulls up to 45% of the way to the cursor)
 
 // SAFETY LATCH: Only run the logo tracking math if the logo element exists on the page
-if (logoContainer) {
+// (and the visitor hasn't asked for reduced motion)
+if (logoContainer && !prefersReducedMotion) {
   logoContainer.addEventListener('mousemove', (e) => {
     const mouseX = e.clientX;
     const mouseY = e.clientY;
@@ -70,6 +76,17 @@ if (logoContainer) {
     let interval = null;
     const defaultText = trigger.dataset.default;
     const hoverText = trigger.dataset.hover;
+
+    // Safety latch: skip links missing data-default / data-hover (otherwise the loop below
+    // throws before it can clear itself and keeps erroring every 15ms)
+    if (!defaultText || !hoverText) return;
+
+    // Reduced motion: swap the text instantly, no scramble
+    if (prefersReducedMotion) {
+      trigger.addEventListener('mouseenter', () => { trigger.innerText = hoverText; });
+      trigger.addEventListener('mouseleave', () => { trigger.innerText = defaultText; });
+      return;
+    }
 
     // TARGET: Dynamic Hover Translation Matrix (Hyper-Snappy + Blue Trail)
     trigger.addEventListener('mouseenter', () => {
@@ -174,5 +191,16 @@ if (form) {
         submitBtn.disabled = false;
         alert("Network error. Please try again later.");
     });
+  });
+}
+
+// ==========================================================================
+// FOOTER BACK-TO-TOP (keyboard accessible button)
+// ==========================================================================
+const backToTop = document.getElementById('backToTop');
+
+if (backToTop) {
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
   });
 }

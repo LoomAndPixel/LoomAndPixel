@@ -580,12 +580,26 @@ body {
     display: inline-block;
     will-change: transform, color;
     transition: color 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Button reset: keeps the keyboard-accessible <button> visually identical to plain text */
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    line-height: inherit;
 }
 
 /* Micro-interaction: Text smoothly swells and shifts to high-voltage Electric Neon Blue on hover */
-.footer-logo-mirror:hover {
+.footer-logo-mirror:hover,
+.footer-logo-mirror:focus-visible {
     color: #00c8ff;
     transform: scale(1.03);   /* Minimal structural weight deflection looks highly polished */
+}
+
+/* Keyboard focus ring in brand accent (only shows for keyboard users, not mouse clicks) */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #00c8ff;
+    outline-offset: 4px;
 }
 
 .footer-right {
@@ -787,5 +801,36 @@ body {
     .footer-nav {
         gap: 32px;
         justify-content: center;
+    }
+}
+
+/* ==========================================================================
+   REDUCED MOTION: honors the visitor's OS "reduce motion" setting
+   Content appears in its final state instantly instead of animating in.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal,
+    #secure-viewport {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .header-logo .logo-word .logo-letter,
+    .header-logo .logo-amp {
+        animation: none !important;
+        opacity: 1;
+        color: #ffffff;
+        transform: none !important;
+        transition: color 0.3s ease;
+    }
+
+    .footer-logo-mirror:hover,
+    .footer-logo-mirror:focus-visible {
+        transform: none;
     }
 }

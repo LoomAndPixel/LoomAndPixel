@@ -1,13 +1,11 @@
 ---
+title: Careers // Loom & Pixel
+description: Co-create realities. Loom & Pixel is always looking for exceptional technical artists and cinematic visionaries to join the collective.
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Careers // Loom & Pixel</title>
-    <base href="/">
-    <link rel="stylesheet" href="/style.css">
+    {% include head.html %}
 </head>
 <body>
 
@@ -38,8 +36,8 @@
             </p>
             
             <div class="reveal delay-3">
-                <a href="mailto:hello@loomandpixel.com?subject=Roster Application" 
-                   class="direct-email decrypt-trigger" 
+                <a href="mailto:Hello@LoomAndPixel.com?subject=Roster Application" 
+                   class="direct-email"
                    id="radar-link">
                     Get on our radar
                 </a>
@@ -59,6 +57,12 @@
             let interval = null;
 
             function scrambleText(targetText) {
+                // Reduced motion: swap the text instantly, no scramble
+                if (prefersReducedMotion) {
+                    link.innerText = targetText;
+                    return;
+                }
+
                 const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789//+---";
                 let iteration = 0;
                 clearInterval(interval);
