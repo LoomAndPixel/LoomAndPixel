@@ -2,6 +2,13 @@
 {% assign page_description = page.description | default: site.description %}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  // Logo intro plays once per visit (per tab). Later pages show the logo settled.
+  try {
+    if (sessionStorage.getItem('logoIntroSeen')) document.documentElement.classList.add('logo-intro-seen');
+    else sessionStorage.setItem('logoIntroSeen', '1');
+  } catch (e) {}
+</script>
 <title>{{ page_title }}</title>
 <meta name="description" content="{{ page_description | escape }}">
 {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
@@ -26,7 +33,7 @@
 <meta property="og:image:alt" content="Loom & Pixel — independent creative studio, Los Angeles">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css?v={{ site.time | date: '%s' }}">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZKXKKPGSCL"></script>

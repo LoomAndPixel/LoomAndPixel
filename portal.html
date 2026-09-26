@@ -160,7 +160,7 @@ noindex: true
 
     {% include footer.html %}
     
-    <script src="/main.js"></script>
+    <script src="/main.js?v={{ site.time | date: '%s' }}"></script>
 
     <script>
         // Secure abstract container payload matching password key

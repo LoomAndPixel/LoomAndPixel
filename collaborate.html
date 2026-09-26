@@ -89,16 +89,14 @@ description: Loom & Pixel works with freelance artists on a project-by-project b
 
             <div class="reveal delay-3">
                 <a href="mailto:Hello@LoomAndPixel.com?subject=Freelance%20Collaboration"
-                   class="direct-email decrypt-trigger"
-                   data-default="Hello@LoomAndPixel.com"
-                   data-hover="Hello@LoomAndPixel.com">Hello@LoomAndPixel.com</a>
+                   class="direct-email">Hello@LoomAndPixel.com</a>
             </div>
         </div>
     </section>
 
     {% include footer.html %}
 
-    <script src="/main.js"></script>
+    <script src="/main.js?v={{ site.time | date: '%s' }}"></script>
 
 </body>
 </html>

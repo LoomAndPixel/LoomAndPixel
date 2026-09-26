@@ -56,7 +56,7 @@ body {
 /* THE INVISIBLE GRAVITATIONAL BOUNDARY BOX */
 .logo-magnetic-field {
     padding: 10px 20px; /* Gives padding for the cursor to grab the field cleanly */
-    cursor: crosshair;
+    cursor: default;          /* The logo link itself shows the pointer hand */
     display: inline-block;
     vertical-align: middle;
     justify-self: center;
@@ -144,6 +144,19 @@ body {
 .header-logo .right-word .logo-letter:nth-child(3) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (3 * 0.08s)); } /* x */
 .header-logo .right-word .logo-letter:nth-child(4) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (4 * 0.08s)); } /* e */
 .header-logo .right-word .logo-letter:nth-child(5) { animation: letterBurstRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: calc(0.15s + (5 * 0.08s)); } /* l */
+
+/* INTRO PLAYS ONCE PER VISIT: after the first page, the logo appears already settled.
+   The class is set by a tiny script in head.html before the page draws. */
+.logo-intro-seen .header-logo .logo-word .logo-letter,
+.logo-intro-seen .header-logo .logo-amp {
+    animation: none;
+    opacity: 1;
+    color: #ffffff;
+}
+
+.header-logo {
+    cursor: pointer;
+}
 
 .header-nav {
     display: flex;
@@ -561,6 +574,24 @@ body {
     color: #00c8ff;
 }
 
+.policy-body {
+    max-width: 760px;
+}
+
+.policy-body h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #ffffff;           /* TIER 1 */
+    margin: 40px 0 12px 0;
+}
+
+.policy-body .policy-date {
+    font-size: 0.8rem;        /* SIZE 5: Label / Utility Bucket */
+    font-family: monospace;
+    color: #aeaeb2;           /* TIER 3 */
+    letter-spacing: 0.05em;
+}
+
 .member-toolkit {
     margin-top: 16px;
 }
@@ -629,6 +660,18 @@ body {
     font-size: 0.8rem;        /* SIZE 5: Label / Utility Bucket */
     color: #636366;           /* TIER 4: Copyright treatments */
     font-weight: 300;
+}
+
+.footer-privacy {
+    color: inherit;           /* Matches the copyright line */
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-privacy:hover {
+    color: #ffffff;
+    border-color: #00c8ff;    /* BRAND ACCENT underline */
 }
 
 .footer-center {
