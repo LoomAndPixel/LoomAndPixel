@@ -11,6 +11,10 @@ collections:
     output: true
     permalink: /work/:name/
 
+# Client reviews live on a private Google Site (Workspace, shared only with invited clients).
+# Paste its address here and the /portal/ page shows an "Open client reviews" button.
+client_reviews_url: ""
+
 defaults:
   - scope: { path: "" }
     values: { layout: default }

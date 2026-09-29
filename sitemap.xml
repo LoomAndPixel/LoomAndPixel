@@ -1,0 +1,17 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Every page and project for search engines. Pages with noindex or sitemap: false are left out
+     (portal, 404, the old /careers/ forward, unpublished pages). Written without a plugin so the
+     local Jekyll and GitHub Pages build it the same way. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- assign pages = site.pages | where_exp: 'p', 'p.sitemap != false' | where_exp: 'p', 'p.noindex != true' %}
+{%- for p in pages %}{% if p.url contains '.xml' or p.url contains '.txt' or p.url contains '.css' or p.url contains '.js' %}{% continue %}{% endif %}
+  <url><loc>{{ p.url | absolute_url }}</loc><lastmod>{{ site.time | date_to_xmlschema }}</lastmod></url>
+{%- endfor %}
+{%- for p in site.projects %}
+  <url><loc>{{ p.url | absolute_url }}</loc><lastmod>{{ site.time | date_to_xmlschema }}</lastmod></url>
+{%- endfor %}
+</urlset>

@@ -92,7 +92,7 @@ p { margin: 0; }
     height: 52px; padding: 0 32px; border: 0; border-radius: 26px;
     background: var(--fg); color: var(--bg);
     font: 500 14px var(--font); letter-spacing: 0.18em; text-transform: uppercase;
-    cursor: pointer; transition: background 0.25s ease, transform 0.25s ease;
+    cursor: pointer; text-decoration: none; transition: background 0.25s ease, transform 0.25s ease;
 }
 .button:hover { background: #FFFFFF; }
 .button:disabled { opacity: 0.6; cursor: default; }
@@ -225,6 +225,11 @@ body.home .site-header { position: absolute; top: 0; left: 0; right: 0; }
     background: linear-gradient(var(--line), var(--line)) center top / calc(100% - 2 * var(--gutter)) 1px no-repeat;
 }
 .contact-simple { grid-template-columns: 1fr; }
+/* /contact/: details on the left, form on the right, directly under the page title (no rule above) */
+.contact-page { background: none; padding-top: 8px; }
+.contact-page .contact-info { gap: 36px; }
+.contact-detail { display: flex; flex-direction: column; gap: 10px; }
+.contact-detail .contact-lead a { text-underline-offset: 4px; }
 .contact-info { display: flex; flex-direction: column; gap: 28px; align-items: flex-start; }
 .contact-title { font-size: clamp(40px, 3.9vw, 56px); line-height: 1.1; }
 .contact-lead { max-width: 480px; font-size: 19px; color: var(--muted); }
@@ -342,19 +347,10 @@ body.home .site-header { position: absolute; top: 0; left: 0; right: 0; }
 
 /* ---------- portal ---------- */
 
-.portal { padding-top: clamp(56px, 7vw, 112px); min-height: 60vh; }
+.portal { padding-top: clamp(56px, 7vw, 112px); padding-bottom: var(--section); min-height: 60vh; }
 .portal-panel { max-width: 560px; display: flex; flex-direction: column; gap: 22px; }
-.portal-input-group { display: flex; gap: 12px; margin-top: 12px; }
-.portal-input {
-    flex: 1; min-width: 0; height: 52px; padding: 14px 16px;
-    font: 400 16px var(--font); color: var(--fg); letter-spacing: 0.04em;
-    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
-}
-.portal-input:focus { outline: none; border-color: var(--muted); }
-.error-message { display: none; font-size: 15px; color: #E07A6A; }
-#secure-viewport { display: none; max-width: 1200px; margin: 0 auto; }
-#secure-viewport .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; border: 1px solid var(--line); }
-#secure-viewport .video-container iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+.portal-note { color: var(--muted); }
+.portal-note a { color: var(--soft); text-underline-offset: 4px; }
 
 /* ==========================================================================
    Tablet and phone
@@ -415,7 +411,6 @@ body.home .site-header { position: absolute; top: 0; left: 0; right: 0; }
     .project-gallery { grid-template-columns: 1fr; }
     .project-foot { flex-direction: column; align-items: flex-start; }
     .next-project { text-align: left; }
-    .portal-input-group { flex-direction: column; }
 
     .site-footer { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 28px; padding-top: 48px; }
     .footer-seal { order: -1; }
