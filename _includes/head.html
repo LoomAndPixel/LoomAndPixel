@@ -7,7 +7,10 @@
   // The header & draws itself on every page load (assets/js/amp-draw.js). Hide it until that
   // script is ready; skip the animation for visitors who prefer reduced motion.
   if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.classList.add('amp-intro');{% if page.body_class == 'home' %}
+    document.documentElement.classList.add('amp-intro');
+    // sections fade up as they scroll into view (main.js); if main.js never runs, show everything after 3 s
+    document.documentElement.classList.add('reveal-on');
+    setTimeout(function () { if (!window.__revealReady) document.documentElement.classList.remove('reveal-on'); }, 3000);{% if page.body_class == 'home' %}
     document.documentElement.classList.add('logo-intro');   // the hero logo writes itself too (assets/js/logo-draw.js){% endif %}
   }
 </script>
