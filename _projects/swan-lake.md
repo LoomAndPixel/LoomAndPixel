@@ -4,6 +4,7 @@ client: "iTicket"
 meta: "iTicket · Real-time stage visuals"
 order: 4
 cover: /assets/work/swan-lake.webp
+share_image: /assets/work/swan-lake-share.jpg
 artstation: https://www.kurtbernardin.com/projects/nJ595o
 role: ["Real-time stage visuals", "Unreal Engine", "Virtual production"]
 award: "2026 American Advertising Awards: Best in Show ADDY and Gold, Single Installation"

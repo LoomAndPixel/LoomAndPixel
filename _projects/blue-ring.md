@@ -4,6 +4,7 @@ client: "Blue Origin"
 meta: "Blue Origin · Lighting &amp; look dev"
 order: 3
 cover: /assets/work/blue-ring.webp
+share_image: /assets/work/blue-ring-share.jpg
 artstation: https://www.kurtbernardin.com/projects/Bk2Oy6
 role: ["Lighting", "Rendering", "Compositing", "Look development", "Texturing &amp; shading", "Rigging"]
 tools: "Maya · Unreal Engine · NukeX"

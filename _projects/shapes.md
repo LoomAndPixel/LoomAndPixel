@@ -4,6 +4,7 @@ client: "Animated short film"
 meta: "Animated short · CG supervision"
 order: 1
 cover: /assets/work/shapes.webp
+share_image: /assets/work/shapes-share.jpg
 artstation: https://www.kurtbernardin.com/projects/LRqRXP
 role: ["CG supervision", "Lighting", "Compositing", "Look development", "Rigging"]
 videos:

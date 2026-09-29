@@ -4,6 +4,7 @@ client: "Chevrolet"
 meta: "Chevrolet · Interactive 3D"
 order: 2
 cover: /assets/work/corvette.webp
+share_image: /assets/work/corvette-share.jpg
 artstation: https://www.kurtbernardin.com/projects/V2PPPR
 role: ["Interactive 3D content", "Rigging", "Animation", "Technical visualization"]
 videos:
