@@ -111,6 +111,7 @@ body.home .site-header { position: absolute; top: 0; left: 0; right: 0; }
 /* hidden until amp-draw.js starts the draw-on; shows anyway after 2.5 s if the script never runs */
 .amp-intro .header-mark .lp-amp { opacity: 0; animation: amp-fallback 0s linear 2.5s forwards; }
 @keyframes amp-fallback { to { opacity: 1; } }
+.logo-intro .hero-logo .lp-logo { opacity: 0; animation: amp-fallback 0s linear 2.5s forwards; }
 
 .site-nav { display: flex; gap: 40px; }
 .site-nav a {
