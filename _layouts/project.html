@@ -1,0 +1,57 @@
+---
+layout: default
+---
+{% assign projects = site.projects | sort: 'order' %}
+{% for p in projects %}{% if p.url == page.url %}{% assign i = forloop.index0 %}{% endif %}{% endfor %}
+{% assign next_i = i | plus: 1 %}
+{% if next_i >= projects.size %}{% assign next_i = 0 %}{% endif %}
+{% assign next = projects[next_i] %}
+
+<article class="project">
+    <header class="project-head wrap">
+        <a class="back-link" href="/work/">← All work</a>
+        <p class="label">{{ page.client }}</p>
+        <h1 class="page-title">{{ page.title }}</h1>
+        <dl class="project-facts">
+            <div><dt>Client</dt><dd>{{ page.client }}</dd></div>
+            <div><dt>Role</dt><dd>{{ page.role | join: ' · ' }}</dd></div>
+            {% if page.tools %}<div><dt>Tools</dt><dd>{{ page.tools }}</dd></div>{% endif %}
+            {% if page.award %}<div><dt>Recognition</dt><dd>{{ page.award }}</dd></div>{% endif %}
+        </dl>
+    </header>
+
+    <div class="project-body wrap">
+        <div class="project-text">{{ content }}</div>
+    </div>
+
+    {% if page.videos and page.videos.size > 0 %}
+    <section class="project-videos wrap" aria-label="Videos">
+        {% for v in page.videos %}
+        <figure class="video">
+            <div class="video-frame">
+                <iframe src="{{ v.src }}" title="{{ v.caption | escape }}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <figcaption>{{ v.caption }}</figcaption>
+        </figure>
+        {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if page.images and page.images.size > 0 %}
+    <section class="project-gallery wrap" aria-label="Stills">
+        {% for src in page.images %}
+        <img src="{{ src }}" alt="{{ page.title | escape }}, still {{ forloop.index }}" loading="lazy">
+        {% endfor %}
+    </section>
+    {% endif %}
+
+    <footer class="project-foot wrap">
+        <a class="text-link" href="{{ page.artstation }}" target="_blank" rel="noopener">See the full project on ArtStation →</a>
+        {% if next and next.url != page.url %}
+        <a class="next-project" href="{{ next.url }}">
+            <span class="label">Next project</span>
+            <span class="next-title">{{ next.title }} →</span>
+        </a>
+        {% endif %}
+    </footer>
+</article>

@@ -3,166 +3,26 @@ title: Access Panel // Loom & Pixel
 description: Client access panel for Loom & Pixel staging previews.
 noindex: true
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include head.html %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+<section class="portal wrap">
+    <div id="login-screen" class="portal-panel">
+        <p class="label">Client access</p>
+        <h1 class="page-title">Staging portal</h1>
+        <p class="page-lead">Enter your access key to open your staging preview.</p>
 
-    <style>
-        .portal-wrapper {
-            min-height: 75vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 180px 40px 100px 40px;
-            box-sizing: border-box;
-        }
-
-        .portal-panel {
-            width: 100%;
-            max-width: 480px;
-            text-align: left;
-        }
-
-        .portal-header {
-            margin-bottom: 40px;
-        }
-
-        .portal-title {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #aeaeb2;
-            margin-bottom: 12px;
-            font-family: monospace;
-        }
-
-        .portal-desc {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #aeaeb2;
-            margin: 0;
-            font-weight: 300;
-        }
-
-        .portal-desc span {
-            color: #00c8ff;
-        }
-
-        .portal-input-group {
-            position: relative;
-            display: flex;
-            align-items: center;
-            background-color: #1a1a1c;
-            border: 1px solid #2c2c2e;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .portal-input-group:focus-within {
-            border-color: #00c8ff;
-            box-shadow: 0 0 12px rgba(0, 200, 255, 0.15);
-        }
-
-        .portal-input {
-            width: 100%;
-            background: transparent;
-            border: none;
-            color: #ffffff;
-            padding: 16px;
-            font-family: monospace;
-            font-size: 0.95rem;
-            letter-spacing: 0.05em;
-            outline: none;
-        }
-
-        .portal-input::placeholder {
-            color: #636366;
-        }
-
-        .portal-submit {
-            background: transparent;
-            border: none;
-            color: #aeaeb2;
-            font-family: monospace;
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            cursor: pointer;
-            padding: 16px 24px;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .portal-submit:hover {
-            color: #00c8ff;
-        }
-
-        .error-message {
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: #ff3333;
-            letter-spacing: 0.05em;
-            margin-top: 16px;
-            display: none;
-        }
-
-        #secure-viewport {
-            display: none;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            animation: studioFadeInUp 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background: #000;
-            border: 1px solid #2c2c2e;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-</head>
-<body>
-
-    {% include header.html %}
-
-    <main class="portal-wrapper">
-        
-        <div id="login-screen" class="portal-panel reveal delay-1">
-            <div class="portal-header">
-                <div class="portal-title">System // Client Access</div>
-                <p class="portal-desc">Enter your access key to decrypt the client <span>staging pipeline</span>.</p>
-            </div>
-
-            <div class="portal-input-group">
-                <input type="password" id="clientKey" class="portal-input" placeholder="ENTER ACCESS KEY..." autocomplete="off">
-                <button onclick="decryptPortal()" class="portal-submit">CONNECT ↗</button>
-            </div>
-            
-            <p id="error-msg" class="error-message">✕ INVALID CONFIGURATION KEY PATHWAY</p>
+        <div class="portal-input-group">
+            <label for="clientKey" class="visually-hidden">Access key</label>
+            <input type="password" id="clientKey" class="portal-input" placeholder="Access key" autocomplete="off">
+            <button type="button" onclick="decryptPortal()" class="button">Open</button>
         </div>
 
-        <div id="secure-viewport"></div>
+        <p id="error-msg" class="error-message">That key didn't work. Check it and try again.</p>
+    </div>
 
-    </main>
+    <div id="secure-viewport"></div>
+</section>
 
-    {% include footer.html %}
-    
-    <script src="/main.js?v={{ site.time | date: '%s' }}"></script>
-
-    <script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+<script>
         // Secure abstract container payload matching password key
         const encryptedData = "U2FsdGVkX19fIKHBlJTJlhJT2TvBfUOWnet5V7EWM64BUqIcgdkmrQCdzhiS+bYGq0vshUl668HokqcoC1smmsiEOKG4o/pzYUtiGOFLr/oCot9kSVrXqyb+WRlhXrLil93tKXR0Zq6aI3mKo9KDHpF60UbThHBpUMaDL8dCNKqtRHVxT44cMy/d9/lyS3hH3sJnsIX+XjNYDCXI6Vj6jVRBZiKklwSeqpCg2eGzG6S8iyq3SgJnIRnUn5i9/lrh5/sBnMmn3U3ifdpm1ERj2ln9WWqwYYfseGcUQE8/e7g6kpbmP0B3gW6LQlF7dghdtU9JgcXDeUvzOwMzh4TBeqKRMG9VDC9jJCsY+dBm6WY=";
 
@@ -199,6 +59,3 @@ noindex: true
             if (e.key === 'Enter') decryptPortal();
         });
     </script>
-    
-</body>
-</html>

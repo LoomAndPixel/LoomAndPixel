@@ -1,38 +1,16 @@
-<header class="site-header reveal delay-1">
-    <div class="header-container">
-        <div class="header-left-spacer"></div>
-
-        <div class="logo-magnetic-field">
-            <a href="/" class="header-logo" aria-label="Loom & Pixel — home">
-                <div class="logo-stage" id="logoEngine" aria-hidden="true">
-                    
-                    <span class="logo-word left-word">
-                        <span class="logo-letter" style="--i: 4;">L</span>
-                        <span class="logo-letter" style="--i: 3;">o</span>
-                        <span class="logo-letter" style="--i: 2;">o</span>
-                        <span class="logo-letter" style="--i: 1;">m</span>
-                    </span>
-                    
-                    <div class="logo-ampersand-wrap">
-                        <span class="logo-letter logo-amp">&</span> 
-                    </div>
-                    
-                    <span class="logo-word right-word">
-                        <span class="logo-letter" style="--i: 1;">P</span>
-                        <span class="logo-letter" style="--i: 2;">i</span>
-                        <span class="logo-letter" style="--i: 3;">x</span>
-                        <span class="logo-letter" style="--i: 4;">e</span>
-                        <span class="logo-letter" style="--i: 5;">l</span>
-                    </span>
-                    
-                </div>
-            </a>
-        </div>
-
-        <nav class="header-nav">
-            <a href="/team" class="header-link">Team</a>
-            <a href="/collaborate" class="header-link">Collaborate</a>
-            <a href="/#contact" class="header-link">Contact</a>
-        </nav>
-    </div>
+<header class="site-header">
+    <a href="/" class="header-mark" aria-label="Loom & Pixel home">
+        {% include brand/amp.svg %}
+    </a>
+    <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteNav">
+        <span class="menu-toggle-lines" aria-hidden="true"></span>
+        <span class="menu-toggle-text">Menu</span>
+    </button>
+    <nav class="site-nav" id="siteNav" aria-label="Main">
+        {% assign here = page.url %}
+        <a href="/work/"{% if here contains '/work/' %} aria-current="page"{% endif %}>Work</a>
+        <a href="/team/"{% if here == '/team/' %} aria-current="page"{% endif %}>Studio</a>
+        <a href="/collaborate/"{% if here == '/collaborate/' %} aria-current="page"{% endif %}>Collaborate</a>
+        <a href="/#contact">Contact</a>
+    </nav>
 </header>

@@ -3,5 +3,19 @@ description: Loom & Pixel is an independent creative studio in Los Angeles — l
 url: "https://loomandpixel.com"
 permalink: pretty
 baseurl: ""
+
+# Projects: one file per project in _projects/, written by sync_projects.py
+# (in LoomAndPixel Working Files\Website design files) from Kurt's ArtStation portfolio.
+collections:
+  projects:
+    output: true
+    permalink: /work/:name/
+
+defaults:
+  - scope: { path: "" }
+    values: { layout: default }
+  - scope: { path: "", type: projects }
+    values: { layout: project }
+
 exclude:
   - README.md

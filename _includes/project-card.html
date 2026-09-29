@@ -1,0 +1,11 @@
+{% assign p = include.project %}
+<a class="project-card" href="{{ p.url }}">
+    <span class="project-card-media">
+        <img src="{{ p.cover }}" alt="" width="1600" height="900" loading="lazy">
+        {% if p.videos and p.videos.size > 0 %}<span class="watch-badge"><span class="play-circle" aria-hidden="true"></span>Watch</span>{% endif %}
+    </span>
+    <span class="project-card-text">
+        <span class="project-card-title">{{ p.title }}</span>
+        <span class="project-card-meta">{{ p.meta }}</span>
+    </span>
+</a>

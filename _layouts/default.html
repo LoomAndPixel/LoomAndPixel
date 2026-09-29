@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include head.html %}
+</head>
+<body class="{{ page.body_class | default: 'page' }}">
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    {% include header.html %}
+
+    <main id="main">
+        {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    <script src="/main.js?v={{ site.time | date: '%s' }}"></script>
+    {{ page.extra_scripts }}
+
+</body>
+</html>

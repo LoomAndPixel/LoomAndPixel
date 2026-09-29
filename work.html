@@ -1,0 +1,19 @@
+---
+title: Work // Loom & Pixel
+description: Selected work by Loom & Pixel — look development, lighting, compositing and real-time 3D for film, brands and live events.
+permalink: /work/
+---
+<section class="page-head wrap">
+    <p class="label">Selected work</p>
+    <h1 class="page-title">Work</h1>
+</section>
+
+<section class="section wrap section-tight">
+    <div class="work-grid">
+        {% assign projects = site.projects | sort: 'order' %}
+        {% for project in projects %}
+            {% include project-card.html project=project %}
+        {% endfor %}
+    </div>
+    <p class="more-link"><a class="text-link" href="https://www.kurtbernardin.com/" target="_blank" rel="noopener">More work on ArtStation →</a></p>
+</section>

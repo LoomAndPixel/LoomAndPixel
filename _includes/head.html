@@ -1,38 +1,37 @@
-{% assign page_title = page.title | default: site.title %}
+{% assign page_title = page.seo_title | default: page.title | default: site.title %}
+{% if page.collection == 'projects' %}{% assign page_title = page.title | append: ' // Loom & Pixel' %}{% endif %}
 {% assign page_description = page.description | default: site.description %}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-  // Logo intro plays once per visit (per tab). Later pages show the logo settled.
-  try {
-    if (sessionStorage.getItem('logoIntroSeen')) document.documentElement.classList.add('logo-intro-seen');
-    else sessionStorage.setItem('logoIntroSeen', '1');
-  } catch (e) {}
-</script>
 <title>{{ page_title }}</title>
-<meta name="description" content="{{ page_description | escape }}">
+<meta name="description" content="{{ page_description | strip_html | escape }}">
 {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
 <link rel="canonical" href="{{ page.url | absolute_url }}">
-<base href="/">
 
-<!-- Favicons -->
+<!-- Favicons: the & mark -->
 <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<meta name="theme-color" content="#121212">
+<meta name="theme-color" content="#0E0E0F">
 
 <!-- Link previews (LinkedIn, iMessage, Slack, etc.) -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ site.title | escape }}">
 <meta property="og:title" content="{{ page_title | escape }}">
-<meta property="og:description" content="{{ page_description | escape }}">
+<meta property="og:description" content="{{ page_description | strip_html | escape }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
-<meta property="og:image" content="{{ '/assets/img/og-image.png' | absolute_url }}?v=2">
+{% if page.cover %}
+<meta property="og:image" content="{{ page.cover | absolute_url }}">
+{% else %}
+<meta property="og:image" content="{{ '/assets/img/og-image.png' | absolute_url }}?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+{% endif %}
 <meta property="og:image:alt" content="Loom & Pixel — independent creative studio, Los Angeles">
 <meta name="twitter:card" content="summary_large_image">
 
+<!-- Jost is hosted on this site (no Google Fonts request) -->
+<link rel="preload" href="/assets/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css?v={{ site.time | date: '%s' }}">
 
 <!-- Google tag (gtag.js) -->
@@ -41,6 +40,5 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-ZKXKKPGSCL');
 </script>
