@@ -26,6 +26,7 @@
     --soft: #C9C6C0;        /* hero statement, bios */
     --muted: #8E8B85;       /* labels, captions */
     --line: #2A2A2D;        /* rules, borders */
+    --accent: #2EC4E8;      /* the one accent (Cyan): labels, hovers, focus, WATCH play ring */
     --gutter: clamp(20px, 6.67vw, 96px);
     --section: clamp(88px, 9.7vw, 140px);
     --font: 'Jost', 'Helvetica Neue', Arial, sans-serif;
@@ -54,7 +55,8 @@ a { color: inherit; }
 h1, h2, h3 { margin: 0; font-weight: 300; }
 p { margin: 0; }
 
-:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; border-radius: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+::selection { background: var(--accent); color: var(--bg); }
 
 .visually-hidden {
     position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -73,7 +75,7 @@ p { margin: 0; }
 /* ---------- type pieces ---------- */
 
 .label {
-    font-size: 13px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted);
+    font-size: 13px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent);
 }
 .section-title { font-size: clamp(34px, 3.1vw, 44px); line-height: 1.15; letter-spacing: -0.01em; }
 .page-title { font-size: clamp(44px, 5vw, 72px); line-height: 1.08; letter-spacing: -0.015em; }
@@ -83,9 +85,9 @@ p { margin: 0; }
 .text-link {
     font-size: 14px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase;
     text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px;
-    transition: opacity 0.25s ease;
+    transition: color 0.25s ease;
 }
-.text-link:hover { opacity: 0.7; }
+.text-link:hover { color: var(--accent); }
 
 .button {
     display: inline-flex; align-items: center; justify-content: center;
@@ -118,7 +120,7 @@ body.home .site-header { position: absolute; top: 0; left: 0; right: 0; }
     font-size: 14px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none;
     padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color 0.25s ease;
 }
-.site-nav a:hover, .site-nav a[aria-current="page"] { border-bottom-color: var(--fg); }
+.site-nav a:hover, .site-nav a[aria-current="page"] { border-bottom-color: var(--accent); }
 
 .menu-toggle { display: none; }
 
@@ -172,10 +174,10 @@ body.home .site-header { position: absolute; top: 0; left: 0; right: 0; }
     background: rgba(14, 14, 15, 0.72); color: var(--fg);
     font-size: 12px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
 }
-.play-circle { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--fg); position: relative; }
+.play-circle { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--accent); position: relative; }
 .play-circle::after {
     content: ''; position: absolute; left: 10px; top: 8px;
-    border-left: 8px solid var(--fg); border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+    border-left: 8px solid var(--accent); border-top: 5px solid transparent; border-bottom: 5px solid transparent;
 }
 
 .more-link { margin-top: 64px; }
@@ -233,7 +235,8 @@ body.home .site-header { position: absolute; top: 0; left: 0; right: 0; }
 .contact-info { display: flex; flex-direction: column; gap: 28px; align-items: flex-start; }
 .contact-title { font-size: clamp(40px, 3.9vw, 56px); line-height: 1.1; }
 .contact-lead { max-width: 480px; font-size: 19px; color: var(--muted); }
-.contact-email { font-size: clamp(22px, 1.8vw, 26px); text-underline-offset: 6px; text-decoration-thickness: 1px; }
+.contact-email { font-size: clamp(22px, 1.8vw, 26px); text-underline-offset: 6px; text-decoration-thickness: 1px; transition: color 0.25s ease; }
+.contact-email:hover { color: var(--accent); }
 
 .contact-form { display: flex; flex-direction: column; gap: 22px; }
 .form-group { display: flex; flex-direction: column; gap: 8px; }
@@ -262,18 +265,18 @@ body.home .site-header { position: absolute; top: 0; left: 0; right: 0; }
 /* left column mirrors the right: copyright, then Privacy on a second row */
 .footer-left { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
 .footer-privacy { font-size: 14px; font-weight: 400; letter-spacing: 0.12em; text-decoration: none; color: var(--muted); transition: color 0.25s ease; }
-.footer-privacy:hover { color: var(--fg); }
+.footer-privacy:hover { color: var(--accent); }
 .footer-seal { background: none; border: 0; padding: 0; cursor: pointer; line-height: 0; border-radius: 50%; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
 .footer-seal:hover { transform: rotate(-8deg); }
 .footer-seal .lp-seal { width: 96px; height: auto; }
 .footer-nav { display: flex; align-items: center; justify-content: flex-end; gap: 32px; }
 .footer-nav a { font-size: 14px; font-weight: 400; letter-spacing: 0.12em; text-decoration: none; color: var(--muted); transition: color 0.25s ease; }
-.footer-nav a:hover { color: var(--fg); }
+.footer-nav a:hover { color: var(--accent); }
 /* right column: page links, then a row of social icons underneath (room for more accounts) */
 .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
 .footer-social { display: flex; align-items: center; gap: 18px; }
 .footer-social a { display: flex; color: var(--muted); transition: color 0.25s ease; }
-.footer-social a:hover { color: var(--fg); }
+.footer-social a:hover { color: var(--accent); }
 
 /* ---------- team ---------- */
 
@@ -306,7 +309,7 @@ body.home .site-header { position: absolute; top: 0; left: 0; right: 0; }
 
 .project-head { padding-top: clamp(40px, 5vw, 72px); padding-bottom: 56px; display: flex; flex-direction: column; gap: 22px; }
 .back-link { font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: var(--muted); margin-bottom: 24px; }
-.back-link:hover { color: var(--fg); }
+.back-link:hover { color: var(--accent); }
 .project-facts {
     margin: 24px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px 48px;
     border-top: 1px solid var(--line); padding-top: 28px;
@@ -334,7 +337,7 @@ body.home .site-header { position: absolute; top: 0; left: 0; right: 0; }
 }
 .next-project { display: flex; flex-direction: column; gap: 10px; text-decoration: none; text-align: right; }
 .next-title { font-size: clamp(26px, 2.4vw, 34px); font-weight: 300; }
-.next-project:hover .next-title { opacity: 0.7; }
+.next-project:hover .next-title { color: var(--accent); }
 
 /* ---------- 404 ---------- */
 

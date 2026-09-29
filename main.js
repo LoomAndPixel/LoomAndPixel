@@ -89,6 +89,29 @@ if (menuToggle && siteHeader) {
 }
 
 // ==========================================================================
+// ANALYTICS EVENTS (Google Analytics, loaded in head.html). Only what happened
+// and where is sent: never names, emails or message text.
+// ==========================================================================
+function track(name, params) {
+  if (typeof window.gtag === 'function') window.gtag('event', name, Object.assign({ page_path: location.pathname }, params || {}));
+}
+
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a');
+  if (!a) return;
+  const href = a.getAttribute('href') || '';
+  if (href.startsWith('mailto:')) {
+    track('email_click', { link_location: a.closest('footer') ? 'footer' : (a.closest('header') ? 'header' : 'page') });
+    return;
+  }
+  if (a.classList.contains('project-card')) {
+    const title = (a.querySelector('.project-card-title') || {}).textContent || href;
+    track('select_content', { content_type: 'project', item_id: title.trim() });
+    if (a.querySelector('.watch-badge')) track('watch_click', { item_id: title.trim() });
+  }
+});
+
+// ==========================================================================
 // CONTACT FORM (Web3Forms): sends in the background and shows a thank-you
 // ==========================================================================
 const form = document.getElementById('pixelForm');
@@ -108,6 +131,7 @@ if (form) {
         if (response.status == 200) {
           form.style.display = 'none';
           responseDiv.hidden = false;
+          track('generate_lead', { form_name: location.pathname === '/contact/' ? 'contact_page' : 'homepage' });   // only after a real send
         } else {
           submitBtn.innerText = 'Send message';
           submitBtn.disabled = false;
