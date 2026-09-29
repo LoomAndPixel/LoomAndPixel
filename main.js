@@ -38,6 +38,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     ['.project-text > *', 110],
     ['.video, .project-gallery img, .project-foot', 90],
     ['.portal-panel', 90],
+    ['.not-found > *:not(.not-found-art):not(script)', 90],
   ];
   const targets = [];
   groups.forEach(([sel, step]) => {

@@ -11,7 +11,8 @@
     // sections fade up as they scroll into view (main.js); if main.js never runs, show everything after 3 s
     document.documentElement.classList.add('reveal-on');
     setTimeout(function () { if (!window.__revealReady) document.documentElement.classList.remove('reveal-on'); }, 3000);{% if page.body_class == 'home' %}
-    document.documentElement.classList.add('logo-intro');   // the hero logo writes itself too (assets/js/logo-draw.js){% endif %}
+    document.documentElement.classList.add('logo-intro');   // the hero logo writes itself too (assets/js/logo-draw.js){% endif %}{% if page.url == '/404.html' %}
+    document.documentElement.classList.add('nf-intro');     // the lettered 404 writes itself (assets/js/404-draw.js){% endif %}
   }
 </script>
 <title>{{ page_title }}</title>
