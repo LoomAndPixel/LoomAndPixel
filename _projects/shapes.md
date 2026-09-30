@@ -25,4 +25,4 @@ description: "SHAPES is a three-minute animated film about a determined cylinder
 ---
 SHAPES is a three-minute animated film about a determined cylinder who dares to think beyond the box, literally. With the support of her fellow uniquely shaped friends, she finds the courage to break free from the monotony of square ideas.
 
-Made by a team of storytellers in Los Angeles. The work covered CG supervision, lighting, compositing, look development and rigging for the entire short.
+Made by a team of storytellers in Los Angeles. The work covered CG supervision, lighting, compositing, look development, and rigging for the entire short.

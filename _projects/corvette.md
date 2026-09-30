@@ -22,6 +22,6 @@ description: "High-quality visual content for the interactive web experiences on
 ---
 High-quality visual content for the interactive web experiences on Chevrolet’s Corvette pages, including the 2027 Grand Sport and the 2026 ZR1X: detailed, user-driven assets that let viewers explore key vehicle systems and components.
 
-For the 2027 Grand Sport, the content focuses on the LS6 engine: horsepower and torque, intake manifold design, piston displacement, compression ratio and fluid management. Extensive research went into accurately showing how the internal systems work.
+For the 2027 Grand Sport, the content focuses on the LS6 engine: horsepower and torque, intake manifold design, piston displacement, compression ratio, and fluid management. Extensive research went into accurately showing how the internal systems work.
 
-For the 2026 ZR1X, the content covers the major performance systems: engine, transmission, battery, electric drive unit and eAWD.
+For the 2026 ZR1X, the content covers the major performance systems: engine, transmission, battery, electric drive unit, and eAWD.

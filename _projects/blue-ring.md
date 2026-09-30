@@ -27,4 +27,4 @@ description: "A series of shots featuring the Blue Ring satellite, showcasing Bl
 ---
 A series of shots featuring the Blue Ring satellite, showcasing Blue Origin’s orbital mobility platform and its versatility. The project coincided with the inaugural launch of New Glenn on January 16, 2025, where Blue Ring demonstrated the potential of pairing advanced payloads with a new launch vehicle.
 
-The work covered compositing, lighting and rendering of every shot, plus look development, texturing, shading, rigging and UVs for all assets.
+The work covered compositing, lighting, and rendering of every shot, plus look development, texturing, shading, rigging, and UVs for all assets.
