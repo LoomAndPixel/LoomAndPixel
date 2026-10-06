@@ -9,7 +9,7 @@ artstation: https://www.kurtbernardin.com/projects/Bk2Oy6
 role: ["Lighting", "Rendering", "Compositing", "Look development", "Texturing &amp; shading", "Rigging"]
 tools: "Maya · Unreal Engine · NukeX"
 videos:
-  - src: "https://www.artstation.com/api/v2/animation/video_clips/9d385a0d-0801-4b10-891e-f5ab55b270fa/embed.html?s=c059aa7fd8d8ab5210efb2acd4cfd0e3be427c8f3befbf984f95562ddb449b8d&t=1790706559"
+  - src: "https://player.vimeo.com/video/1233461501?app_id=122963&dnt=1"
     caption: "Hero banner on the Blue Ring website"
   - src: "https://www.youtube-nocookie.com/embed/nrAGGV-hpVM?feature=oembed&rel=0"
     caption: "Blue Ring Pathfinder"
