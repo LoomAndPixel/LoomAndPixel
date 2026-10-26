@@ -2,8 +2,8 @@
      main.js picks the 1080p or 720p file and skips the video for reduced motion or data saver (poster only). -->
 <section class="hero">
     <video class="hero-video" muted loop playsinline preload="none" aria-hidden="true"
-        poster="/assets/video/hero-poster.webp"
-        data-src="/assets/video/hero.mp4" data-src-small="/assets/video/hero-720.mp4"></video>
+        poster="/assets/video/hero-poster.webp?v={{ site.time | date: '%s' }}"
+        data-src="/assets/video/hero.mp4?v={{ site.time | date: '%s' }}" data-src-small="/assets/video/hero-720.mp4?v={{ site.time | date: '%s' }}"></video>
     <div class="hero-inner">
         <h1 class="hero-logo">
             <span class="visually-hidden">Loom &amp; Pixel</span>
