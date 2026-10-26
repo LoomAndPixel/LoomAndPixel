@@ -166,3 +166,67 @@ if (backToTop) {
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
   });
 }
+
+// ==========================================================================
+// MOTION: hero background loop and project-card loops. Skipped entirely for
+// reduced motion or data saver, which keep the poster and cover stills.
+// ==========================================================================
+(function () {
+  const saveData = navigator.connection && navigator.connection.saveData;
+  if (prefersReducedMotion || saveData || !('IntersectionObserver' in window)) return;
+
+  // Hero: 720p on small screens, plays only while on screen, with a pause button.
+  const hero = document.querySelector('.hero-video');
+  if (hero) {
+    const pauseBtn = document.querySelector('.hero-pause');
+    let userPaused = false;
+    hero.src = window.innerWidth <= 900 ? hero.dataset.srcSmall : hero.dataset.src;
+    new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !userPaused) hero.play().catch(() => {});
+      else hero.pause();
+    }).observe(hero);
+    if (pauseBtn) {
+      pauseBtn.hidden = false;
+      pauseBtn.addEventListener('click', () => {
+        userPaused = !userPaused;
+        if (userPaused) hero.pause(); else hero.play().catch(() => {});
+        pauseBtn.classList.toggle('is-paused', userPaused);
+        pauseBtn.setAttribute('aria-label', userPaused ? 'Play background video' : 'Pause background video');
+      });
+    }
+  }
+
+  // Cards: hover (or keyboard focus) plays on desktop; on touch screens a card
+  // plays while it sits mostly in view. The file loads on first use only.
+  const canHover = window.matchMedia('(hover: hover)').matches;
+  const start = (v) => {
+    if (!v.src) v.src = v.dataset.src;
+    v.play().then(() => v.classList.add('is-playing')).catch(() => {});
+  };
+  const stop = (v) => { v.pause(); v.classList.remove('is-playing'); };
+
+  const loops = document.querySelectorAll('.card-loop');
+  if (canHover) {
+    // Load each file as its card nears the screen so the first hover plays at once.
+    const preloader = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        if (!e.target.src) e.target.src = e.target.dataset.src;
+        preloader.unobserve(e.target);
+      });
+    }, { rootMargin: '300px' });
+    loops.forEach((v) => preloader.observe(v));
+    loops.forEach((v) => {
+      const card = v.closest('.project-card');
+      card.addEventListener('mouseenter', () => start(v));
+      card.addEventListener('mouseleave', () => stop(v));
+      card.addEventListener('focus', () => start(v));
+      card.addEventListener('blur', () => stop(v));
+    });
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => (e.intersectionRatio >= 0.6 ? start(e.target) : stop(e.target)));
+    }, { threshold: [0, 0.6] });
+    loops.forEach((v) => io.observe(v));
+  }
+})();

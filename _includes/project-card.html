@@ -2,6 +2,7 @@
 <a class="project-card" href="{{ p.url }}">
     <span class="project-card-media">
         <img src="{{ p.cover }}" alt="" width="1600" height="900" loading="lazy">
+        {% if p.loop %}<video class="card-loop" muted loop playsinline preload="auto" aria-hidden="true" data-src="{{ p.loop }}"></video>{% endif %}
         {% if p.videos and p.videos.size > 0 %}<span class="watch-badge"><span class="play-circle" aria-hidden="true"></span>Watch</span>{% endif %}
     </span>
     <span class="project-card-text">

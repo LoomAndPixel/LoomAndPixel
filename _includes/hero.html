@@ -1,6 +1,9 @@
-<!-- Full-width opening panel. The design has a showreel loop behind it and a Play showreel
-     button; both stay off the site until there is a reel. -->
+<!-- Full-bleed opening panel: a silent loop of shots from the work behind the logo.
+     main.js picks the 1080p or 720p file and skips the video for reduced motion or data saver (poster only). -->
 <section class="hero">
+    <video class="hero-video" muted loop playsinline preload="none" aria-hidden="true"
+        poster="/assets/video/hero-poster.webp"
+        data-src="/assets/video/hero.mp4" data-src-small="/assets/video/hero-720.mp4"></video>
     <div class="hero-inner">
         <h1 class="hero-logo">
             <span class="visually-hidden">Loom &amp; Pixel</span>
@@ -10,6 +13,7 @@
         <p class="hero-tagline">Stories with texture.</p>
         <p class="hero-statement">An independent creative studio making cinematic 3D, VFX, and design for brands, studios, and stages.</p>
     </div>
+    <button class="hero-pause" type="button" aria-label="Pause background video" hidden></button>
     <p class="hero-place">Los Angeles</p>
 </section>
 
