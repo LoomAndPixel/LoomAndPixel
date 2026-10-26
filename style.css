@@ -202,6 +202,10 @@ body.home .site-header { position: absolute; top: 0; left: 0; right: 0; }
 .home .project-card:hover .project-card-title, .home .project-card:focus-visible .project-card-title { color: var(--accent); }
 .home .section-head .section-title { font-size: clamp(52px, 8vw, 128px); line-height: 1; letter-spacing: -0.03em; }
 .home .label { color: var(--muted); }
+/* the work grid runs nearly edge to edge; the heading above it sits in the page's usual wrap */
+@media (min-width: 761px) {
+    .home .work-grid { max-width: 2400px; margin: 0 auto; padding: 0 clamp(16px, 2.2vw, 40px); gap: 56px 24px; }
+}
 
 .watch-badge {
     position: absolute; left: 20px; bottom: 20px;
