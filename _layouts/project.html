@@ -12,21 +12,32 @@ layout: default
         <a class="back-link" href="/#work">← Back to work</a>
         <p class="label">{{ page.client }}</p>
         <h1 class="page-title">{{ page.title }}</h1>
+    </header>
+
+    {% comment %} the first video opens the page, edge to edge; the cover shows behind it while the player loads {% endcomment %}
+    {% if page.videos and page.videos.size > 0 %}
+    {% assign first = page.videos[0] %}
+    <section class="project-lead" style="background-image: url('{{ page.cover }}')" aria-label="{{ first.caption | default: page.title | escape }}">
+        <iframe src="{{ first.src }}" title="{{ first.caption | default: page.title | escape }}" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </section>
+    {% if first.caption %}<p class="project-lead-caption wrap">{{ first.caption }}</p>{% endif %}
+    {% else %}
+    <section class="project-lead project-lead-still" style="background-image: url('{{ page.cover }}')" role="img" aria-label="{{ page.title | escape }}"></section>
+    {% endif %}
+
+    <div class="project-body wrap">
         <dl class="project-facts">
             <div><dt>Client</dt><dd>{{ page.client }}</dd></div>
             <div><dt>Role</dt><dd>{{ page.role | join: ' · ' }}</dd></div>
             {% if page.tools %}<div><dt>Tools</dt><dd>{{ page.tools }}</dd></div>{% endif %}
             {% if page.award %}<div><dt>Recognition</dt><dd>{{ page.award }}</dd></div>{% endif %}
         </dl>
-    </header>
-
-    <div class="project-body wrap">
         <div class="project-text">{{ content }}</div>
     </div>
 
-    {% if page.videos and page.videos.size > 0 %}
-    <section class="project-videos wrap" aria-label="Videos">
-        {% for v in page.videos %}
+    {% if page.videos and page.videos.size > 1 %}
+    <section class="project-videos wrap" aria-label="More videos">
+        {% for v in page.videos offset: 1 %}
         <figure class="video">
             <div class="video-frame">
                 <iframe src="{{ v.src }}" title="{{ v.caption | escape }}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
